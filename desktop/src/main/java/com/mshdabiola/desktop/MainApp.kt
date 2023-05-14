@@ -59,8 +59,8 @@ fun main() {
     }
 
     val appArgs = AppArgs(
-        appName = "My App", // To show on title bar
-        version = "v1.0.0", // To show on title inside brackets
+        appName = "Skeleton App", // To show on title bar
+        version = "v2.0.0", // To show on title inside brackets
         versionCode = 100 // To compare with latest version code (in case if you want to prompt update)
     )
 
