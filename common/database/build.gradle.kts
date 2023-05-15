@@ -11,9 +11,11 @@ sqldelight {
         create("TempDatabase"){
             packageName.set("com.mshabiola.database")
             sourceFolders.set(listOf("sqldelight"))
-            schemaOutputDirectory.set(file("src/commonMain/sqldelight/com/mshddabiola/common/database/files"))
+           schemaOutputDirectory.set(file("src/commonMain/sqldelight/com/mshdabiola/common/database/files"))
             version = 1
             verifyMigrations.set(true)
+
+            this.deriveSchemaFromMigrations.set(true)
             //dialect("sqlite:3.38")
         }
     }
