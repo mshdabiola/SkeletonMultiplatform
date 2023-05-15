@@ -88,12 +88,12 @@ compose.desktop {
         val iconsRoot = project.file("src/main/resources/drawables/launcher")
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageVersion = "1.0.0"
+            packageVersion = "1.0.1"
             packageName = "Skeleton App"
             description = "Template"
             copyright = "© 2022 Mshdabiola. All rights reserved."
             vendor = "Mshdabiola App"
-            version = "1.0.0"
+            version = "1.0.1"
             licenseFile.set(rootProject.file("LICENSE"))
 
             modules("java.net.http", "java.sql")

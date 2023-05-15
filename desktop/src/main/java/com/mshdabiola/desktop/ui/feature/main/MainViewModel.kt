@@ -5,9 +5,12 @@ import com.mshdabiola.data.repository.INetworkRepository
 import com.mshdabiola.data.repository.ISettingRepository
 import com.mshdabiola.desktop.ViewModel
 import com.mshdabiola.model.DummySetting
+import com.mshdabiola.model.Model
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 class MainViewModel(
@@ -21,6 +24,10 @@ class MainViewModel(
 
     private val _welcomeText = MutableStateFlow(INIT_WELCOME_MSG)
     val welcomeText: StateFlow<String> = _welcomeText
+
+    val models = modelRepository
+        .getAllModel()
+        .stateIn(viewModelScope, started = SharingStarted.WhileSubscribed(5000), emptyList())
 
    init{
 
@@ -56,5 +63,11 @@ class MainViewModel(
     fun onClickMeClicked() {
         val platform="Clicking"
         _welcomeText.value ="abiola $platform"// myRepo.getClickedWelcomeText()
+    }
+
+    fun insertModel(name :String){
+        viewModelScope.launch {
+            modelRepository.insert(Model(4,name))
+        }
     }
 }

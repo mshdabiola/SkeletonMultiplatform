@@ -5,25 +5,31 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Android
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.mshdabiola.ui.MyCard
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.splitpane.ExperimentalSplitPaneApi
@@ -31,39 +37,41 @@ import org.jetbrains.compose.splitpane.HorizontalSplitPane
 import org.jetbrains.compose.splitpane.rememberSplitPaneState
 
 
-@OptIn(ExperimentalSplitPaneApi::class)
+@OptIn(ExperimentalSplitPaneApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(
     viewModel: MainViewModel,
 ) {
     val welcomeText by viewModel.welcomeText.collectAsState()
+    var model by remember { mutableStateOf("") }
+    val items=viewModel.models.collectAsState()
 
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = welcomeText,
-                style = MaterialTheme.typography.headlineMedium
-            )
-
-            Spacer(
-                modifier = Modifier.height(10.dp)
-            )
-
-            Button(
-                onClick = {
-                    viewModel.onClickMeClicked()
-                }
-            ) {
-                Text(text = "click me")
-            }
-            //Text("Test")
-            MyCard()
+    Column(modifier = Modifier.fillMaxSize()) {
+        LazyColumn(modifier = Modifier.weight(1f)) {
+          items(items = items.value){
+              Text(it.name)
+          }
         }
+        Row(modifier = Modifier.fillMaxWidth()){
+            TextField(
+                modifier = Modifier.weight(1f),
+                value = model,
+                maxLines = 1,
+                onValueChange = {model=it},
+                label = { Text("Text") },
+                keyboardActions = KeyboardActions  (onSend = {
+                    viewModel.insertModel(model)
+                    model=""
+                })
+            )
+            Button(onClick = {
+                viewModel.insertModel(model)
+                model=""
+            }){
+                Text("Send")
+            }
+        }
+
     }
 }
 

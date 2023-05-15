@@ -1,4 +1,4 @@
-name: desktop to github page
+name: Deploy multiPlatform
 
 on:
   push:
