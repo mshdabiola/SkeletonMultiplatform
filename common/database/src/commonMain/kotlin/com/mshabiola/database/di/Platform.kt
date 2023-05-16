@@ -1,8 +1,8 @@
 package com.mshabiola.database.di
 
-import com.mshabiola.database.TempDatabase
 import com.mshabiola.database.dao.modeldao.IModelDao
 import com.mshabiola.database.dao.modeldao.ModelDao
+import com.mshdabiola.database.TempDatabase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import org.koin.core.module.Module

@@ -2,8 +2,7 @@
 
 CREATE TABLE IF NOT EXISTS modelEntity (
   id INTEGER PRIMARY KEY AUTOINCREMENT  ,
-  name TEXT NOT NULL,
-  id2 INTEGER NOT NULL
+  name TEXT NOT NULL
 );
 
 -- CREATE INDEX IF NOT EXISTS hockeyPlayer_full_name ON hockeyPlayer(full_name);
@@ -19,11 +18,11 @@ FROM  modelEntity
 WHERE id = ?;
 
 insert:
-INSERT INTO modelEntity(id, name,id2)
-VALUES (id, ?,?);
+INSERT INTO modelEntity(id, name)
+VALUES (id, ?);
 
 insertFullModelObject:
-INSERT INTO modelEntity(name,id2)
+INSERT INTO modelEntity(name)
 VALUES ?;
 
 deleteById:

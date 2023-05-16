@@ -5,5 +5,4 @@ CREATE TABLE IF NOT EXISTS modelEntity (
   name TEXT NOT NULL
 );
 
-ALTER TABLE modelEntity
-ADD COLUMN id2 INTEGER NOT NULL;
+
