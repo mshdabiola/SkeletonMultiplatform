@@ -1,7 +1,6 @@
 package com.mshabiola.database.dao.modeldao
 
 import com.mshdabiola.model.Model
-import commshdabioladatabase.tables.ModelEntity
 import kotlinx.coroutines.flow.Flow
 
 interface IModelDao {
