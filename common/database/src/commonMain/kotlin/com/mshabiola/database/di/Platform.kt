@@ -13,7 +13,7 @@ import org.koin.dsl.module
 expect val databaseModule :Module
 
 
-internal val daoModules=module{
+ val daoModules=module{
     single {
         get<TempDatabase>().modelQueries
     }

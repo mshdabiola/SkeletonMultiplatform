@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
-internal class ModelDao(private val modelQueries: ModelQueries,
+ class ModelDao(private val modelQueries: ModelQueries,
                private val coroutineDispatcher:CoroutineDispatcher) : IModelDao {
     override suspend fun insert(modelEntity: Model) {
         withContext(coroutineDispatcher){
