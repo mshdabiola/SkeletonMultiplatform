@@ -2,7 +2,8 @@
 
 CREATE TABLE IF NOT EXISTS modelEntity (
   id INTEGER PRIMARY KEY AUTOINCREMENT  ,
-  name TEXT NOT NULL
+  name TEXT NOT NULL,
+  id2 INTEGER
 );
 
 -- CREATE INDEX IF NOT EXISTS hockeyPlayer_full_name ON hockeyPlayer(full_name);
