@@ -3,8 +3,6 @@ plugins {
     //kotlin("multiplatform")
     id("mshdabiola.mpp.library")
     id("mshdabiola.mpp.library.compose")
-    id("org.jetbrains.compose") version "1.4.0"
-    id("dev.icerock.mobile.multiplatform-resources")
 }
 
 android {
@@ -20,7 +18,6 @@ kotlin{
                 implementation(compose.materialIconsExtended)
                 implementation(compose.material3)
                 implementation(libs.kotlinx.collection.immutable)
-                implementation("dev.icerock.moko:resources:0.22.0")
             }
         }
 
@@ -39,7 +36,6 @@ kotlin{
 //                implementation(libs.androidx.compose.material3)
 //
 //
-                implementation("dev.icerock.moko:resources-compose:0.22.0")
 //                add("implementation", libs.findLibrary("androidx.compose.material3").get())
 //                add(
 //                    "implementation",
@@ -77,11 +73,3 @@ kotlin{
 //dependencies {
 //    implementation(libs.kotlinx.collection.immutable)
 //}
-
-multiplatformResources {
-    multiplatformResourcesPackage = "com.mshdabiola.ui" // required
-    //multiplatformResourcesClassName = "SharedRes" // optional, default MR
-//    multiplatformResourcesVisibility = MRVisibility.Internal // optional, default Public
-//    iosBaseLocalizationRegion = "en" // optional, default "en"
-//    multiplatformResourcesSourceSet = "commonClientMain"  // optional, default "commonMain"
-}

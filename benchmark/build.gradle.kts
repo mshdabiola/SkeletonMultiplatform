@@ -1,5 +1,4 @@
 import com.mshdabiola.app.BuildType
-import com.mshdabiola.app.configureFlavors
 
 plugins {
 
@@ -50,13 +49,13 @@ android {
 // Use the same flavor dimensions as the application to allow generating Baseline Profiles on prod,
     // which is more close to what will be shipped to users (no fake data), but has ability to run the
     // benchmarks on demo, so we benchmark on stable data.
-    configureFlavors(this) { flavor ->
-        buildConfigField(
-            "String",
-            "APP_FLAVOR_SUFFIX",
-            "\"${flavor.applicationIdSuffix ?: ""}\""
-        )
-    }
+//    configureFlavors(this) { flavor ->
+//        buildConfigField(
+//            "String",
+//            "APP_FLAVOR_SUFFIX",
+//            "\"${flavor.applicationIdSuffix ?: ""}\""
+//        )
+//    }
 
     targetProjectPath = ":app"
     experimentalProperties["android.experimental.self-instrumenting"] = true
