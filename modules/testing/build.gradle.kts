@@ -12,8 +12,8 @@ kotlin{
         val commonMain by getting {
             dependencies {
             //    implementation(project(":core:common"))
-                implementation(project(":common:data"))
-                implementation(project(":common:model"))
+                implementation(project(":modules:data"))
+                implementation(project(":modules:model"))
                  api(libs.junit4)
                 api(libs.kotlinx.coroutines.test)
                 api(libs.turbine)

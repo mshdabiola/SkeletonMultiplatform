@@ -64,9 +64,9 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
-    implementation(project(":common:designsystem"))
+    implementation(project(":modules:designsystem"))
 
-    implementation(project(":common:navigation"))
+    implementation(project(":modules:navigation"))
     implementation(project(":feature:mainscreen"))
 
     implementation(project(":feature:detail"))
@@ -78,7 +78,7 @@ dependencies {
     implementation(libs.androidx.profileinstaller)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.timber)
-    androidTestImplementation(project(":common:testing"))
+    androidTestImplementation(project(":modules:testing"))
     implementation(libs.koin.core)
     implementation(libs.koin.android)
 

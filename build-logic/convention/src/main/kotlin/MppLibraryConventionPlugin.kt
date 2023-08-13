@@ -57,7 +57,7 @@ class MppLibraryConventionPlugin : Plugin<Project> {
                         this.dependencies {
                             // implementation(libs.findLibrary("koin.core").get())
                             implementation(kotlin("test"))
-                            implementation(project(":common:testing"))
+                            implementation(project(":modules:testing"))
                         }
 
                     }

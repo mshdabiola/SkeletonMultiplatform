@@ -11,14 +11,14 @@ kotlin{
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(project(":common:model"))
+                implementation(project(":modules:model"))
 
                 implementation(libs.koin.core)
                 //   implementation(libs.kermit.log)
-                implementation(project(":common:model"))
-                implementation(project(":common:database"))
-                implementation(project(":common:setting"))
-                implementation(project(":common:network"))
+                implementation(project(":modules:model"))
+                implementation(project(":modules:database"))
+                implementation(project(":modules:setting"))
+                implementation(project(":modules:network"))
                 implementation(libs.kotlinx.coroutines.core)
             }
         }
