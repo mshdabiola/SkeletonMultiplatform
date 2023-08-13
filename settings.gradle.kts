@@ -19,18 +19,14 @@ dependencyResolutionManagement {
 }
 rootProject.name = "SkeletonApp"
 include(":app")
-//include(":benchmark")
 include(":modules:database")
 include(":modules:designsystem")
 include(":modules:model")
-include(":feature:mainscreen")
 include(":modules:network")
 include(":modules:data")
 include(":modules:domain")
 include(":modules:testing")
 include(":modules:ui")
-include(":android:worker")
 include(":desktop")
 include(":modules:setting")
 include(":modules:navigation")
-include(":feature:detail")

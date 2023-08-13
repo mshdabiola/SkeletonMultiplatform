@@ -13,6 +13,6 @@ fun SkeletonApp2(
     IRootComponent: IRootComponent
 ) {
     SkeletonAppTheme {
-        SkeletonAppNavHost(IRootComponent = IRootComponent, modifier = Modifier.fillMaxSize())
+        SkeletonAppNavHost(iRootComponent = IRootComponent, modifier = Modifier.fillMaxSize())
     }
 }
