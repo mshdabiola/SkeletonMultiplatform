@@ -19,6 +19,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "SkeletonApp"
 include(":app")
+include(":app:baselineprofile")
 include(":modules:database")
 include(":modules:designsystem")
 include(":modules:model")
@@ -30,3 +31,4 @@ include(":modules:ui")
 include(":desktop")
 include(":modules:setting")
 include(":modules:navigation")
+
