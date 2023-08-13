@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
 
             // A surface container using the 'background' color from the theme
            // SkeletonApp(windowSizeClass = calculateWindowSizeClass(activity = this))
-            SkeletonApp2(IRootComponent = root)
+            SkeletonApp2(iRootComponent = root)
         }
     }
 }

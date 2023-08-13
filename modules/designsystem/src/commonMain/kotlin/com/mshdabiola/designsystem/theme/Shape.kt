@@ -1,4 +1,4 @@
-package com.mshabiola.theme
+package com.mshdabiola.designsystem.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Shapes

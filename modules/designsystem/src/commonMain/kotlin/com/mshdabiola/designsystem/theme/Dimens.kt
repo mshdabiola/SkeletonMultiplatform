@@ -1,4 +1,4 @@
-package com.mshabiola.theme
+package com.mshdabiola.designsystem.theme
 
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
