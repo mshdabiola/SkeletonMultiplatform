@@ -6,6 +6,7 @@ plugins {
     id("mshdabiola.android.application.compose")
   //  id("mshdabiola.android.application.flavor")
     id("mshdabiola.android.application.firebase")
+    alias(libs.plugins.androidx.baselineprofile)
 
 
 }
@@ -79,5 +80,6 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
 
     implementation(libs.timber)
+    "baselineProfile"(project(mapOf("path" to ":app:baselineprofile")))
 
 }

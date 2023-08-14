@@ -204,4 +204,5 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 little = { id = "nl.littlerobots.version-catalog-update", version.ref = "littleVersion" }
 manes = { id = "com.github.ben-manes.versions", version.ref = "maneVersion" }
 gms = { id = "com.google.gms.google-services", version.ref = "gmsPlugin" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidx-baselineprofile = { id = "androidx.baselineprofile", version.ref = "androidx-baselineprofile" }
