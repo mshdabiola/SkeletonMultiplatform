@@ -21,7 +21,7 @@ import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.getByType
-import org.jetbrains.compose.compose
+import org.jetbrains.compose.ComposeExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class MppLibraryComposeConventionPlugin : Plugin<Project> {
@@ -29,18 +29,27 @@ class MppLibraryComposeConventionPlugin : Plugin<Project> {
         with(target) {
             pluginManager.apply("kotlin-multiplatform")
             pluginManager.apply("com.android.library")
+            pluginManager.apply("org.jetbrains.compose")
 
+
+            val compose = extensions.getByType<ComposeExtension>()
 
             val extension = extensions.getByType<LibraryExtension>()
             configureAndroidCompose(extension)
             extensions.configure<KotlinMultiplatformExtension> {
-                //val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
-                with(sourceSets){
+                val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+                with(sourceSets) {
 
                     getByName("commonMain") {
                         this.dependencies {
-
-
+                            implementation("org.jetbrains.compose.ui:ui-tooling-preview:1.5.0-dev1147")
+                            implementation("org.jetbrains.compose.runtime:runtime:1.5.0-dev1147")
+                            implementation("org.jetbrains.compose.ui:ui:1.5.0-dev1147")
+                            implementation("org.jetbrains.compose.foundation:foundation:1.5.0-dev1147")
+                            implementation("org.jetbrains.compose.material:material-icons-extended:1.5.0-dev1147")
+                            implementation("org.jetbrains.compose.material3:material3:1.5.0-dev1147")
+                            implementation(libs.findLibrary("kotlinx.collection.immutable").get())
+                            implementation(libs.findLibrary("kermit.log").get())
                         }
 
                     }

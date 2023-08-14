@@ -4,8 +4,9 @@ import com.mshdabiola.app.BuildType
 plugins {
     id("mshdabiola.android.application")
     id("mshdabiola.android.application.compose")
-    id("mshdabiola.android.application.flavor")
+  //  id("mshdabiola.android.application.flavor")
     id("mshdabiola.android.application.firebase")
+    alias(libs.plugins.androidx.baselineprofile)
 
 
 }
@@ -61,25 +62,24 @@ android {
 }
 
 dependencies {
+    implementation(project(":modules:designsystem"))
+    implementation(project(":modules:navigation"))
+    implementation(project(":modules:model"))
+    implementation(project(":modules:ui"))
+    implementation(project(":modules:data"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
-    implementation(project(":common:designsystem"))
 
-    implementation(project(":common:navigation"))
-    implementation(project(":feature:mainscreen"))
+    implementation(libs.androidx.work.ktx)
 
-    implementation(project(":feature:detail"))
-    implementation(project(":android:worker"))
-    val decomposeVersion = "2.0.0-alpha-02"
     implementation(libs.decompose.core)
-    //implementation(libs.decompose.android)
     implementation(libs.decompose.compose.jetbrains)
+
     implementation(libs.androidx.profileinstaller)
     implementation(libs.androidx.core.splashscreen)
+
     implementation(libs.timber)
-    androidTestImplementation(project(":common:testing"))
-    implementation(libs.koin.core)
-    implementation(libs.koin.android)
+    "baselineProfile"(project(mapOf("path" to ":app:baselineprofile")))
 
 }

@@ -44,33 +44,23 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
             dependencies {
-                add("implementation", project(":common:model"))
-                add("implementation", project(":common:ui"))
-//                add("implementation", project(":common:designsystem"))
-                add("implementation", project(":common:data"))
-//                add("implementation", project(":core:common"))
-//                add("implementation", project(":common:domain"))
+                add("implementation", project(":modules:model"))
+                add("implementation", project(":modules:ui"))
+                add("implementation", project(":modules:data"))
+
                 add("implementation", libs.findLibrary("koin.core").get())
                 add("implementation", libs.findLibrary("koin.android").get())
                 add("implementation", libs.findLibrary("koin.android.compose").get())
-                // add("implementation", libs.findLibrary("androidx.constraintlayout").get())
                 add("implementation", libs.findLibrary("kotlinx-collection-immutable").get())
 
                 add("testImplementation", kotlin("test"))
-                add("testImplementation", project(":common:testing"))
+                add("testImplementation", project(":modules:testing"))
+
                 add("androidTestImplementation", kotlin("test"))
-                add("androidTestImplementation", project(":common:testing"))
+                add("androidTestImplementation", project(":modules:testing"))
                 add("androidTestImplementation", libs.findLibrary("androidx-compose-ui-test").get())
-                add(
-                    "androidTestImplementation",
-                    libs.findLibrary("androidx-test-espresso-core").get()
-                )
+                add("androidTestImplementation",libs.findLibrary("androidx-test-espresso-core").get())
                 add("androidTestImplementation", libs.findLibrary("androidx-test-ext").get())
-
-
-                // add("implementation", libs.findLibrary("androidx.lifecycle.runtimeCompose").get())
-                // add("implementation", libs.findLibrary("androidx.lifecycle.viewModelCompose").get())
-
 
             }
         }

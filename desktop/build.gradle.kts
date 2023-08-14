@@ -3,7 +3,7 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 plugins {
     kotlin("jvm")
 //    kotlin("kapt")
-    id("org.jetbrains.compose") version "1.4.0"
+    id("org.jetbrains.compose") version "1.5.0-dev1147"//libs.versions.composePlugin
 
 
 }
@@ -23,11 +23,11 @@ dependencies {
     implementation(libs.kotlinx.collection.immutable)
 
     implementation(compose.desktop.currentOs)
-    implementation(project(":common:designsystem"))
-    implementation(project(":common:data"))
-    implementation(project(":common:model"))
+    implementation(project(":modules:designsystem"))
+    implementation(project(":modules:data"))
+    implementation(project(":modules:model"))
 
-    implementation(project(":common:ui"))
+    implementation(project(":modules:ui"))
     implementation(libs.kotlinx.coroutines.swing)
 
     // Dagger : A fast dependency injector for Android and Java.
@@ -89,7 +89,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageVersion = "1.0.1"
-            packageName = "Skeleton App"
+            packageName = "Skeleton"
             description = "Template"
             copyright = "© 2022 Mshdabiola. All rights reserved."
             vendor = "Mshdabiola App"

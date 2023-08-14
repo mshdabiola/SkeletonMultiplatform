@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:801461677522:android:63a1c6467747f0a2a3ac0b",
         "android_client_info": {
-          "package_name": "com.mshdabiola.skeletonapp.demo.debug"
+          "package_name": "com.mshdabiola.skeletonapp.debug"
         }
       },
       "oauth_client": [
@@ -38,7 +38,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:801461677522:android:63a1c6467747f0a2a3ac0b",
         "android_client_info": {
-          "package_name": "com.mshdabiola.skeletonapp.demo"
+          "package_name": "com.mshdabiola.skeletonapp"
         }
       },
       "oauth_client": [
