@@ -5,7 +5,7 @@ on:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   BuildBinaries:
@@ -29,7 +29,7 @@ jobs:
 
           - runtime: android
             os: ubuntu-latest
-            build: assembleProdRelease
+            build: assembleRelease
 
     runs-on: ${{ matrix.os }}
     timeout-minutes: 60
@@ -56,7 +56,7 @@ jobs:
         uses: r0adkll/sign-android-release@v1
         if: ${{ matrix.runtime == 'android' }}
         with:
-          releaseDirectory: app/build/outputs/apk/prod/release
+          releaseDirectory: app/build/outputs/apk/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
@@ -94,6 +94,6 @@ jobs:
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "*/binaries/main/*/*.*,*/binaries/main-release/*/*.*,*/jars/*.jar,*/app/build/outputs/apk/prod/release/*.apk"
+          artifacts: "*/binaries/main/*/*.*,*/binaries/main-release/*/*.*,*/jars/*.jar,*/app/build/outputs/apk/release/*.apk"
           draft: true
           token: ${{ secrets.TOKEN }}
