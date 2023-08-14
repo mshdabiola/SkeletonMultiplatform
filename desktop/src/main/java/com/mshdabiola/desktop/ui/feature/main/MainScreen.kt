@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -19,6 +20,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -45,33 +47,38 @@ fun MainScreen(
     var model by remember { mutableStateOf("") }
     val items=viewModel.models.collectAsState()
 
-    Column(modifier = Modifier.fillMaxSize()) {
-        LazyColumn(modifier = Modifier.weight(1f)) {
-          items(items = items.value){
-              Text(it.name)
-          }
-        }
-        Row(modifier = Modifier.fillMaxWidth()){
-            TextField(
-                modifier = Modifier.weight(1f),
-                value = model,
-                maxLines = 1,
-                onValueChange = {model=it},
-                label = { Text("Text") },
-                keyboardActions = KeyboardActions  (onSend = {
+
+    Scaffold() {
+        Column(modifier = Modifier.padding(it).fillMaxSize()) {
+            LazyColumn(modifier = Modifier.weight(1f)) {
+                items(items = items.value){
+                    Text(it.name)
+                }
+            }
+            Row(modifier = Modifier.fillMaxWidth()){
+                TextField(
+                    modifier = Modifier.weight(1f),
+                    value = model,
+                    maxLines = 1,
+                    onValueChange = {model=it},
+                    label = { Text("Text") },
+                    keyboardActions = KeyboardActions  (onSend = {
+                        viewModel.insertModel(model)
+                        model=""
+                    })
+                )
+                Button(onClick = {
                     viewModel.insertModel(model)
                     model=""
-                })
-            )
-            Button(onClick = {
-                viewModel.insertModel(model)
-                model=""
-            }){
-                Text("Send")
+                }){
+                    Text("Send")
+                }
             }
-        }
 
+        }
     }
+
+
 }
 
 @OptIn(ExperimentalSplitPaneApi::class, ExperimentalResourceApi::class)

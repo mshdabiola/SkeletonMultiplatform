@@ -42,7 +42,7 @@ fun mainApp(appArgs: AppArgs){
         val rootComp = DefaultRootComp(DefaultComponentContext(life))
         val windowState = rememberWindowState(
             size = DpSize(width = 1100.dp, height = 600.dp),
-            placement = WindowPlacement.Floating,
+            placement = WindowPlacement.Maximized,
             position = WindowPosition.Aligned(Alignment.Center)
         )
         LifecycleController(life, windowState)
