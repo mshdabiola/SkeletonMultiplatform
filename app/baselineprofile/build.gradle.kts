@@ -30,7 +30,7 @@ android {
 
     targetProjectPath = ":app"
 
-    configureFlavors(this)
+//    configureFlavors(this)
 
     testOptions.managedDevices.devices {
         create<ManagedVirtualDevice>("pixel6Api34") {
