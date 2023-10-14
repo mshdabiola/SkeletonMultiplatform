@@ -34,7 +34,7 @@ dependencies {
     compileOnly(libs.kotlin.gradlePlugin)
    // compileOnly(libs.ksp.gradlePlugin)
 
-    implementation(libs.compose.gradlePlugin)
+//    compileOnly(libs.compose.gradlePlugin)
     //compileOnly(libs.compose.multiplatform.plugin)
 }
 

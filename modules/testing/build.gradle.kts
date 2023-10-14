@@ -22,11 +22,11 @@ kotlin{
             }
         }
 
-        val commonTest by getting {
-            dependencies {
-
-            }
-        }
+//        val commonTest by getting {
+//            dependencies {
+//
+//            }
+//        }
 
         val androidMain by getting {
             dependencies {
