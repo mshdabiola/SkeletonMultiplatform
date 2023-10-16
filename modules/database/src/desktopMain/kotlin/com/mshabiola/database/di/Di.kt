@@ -3,6 +3,7 @@ package com.mshabiola.database.di
 import app.cash.sqldelight.driver.jdbc.sqlite.JdbcSqliteDriver
 import com.mshabiola.database.util.Constant
 import com.mshdabiola.database.TempDatabase
+import com.mshdabiola.model.generalPath
 import org.koin.core.module.Module
 import org.koin.dsl.module
 import java.io.File
@@ -10,7 +11,12 @@ import java.io.File
 actual val databaseModule: Module
     get() = module {
         single {
-            val dbPath = File(System.getProperty("java.io.tmpdir"), Constant.databaseName)
+            val dir =File(generalPath)
+            if (dir.exists().not()){
+                dir.mkdirs()
+            }
+            val dbPath = File(generalPath, Constant.databaseName)
+            //println(" path ${dbPath.path}")
 
           val driver=  withDatabase(dbPath.path)
 //

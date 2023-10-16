@@ -1,7 +1,7 @@
 
 plugins {
     id("mshdabiola.mpp.library")
-    id("app.cash.sqldelight") version "2.0.0-alpha05"
+    id("app.cash.sqldelight") version libs.versions.sqlDelight
 }
 
 sqldelight {

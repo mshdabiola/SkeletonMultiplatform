@@ -29,4 +29,8 @@ fun MyCard() {
 
     }
 }
+
+
+@Composable
+expect fun MycardPrev()
 //

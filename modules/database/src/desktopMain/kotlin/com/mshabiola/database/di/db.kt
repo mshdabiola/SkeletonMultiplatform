@@ -1,5 +1,6 @@
 package com.mshabiola.database.di
 
+import app.cash.sqldelight.db.QueryResult
 import app.cash.sqldelight.driver.jdbc.sqlite.JdbcSqliteDriver
 import com.mshdabiola.database.TempDatabase
 
@@ -15,18 +16,18 @@ private const val versionPragma = "user_version"
 fun migrateIfNeeded(driver: JdbcSqliteDriver) {
 	val oldVersion =
 		driver.executeQuery(null, "PRAGMA $versionPragma", parameters = 0, mapper = {cursor->
-			if (cursor.next()) {
-				cursor.getLong(0)?.toInt()
+		QueryResult.Value(	if (cursor.next().value) {
+				cursor.getLong(0)
 			} else {
 				null
-			}
+			})
 		}).value ?: 0
 
 
 
 	val newVersion = TempDatabase.Schema.version
 
-	if (oldVersion == 0) {
+	if (oldVersion == 0L) {
 		println("Creating DB version $newVersion!")
 		TempDatabase.Schema.create(driver)
 		driver.execute(null, "PRAGMA $versionPragma=$newVersion", 0)
