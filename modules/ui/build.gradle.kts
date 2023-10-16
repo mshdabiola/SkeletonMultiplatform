@@ -19,6 +19,12 @@ android {
 //    }
 
 }
+//compose {
+//    kotlinCompilerPlugin.set(compose.kotlinCompilerPlugin)
+////    val kotlinVersion = project.property("kotlin.version") as String
+////    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=$kotlinVersion")
+//}
+
 kotlin {
     androidTarget()
     jvm("desktop")

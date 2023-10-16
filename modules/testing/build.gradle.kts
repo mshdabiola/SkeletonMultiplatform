@@ -1,16 +1,27 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("mshdabiola.mpp.library")
+    kotlin("multiplatform")
+    id("com.android.library")
 }
 
 android {
+    compileSdk = 34
+//    buildFeatures {
+//        compose = true
+//    }
+    kotlin {
+        jvmToolchain(17)
+    }
     namespace = "com.mshdabiola.testing"
 }
 
 kotlin{
+    androidTarget()
+    jvm("desktop")
     sourceSets {
         val commonMain by getting {
             dependencies {
+                kotlin("test")
             //    implementation(project(":core:common"))
                 implementation(project(":modules:data"))
                 implementation(project(":modules:model"))
@@ -22,11 +33,11 @@ kotlin{
             }
         }
 
-//        val commonTest by getting {
-//            dependencies {
-//
-//            }
-//        }
+        val commonTest by getting {
+            dependencies {
+
+            }
+        }
 
         val androidMain by getting {
             dependencies {
