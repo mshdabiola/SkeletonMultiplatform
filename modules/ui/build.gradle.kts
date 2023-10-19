@@ -39,19 +39,20 @@ kotlin {
                 implementation(compose.components.resources)
                 implementation(project(":modules:model"))
                 implementation(compose.preview)
+                implementation(libs.androidx.compose.material3.windowSizeClass)
             }
         }
-        val androidMain by getting {
-            dependencies {
-
-            }
-        }
-        val desktopMain by getting {
-            dependencies {
-                implementation(compose.preview)
-
-            }
-        }
+//        val androidMain by getting {
+//            dependencies {
+//
+//            }
+//        }
+//        val desktopMain by getting {
+//            dependencies {
+//                implementation(compose.preview)
+//
+//            }
+//        }
 
     }
 }

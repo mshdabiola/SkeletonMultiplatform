@@ -16,7 +16,7 @@ actual val databaseModule: Module
                 dir.mkdirs()
             }
             val dbPath = File(generalPath, Constant.databaseName)
-            //println(" path ${dbPath.path}")
+            println(" path ${dbPath.path}")
 
           val driver=  withDatabase(dbPath.path)
 //
