@@ -11,6 +11,7 @@ plugins {
 android {
     namespace = "com.mshdabiola.baselineprofile"
     compileSdk = 34
+//    configureFlavors(this)
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

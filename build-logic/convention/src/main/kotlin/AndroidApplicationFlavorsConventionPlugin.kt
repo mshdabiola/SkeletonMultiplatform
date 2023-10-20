@@ -14,6 +14,7 @@
  *   limitations under the License.
  */
 
+import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.LibraryExtension
 import com.mshdabiola.app.configureFlavors
@@ -24,7 +25,7 @@ import org.gradle.kotlin.dsl.configure
 class AndroidApplicationFlavorsConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            extensions.configure<LibraryExtension> {
+            extensions.configure<ApplicationExtension> {
                 configureFlavors(this)
             }
         }
