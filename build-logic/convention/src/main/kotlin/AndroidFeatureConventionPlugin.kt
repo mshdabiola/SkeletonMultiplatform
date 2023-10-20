@@ -44,23 +44,23 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
             dependencies {
-                add("implementation", project(":modules:model"))
-                add("implementation", project(":modules:ui"))
-                add("implementation", project(":modules:data"))
-
-                add("implementation", libs.findLibrary("koin.core").get())
-                add("implementation", libs.findLibrary("koin.android").get())
-                add("implementation", libs.findLibrary("koin.android.compose").get())
-                add("implementation", libs.findLibrary("kotlinx-collection-immutable").get())
-
-                add("testImplementation", kotlin("test"))
-                add("testImplementation", project(":modules:testing"))
-
-                add("androidTestImplementation", kotlin("test"))
-                add("androidTestImplementation", project(":modules:testing"))
-                add("androidTestImplementation", libs.findLibrary("androidx-compose-ui-test").get())
-                add("androidTestImplementation",libs.findLibrary("androidx-test-espresso-core").get())
-                add("androidTestImplementation", libs.findLibrary("androidx-test-ext").get())
+//                add("implementation", project(":modules:model"))
+//                add("implementation", project(":modules:ui"))
+//                add("implementation", project(":modules:data"))
+//
+//                add("implementation", libs.findLibrary("koin.core").get())
+//                add("implementation", libs.findLibrary("koin.android").get())
+//                add("implementation", libs.findLibrary("koin.android.compose").get())
+//                add("implementation", libs.findLibrary("kotlinx-collection-immutable").get())
+//
+//                add("testImplementation", kotlin("test"))
+//                add("testImplementation", project(":modules:testing"))
+//
+//                add("androidTestImplementation", kotlin("test"))
+//                add("androidTestImplementation", project(":modules:testing"))
+//                add("androidTestImplementation", libs.findLibrary("androidx-compose-ui-test").get())
+//                add("androidTestImplementation",libs.findLibrary("androidx-test-espresso-core").get())
+//                add("androidTestImplementation", libs.findLibrary("androidx-test-ext").get())
 
             }
         }
