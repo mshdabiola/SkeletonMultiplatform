@@ -81,5 +81,7 @@ dependencies {
 
     implementation(libs.timber)
     "baselineProfile"(project(mapOf("path" to ":app:baselineprofile")))
+    implementation(libs.androidx.compose.foundation)
+
 
 }

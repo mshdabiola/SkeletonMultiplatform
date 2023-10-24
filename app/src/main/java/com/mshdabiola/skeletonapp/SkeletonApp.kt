@@ -1,4 +1,4 @@
-package com.mshdabiola.skeletonapp.ui
+package com.mshdabiola.skeletonapp
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxSize
