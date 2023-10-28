@@ -17,14 +17,16 @@ kotlin {
                 implementation(libs.decompose.core)
                 implementation(libs.decompose.compose.jetbrains)
                 implementation(project(":modules:mvvn"))
+                implementation(project(":modules:navigation"))
 
+                implementation(project(":modules:designsystem"))
 
             }
         }
         val androidMain by getting {
             dependencies {
 
-                implementation(project(":modules:navigation"))
+//                implementation(project(":modules:navigation"))
 
 
                 implementation(libs.koin.core)

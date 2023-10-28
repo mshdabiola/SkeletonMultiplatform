@@ -6,7 +6,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
@@ -20,11 +19,8 @@ import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.decompose.ExperimentalDecomposeApi
 import com.arkivanov.decompose.extensions.compose.jetbrains.lifecycle.LifecycleController
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
-import com.mshdabiola.designsystem.theme.AppTheme
-import com.mshdabiola.desktop.di.desktopModule
-import com.mshdabiola.desktop.model.AppArgs
-import com.mshdabiola.desktop.nav.DefaultRootComp
-import com.mshdabiola.desktop.nav.RootComp
+import com.mshdabiola.skeletonapp.di.appModule
+import com.mshdabiola.skeletonapp.navigation.SkeletonApp
 import org.koin.core.context.GlobalContext.startKoin
 import java.util.prefs.Preferences
 
@@ -38,7 +34,7 @@ fun mainApp(appArgs: AppArgs){
 
     val life = LifecycleRegistry()
     application {
-        val rootComp = DefaultRootComp(DefaultComponentContext(life))
+        val defaultComponentContext = DefaultComponentContext(life)
         val windowState = rememberWindowState(
             size = DpSize(width = 1100.dp, height = 600.dp),
             placement = WindowPlacement.Maximized,
@@ -72,10 +68,11 @@ fun mainApp(appArgs: AppArgs){
 
                 }
             }
-            AppTheme(!isLight) {
+            //AppTheme() {
                 // Igniting navigation
-                RootComp(rootComp, modifier = Modifier)
-            }
+//                RootComp(rootComp, modifier = Modifier)
+                SkeletonApp(defaultComponentContext, isDarkMode =!isLight )
+           // }
         }
 
     }
@@ -83,7 +80,7 @@ fun mainApp(appArgs: AppArgs){
 fun main() {
 
     startKoin {
-        modules(desktopModule)
+        modules(appModule)
     }
 
     val appArgs = AppArgs(
