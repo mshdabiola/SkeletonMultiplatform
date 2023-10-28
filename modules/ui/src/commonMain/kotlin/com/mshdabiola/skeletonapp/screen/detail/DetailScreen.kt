@@ -12,6 +12,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.mshdabiola.mvvn.KoinCommonViewModel
@@ -19,16 +20,20 @@ import com.mshdabiola.skeletonapp.ui.MyCard
 
 
 @Composable
- fun DetailScreenn(onBack : ()->Unit) {
+ fun DetailScreenn(windowSizeClass: WindowSizeClass,onBack : ()->Unit) {
     val viewModel: DetailViewModel = KoinCommonViewModel()
-    DetailScreen(back=onBack)
+    DetailScreen(windowSizeClass,back=onBack)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun DetailScreen(
-back : ()->Unit={}
+    windowSizeClass: WindowSizeClass,
+    back : ()->Unit={}
 ) {
+    var name =windowSizeClass.widthSizeClass.toString()
+
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -38,7 +43,7 @@ back : ()->Unit={}
                     }
                 },
                 title = {
-                    Text(text = "name")
+                    Text(text = name)
                 }
             )
         }
