@@ -16,6 +16,7 @@ kotlin {
                 implementation(project(":modules:data"))
                 implementation(libs.decompose.core)
                 implementation(libs.decompose.compose.jetbrains)
+                implementation(project(":modules:mvvn"))
 
 
             }

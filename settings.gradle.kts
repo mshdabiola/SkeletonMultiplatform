@@ -35,3 +35,4 @@ include(":modules:setting")
 include(":modules:navigation")
 
 //include(":browser")
+include(":modules:mvvn")
