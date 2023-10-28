@@ -7,7 +7,7 @@ android {
     namespace = "com.mshdabiola.mvvn"
 }
 
-kotlin{
+kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -35,7 +35,6 @@ kotlin{
                 implementation(libs.androidx.lifecycle.runtimeCompose)
             }
         }
-
 
 
         val desktopMain by getting {

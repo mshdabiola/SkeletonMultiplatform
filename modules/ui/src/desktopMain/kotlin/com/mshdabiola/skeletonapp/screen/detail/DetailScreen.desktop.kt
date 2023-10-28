@@ -11,7 +11,7 @@ import androidx.compose.ui.platform.LocalDensity
 @Preview
 @Composable
 actual fun DetailScreenPreview() {
-    val size = WindowSizeClass.calculateFromSize(Size(451f,456f), LocalDensity.current)
+    val size = WindowSizeClass.calculateFromSize(Size(451f, 456f), LocalDensity.current)
 
     DetailScreen(size)
 }

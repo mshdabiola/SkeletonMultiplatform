@@ -1,5 +1,5 @@
-import org.jetbrains.compose.desktop.application.dsl.MacOSSigningSettings
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+
 plugins {
     kotlin("jvm")
 //    kotlin("kapt")
@@ -116,7 +116,7 @@ compose.desktop {
                 iconFile.set(iconsRoot.resolve("macos.icns"))
                 bundleID = "com.mshdabiola.skeleton"
                 appCategory = "public.app-category.productivity"
-                signing{
+                signing {
                     sign.set(false)
                 }
             }

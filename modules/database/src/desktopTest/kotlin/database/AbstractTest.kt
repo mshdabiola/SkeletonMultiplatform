@@ -30,14 +30,14 @@ abstract class AbstractTest : KoinTest {
     @Test
     abstract fun insert()
 
-     @Test
-     abstract fun delete()
+    @Test
+    abstract fun delete()
 
-     @Test
-     abstract fun getOne()
+    @Test
+    abstract fun getOne()
 
-     @Test
-     abstract fun getAll()
+    @Test
+    abstract fun getAll()
 
 
- }
+}

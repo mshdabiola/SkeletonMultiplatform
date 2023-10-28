@@ -28,7 +28,7 @@ import java.util.prefs.Preferences
 //import com.toxicbakery.logging.Seedling
 
 @OptIn(ExperimentalDecomposeApi::class)
-fun mainApp(appArgs: AppArgs){
+fun mainApp(appArgs: AppArgs) {
     val preference = Preferences.userRoot()//.node("main")
     val isLightKey = "isLight"
 
@@ -69,14 +69,15 @@ fun mainApp(appArgs: AppArgs){
                 }
             }
             //AppTheme() {
-                // Igniting navigation
+            // Igniting navigation
 //                RootComp(rootComp, modifier = Modifier)
-                SkeletonApp(defaultComponentContext, isDarkMode =!isLight )
-           // }
+            SkeletonApp(defaultComponentContext, isDarkMode = !isLight)
+            // }
         }
 
     }
 }
+
 fun main() {
 
     startKoin {

@@ -9,11 +9,11 @@ import kotlinx.coroutines.flow.StateFlow
 @Composable
 
 
-actual fun <T> StateFlow<T>.collectAsStateWithLifecycleCommon() : State<T> {
-  return  this.collectAsState()
+actual fun <T> StateFlow<T>.collectAsStateWithLifecycleCommon(): State<T> {
+    return this.collectAsState()
 }
 
 @Composable
-actual fun <T> Flow<T>.collectAsStateWithLifecycleCommon(initialValue: T) : State<T>  {
-   return this.collectAsState(initialValue)
+actual fun <T> Flow<T>.collectAsStateWithLifecycleCommon(initialValue: T): State<T> {
+    return this.collectAsState(initialValue)
 }

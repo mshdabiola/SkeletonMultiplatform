@@ -1,7 +1,6 @@
 package com.mshdabiola.skeletonapp.screen.detail
 
 
-
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -20,18 +19,18 @@ import com.mshdabiola.skeletonapp.ui.MyCard
 
 
 @Composable
- fun DetailScreenn(windowSizeClass: WindowSizeClass,onBack : ()->Unit) {
+fun DetailScreenn(windowSizeClass: WindowSizeClass, onBack: () -> Unit) {
     val viewModel: DetailViewModel = KoinCommonViewModel()
-    DetailScreen(windowSizeClass,back=onBack)
+    DetailScreen(windowSizeClass, back = onBack)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun DetailScreen(
     windowSizeClass: WindowSizeClass,
-    back : ()->Unit={}
+    back: () -> Unit = {}
 ) {
-    var name =windowSizeClass.widthSizeClass.toString()
+    var name = windowSizeClass.widthSizeClass.toString()
 
 
     Scaffold(

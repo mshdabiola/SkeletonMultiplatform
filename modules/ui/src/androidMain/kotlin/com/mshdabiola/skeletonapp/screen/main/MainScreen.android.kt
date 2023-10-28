@@ -10,6 +10,6 @@ import kotlinx.collections.immutable.toImmutableList
 actual fun MainScreenPreview() {
     MainScreen(
         mainState = MainState(),
-        items =listOf(ModelUiState(2, "")).toImmutableList()
+        items = listOf(ModelUiState(2, "")).toImmutableList()
     )
 }

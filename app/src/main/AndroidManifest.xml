@@ -16,6 +16,7 @@
         <profileable
             android:shell="true"
             tools:targetApi="33" />
+
         <meta-data
             android:name="google_analytics_automatics_screen_reporting_enabled"
             android:value="false" />

@@ -21,16 +21,17 @@ fun SkeletonAppNavHost(iRootComponent: IRootComponent, modifier: Modifier) {
 
     Children(
         stack = iRootComponent.stack,
-        modifier=modifier,
-        animation = stackAnimation(fade()+ slide())
-        ){
+        modifier = modifier,
+        animation = stackAnimation(fade() + slide())
+    ) {
 
-        when(it.instance){
-            is IRootComponent.RootScreen.MainRootScreen->{
+        when (it.instance) {
+            is IRootComponent.RootScreen.MainRootScreen -> {
                 MainScreenNav { iRootComponent.navigateToDetail() }
             }
-            is IRootComponent.RootScreen.DetailRootScreen->{
-                DetailScreenn (windowSizeClass){
+
+            is IRootComponent.RootScreen.DetailRootScreen -> {
+                DetailScreenn(windowSizeClass) {
 
                 }
             }

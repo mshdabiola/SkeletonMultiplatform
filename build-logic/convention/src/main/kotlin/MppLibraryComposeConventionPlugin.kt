@@ -49,7 +49,9 @@ class MppLibraryComposeConventionPlugin : Plugin<Project> {
                             @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                             implementation(composeExtension.dependencies.components.resources)
                             implementation(composeExtension.dependencies.preview)
-                            implementation(libs.findLibrary("androidx.compose.material3.windowSizeClass").get())
+                            implementation(
+                                libs.findLibrary("androidx.compose.material3.windowSizeClass").get()
+                            )
 //                            implementation("org.jetbrains.compose.ui:ui-tooling-preview:1.5.10-beta02")
 //                            implementation("org.jetbrains.compose.runtime:runtime:1.5.10-beta02")
 //                            implementation("org.jetbrains.compose.ui:ui:1.5.0-dev1147")

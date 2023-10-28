@@ -67,7 +67,7 @@ class MainActivity : ComponentActivity() {
 
             // Log and toast
             Timber.e(token)
-           // Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
+            // Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
         })
 
         installSplashScreen()

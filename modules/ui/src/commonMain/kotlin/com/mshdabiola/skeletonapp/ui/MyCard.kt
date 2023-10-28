@@ -15,17 +15,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.mshdabiola.mvvn.KoinCommonViewModel
 
 @Composable
 fun MyCard() {
-    Card (
+    Card(
         Modifier.height(180.dp).fillMaxWidth().padding(16.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary)
-    ){
-        Column(Modifier.fillMaxSize().padding(16.dp)){
+    ) {
+        Column(Modifier.fillMaxSize().padding(16.dp)) {
             Text("Card", style = MaterialTheme.typography.headlineMedium)
-            Icon(Icons.Default.Android,"")
+            Icon(Icons.Default.Android, "")
         }
 
     }

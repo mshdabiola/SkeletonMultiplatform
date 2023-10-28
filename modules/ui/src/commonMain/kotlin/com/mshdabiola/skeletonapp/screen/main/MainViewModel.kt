@@ -3,6 +3,7 @@ package com.mshdabiola.skeletonapp.screen.main
 
 import com.mshdabiola.data.repository.IModelRepository
 import com.mshdabiola.model.Model
+import com.mshdabiola.mvvn.ViewModel
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -13,8 +14,6 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlin.random.Random
-import com.mshdabiola.mvvn.ViewModel
-
 
 
 class MainViewModel constructor(
@@ -24,10 +23,12 @@ class MainViewModel constructor(
     val modelState = modelRepository
         .getAllModel()
         .map { it.map { it.asModelUiState() }.toImmutableList() }
-      //  .cachedIn(viewModelScope)
-      //  .asResult()
-        .stateIn(scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(3000), initialValue = emptyList<ModelUiState>().toImmutableList()
+        //  .cachedIn(viewModelScope)
+        //  .asResult()
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(3000),
+            initialValue = emptyList<ModelUiState>().toImmutableList()
         )
 
 
@@ -49,7 +50,7 @@ class MainViewModel constructor(
 
     fun insert(model: Model) {
         viewModelScope.launch(Dispatchers.IO) {
-           modelRepository.insert(model)
+            modelRepository.insert(model)
         }
     }
 
@@ -59,7 +60,7 @@ class MainViewModel constructor(
 //        notifies.add(Notify(message = text, callback = ::onNotifyDelive))
 //        _mainState.update {
 //            it.copy(messages = notifies.toImmutableList())
-       // }
+        // }
     }
 
     private fun onNotifyDelive() {
