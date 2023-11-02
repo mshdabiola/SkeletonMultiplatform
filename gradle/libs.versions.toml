@@ -10,7 +10,7 @@ androidxComposeRuntimeTracing = "1.0.0-alpha04"
 androidxConstraintLayout = "1.1.0-alpha13"
 androidxCore = "1.12.0"
 androidxCoreSplashscreen = "1.0.1"
-androidxDataStore = "1.1.0-alpha04"
+androidxDataStore = "1.1.0-alpha06"
 androidxEspresso = "3.5.1"
 androidxLifecycle = "2.6.2"
 androidxMacroBenchmark = "1.2.0"
@@ -59,7 +59,9 @@ koinCompose = "3.4.5"
 
 sqlDelight = "2.0.0"
 
-ktor = "2.3.3"
+ktor = "2.3.5"
+logback = "1.4.11"
+
 androidx-baselineprofile = "1.2.0"
 
 kermit = "2.0.0-RC5"
@@ -183,6 +185,15 @@ ktor-client-logging = { module = "io.ktor:ktor-client-logging-jvm", version.ref 
 ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
 ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
 
+logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
+ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
+ktor-server-tests = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktor" }
+
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+junit = { group = "junit", name = "junit", version.ref = "junit4" }
+
 kermit-log = { module = "co.touchlab:kermit", version.ref = "kermit" }
 # Dependencies of the included build-logic
 
@@ -195,6 +206,7 @@ android-test = { id = "com.android.test", version.ref = "androidGradlePlugin" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashylyticsPlugins" }
 firebase-perf = { id = "com.google.firebase.firebase-perf", version.ref = "firebasePerfPlugin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 little = { id = "nl.littlerobots.version-catalog-update", version.ref = "littleVersion" }
 manes = { id = "com.github.ben-manes.versions", version.ref = "maneVersion" }

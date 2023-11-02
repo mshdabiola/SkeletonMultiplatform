@@ -36,3 +36,6 @@ include(":modules:navigation")
 
 //include(":browser")
 include(":modules:mvvn")
+
+include(":server")
+
