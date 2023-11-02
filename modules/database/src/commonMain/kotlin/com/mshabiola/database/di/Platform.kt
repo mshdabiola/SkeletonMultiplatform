@@ -10,13 +10,13 @@ import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
-expect val databaseModule :Module
+expect val databaseModule: Module
 
 
- val daoModules=module{
+val daoModules = module {
     single {
         get<TempDatabase>().modelQueries
     }
-     single { Dispatchers.IO } bind CoroutineDispatcher::class
+    single { Dispatchers.IO } bind CoroutineDispatcher::class
     singleOf(::ModelDao) bind IModelDao::class
- }
+}

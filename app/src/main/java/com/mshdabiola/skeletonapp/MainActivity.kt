@@ -3,8 +3,7 @@ package com.mshdabiola.skeletonapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import com.arkivanov.decompose.defaultComponentContext
@@ -13,8 +12,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
-import com.mshdabiola.navigation.RootComponent
-import com.mshdabiola.skeletonapp.ui.SkeletonApp2
+import com.mshdabiola.skeletonapp.navigation.SkeletonApp
 import timber.log.Timber
 
 class MainActivity : ComponentActivity() {
@@ -69,22 +67,17 @@ class MainActivity : ComponentActivity() {
 
             // Log and toast
             Timber.e(token)
-           // Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
+            // Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
         })
 
         installSplashScreen()
 
-        val root =
-            RootComponent(
-                componentContext = defaultComponentContext()
-            )
+
 
         setContent {
             WindowCompat.setDecorFitsSystemWindows(window, false)
 
-            // A surface container using the 'background' color from the theme
-           // SkeletonApp(windowSizeClass = calculateWindowSizeClass(activity = this))
-            SkeletonApp2(iRootComponent = root)
+            SkeletonApp(context = defaultComponentContext(), isDarkMode = isSystemInDarkTheme())
         }
     }
 }

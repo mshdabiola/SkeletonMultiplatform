@@ -4,7 +4,7 @@ import com.mshdabiola.app.BuildType
 plugins {
     id("mshdabiola.android.application")
     id("mshdabiola.android.application.compose")
-  //  id("mshdabiola.android.application.flavor")
+//    id("mshdabiola.android.application.flavor")
     id("mshdabiola.android.application.firebase")
     alias(libs.plugins.androidx.baselineprofile)
 
@@ -81,5 +81,7 @@ dependencies {
 
     implementation(libs.timber)
     "baselineProfile"(project(mapOf("path" to ":app:baselineprofile")))
+    implementation(libs.androidx.compose.foundation)
+
 
 }

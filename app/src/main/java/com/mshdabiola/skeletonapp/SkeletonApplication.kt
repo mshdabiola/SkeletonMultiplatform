@@ -19,7 +19,7 @@ class SkeletonApplication : Application() {
             modules(appModule)
         }
 
-       val workManager=WorkManager.getInstance(applicationContext)
+        val workManager = WorkManager.getInstance(applicationContext)
         workManager
             .enqueueUniqueWork(
                 "updater",
