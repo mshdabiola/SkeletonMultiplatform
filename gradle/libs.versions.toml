@@ -34,14 +34,14 @@ kotlinxCoroutines = "1.7.3"
 kotlinxSerializationJson = "1.6.0"
 littleVersion = "0.7.0"
 maneVersion = "0.44.0"
-turbine = "0.8.0"
+turbine = "1.0.0"
 timber = "5.0.1"
 firebaseCrashlyticsPlugin = "2.9.9"
 firebasePerfPlugin = "1.4.2"
 gmsPlugin = "4.4.0"
 composePlugin = "1.5.10"
 
-kotlinxDatetime = "0.4.0"
+kotlinxDatetime = "0.4.1"
 
 
 androidxWork = "2.9.0-rc01"
@@ -53,9 +53,9 @@ playReview = "2.0.1"
 playUpdate = "2.1.0"
 playCoroutine = "1.7.3"
 
-koin = "3.4.2"
-koinTest = "3.4.1"
-koinCompose = "3.4.5"
+koin = "3.5.0"
+koinTest = "3.5.0"
+koinCompose = "3.5.0"
 
 sqlDelight = "2.0.0"
 
@@ -64,7 +64,7 @@ logback = "1.4.11"
 
 androidx-baselineprofile = "1.2.0"
 
-kermit = "2.0.0-RC5"
+kermit = "2.0.2"
 
 windowSizeClass = "0.3.1"
 
