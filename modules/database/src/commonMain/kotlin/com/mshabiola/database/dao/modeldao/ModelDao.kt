@@ -12,10 +12,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
- class ModelDao(private val modelQueries: ModelQueries,
-               private val coroutineDispatcher:CoroutineDispatcher) : IModelDao {
+class ModelDao(
+    private val modelQueries: ModelQueries,
+    private val coroutineDispatcher: CoroutineDispatcher
+) : IModelDao {
     override suspend fun insert(modelEntity: Model) {
-        withContext(coroutineDispatcher){
+        withContext(coroutineDispatcher) {
             modelQueries.insertFullModelObject(modelEntity.toEntity())
         }
 
@@ -28,7 +30,7 @@ import kotlinx.coroutines.withContext
             .map { it.map { it.toModel() } }
     }
 
-    override suspend fun updateModel(name:String, id:Long) {
+    override suspend fun updateModel(name: String, id: Long) {
         withContext(coroutineDispatcher) {
             modelQueries.updateByName(name, id)
         }
@@ -42,7 +44,7 @@ import kotlinx.coroutines.withContext
     }
 
     override suspend fun delete(id: Long) {
-        withContext(coroutineDispatcher){
+        withContext(coroutineDispatcher) {
             modelQueries.deleteById(id)
         }
 

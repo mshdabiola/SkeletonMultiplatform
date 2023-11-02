@@ -32,9 +32,9 @@ dependencies {
     compileOnly(libs.firebase.crashlytics.gradle)
     compileOnly(libs.firebase.performance.gradle)
     compileOnly(libs.kotlin.gradlePlugin)
-   // compileOnly(libs.ksp.gradlePlugin)
+    // compileOnly(libs.ksp.gradlePlugin)
 
-//    compileOnly(libs.compose.gradlePlugin)
+    compileOnly(libs.compose.gradlePlugin)
     //compileOnly(libs.compose.multiplatform.plugin)
 }
 
@@ -87,6 +87,10 @@ gradlePlugin {
         register("mppLibraryCompose") {
             id = "mshdabiola.mpp.library.compose"
             implementationClass = "MppLibraryComposeConventionPlugin"
+        }
+        register("mppFeature") {
+            id = "mshdabiola.mpp.feature"
+            implementationClass = "MppFeatureConventionPlugin"
         }
     }
 }

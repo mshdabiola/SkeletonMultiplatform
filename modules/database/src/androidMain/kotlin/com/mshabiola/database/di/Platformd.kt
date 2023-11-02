@@ -10,14 +10,14 @@ import org.koin.dsl.module
 actual val databaseModule: Module
     get() = module {
         single {
-            val driver =AndroidSqliteDriver(
+            val driver = AndroidSqliteDriver(
                 schema = TempDatabase.Schema,
-                context = get (),
+                context = get(),
                 name = Constant.databaseName
             )
 
 
-            Log.e("version","version ${TempDatabase.Schema.version}")
+            Log.e("version", "version ${TempDatabase.Schema.version}")
 
             TempDatabase(driver)
         }

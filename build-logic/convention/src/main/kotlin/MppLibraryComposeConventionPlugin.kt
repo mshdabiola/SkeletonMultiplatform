@@ -21,69 +21,80 @@ import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.getByType
+import org.jetbrains.compose.ComposeExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class MppLibraryComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             pluginManager.apply("kotlin-multiplatform")
-            pluginManager.apply("com.android.library")
-//            pluginManager.apply("org.jetbrains.compose")
+//            pluginManager.apply("mshdabiola.mpp.library")
+            pluginManager.apply("org.jetbrains.compose")
+//
+            val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
-
-//            val compose = extensions.getByType<ComposeExtension>()
+            val composeExtension = extensions.getByType<ComposeExtension>()
 
             val extension = extensions.getByType<LibraryExtension>()
             configureAndroidCompose(extension)
             extensions.configure<KotlinMultiplatformExtension> {
-                val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
                 with(sourceSets) {
 
                     getByName("commonMain") {
                         this.dependencies {
-                            implementation("org.jetbrains.compose.ui:ui-tooling-preview:1.5.10-beta02")
-                            implementation("org.jetbrains.compose.runtime:runtime:1.5.10-beta02")
-                            implementation("org.jetbrains.compose.ui:ui:1.5.0-dev1147")
-                            implementation("org.jetbrains.compose.foundation:foundation:1.5.10-beta02")
-                            implementation("org.jetbrains.compose.material:material-icons-extended:1.5.10-beta02")
-                            implementation("org.jetbrains.compose.material3:material3:1.5.10-beta02")
-                            implementation(libs.findLibrary("kotlinx.collection.immutable").get())
-                            implementation(libs.findLibrary("kermit.log").get())
-                        }
-
-                    }
-                    getByName("commonTest") {
-                        this.dependencies {
-
-                        }
-
-                    }
-                    getByName("androidMain") {
-                        this.dependencies {
+                            implementation(composeExtension.dependencies.runtime)
+                            implementation(composeExtension.dependencies.foundation)
+                            implementation(composeExtension.dependencies.material3)
+                            implementation(composeExtension.dependencies.materialIconsExtended) // TODO not working on iOS for now
+                            @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+                            implementation(composeExtension.dependencies.components.resources)
+                            implementation(composeExtension.dependencies.preview)
+                            implementation(
+                                libs.findLibrary("androidx.compose.material3.windowSizeClass").get()
+                            )
+//                            implementation("org.jetbrains.compose.ui:ui-tooling-preview:1.5.10-beta02")
+//                            implementation("org.jetbrains.compose.runtime:runtime:1.5.10-beta02")
+//                            implementation("org.jetbrains.compose.ui:ui:1.5.0-dev1147")
+//                            implementation("org.jetbrains.compose.foundation:foundation:1.5.10-beta02")
+//                            implementation("org.jetbrains.compose.material:material-icons-extended:1.5.10-beta02")
+//                            implementation("org.jetbrains.compose.material3:material3:1.5.10-beta02")
 
 
                         }
 
                     }
-                    getByName("androidInstrumentedTest") {
-                        this.dependencies {
-
-                        }
-
-                    }
-                    getByName("desktopMain") {
-                        this.dependencies {
-
-                        }
-
-                    }
-                    getByName("desktopTest") {
-                        this.dependencies {
-                            // implementation(libs.findLibrary("koin.core").get())
-
-                        }
-
-                    }
+//                    getByName("commonTest") {
+//                        this.dependencies {
+//
+//                        }
+//
+//                    }
+//                    getByName("androidMain") {
+//                        this.dependencies {
+//
+//
+//                        }
+//
+//                    }
+//                    getByName("androidInstrumentedTest") {
+//                        this.dependencies {
+//
+//                        }
+//
+//                    }
+//                    getByName("desktopMain") {
+//                        this.dependencies {
+//
+//                        }
+//
+//                    }
+//                    getByName("desktopTest") {
+//                        this.dependencies {
+//                            // implementation(libs.findLibrary("koin.core").get())
+//
+//                        }
+//
+//                    }
                 }
 
             }

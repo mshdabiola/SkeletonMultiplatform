@@ -9,17 +9,17 @@ import org.koin.core.component.inject
 import kotlin.test.assertEquals
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class ModelTest :AbstractTest() {
+class ModelTest : AbstractTest() {
 
-    override fun insert() = runTest{
+    override fun insert() = runTest {
         val modelDao by inject<ModelDao>()
 
-        modelDao.insert(Model(2,"ai"))
+        modelDao.insert(Model(2, "ai"))
         modelDao.getAllModel()
             .test {
-                val list=awaitItem()
+                val list = awaitItem()
                 print(list)
-                assertEquals(1,list.size)
+                assertEquals(1, list.size)
                 this.cancelAndIgnoreRemainingEvents()
             }
     }

@@ -9,7 +9,7 @@ android {
     //proguard here
 }
 
-kotlin{
+kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {

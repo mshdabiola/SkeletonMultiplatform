@@ -20,7 +20,7 @@ internal class RealModelRepository constructor(
     }
 
     override fun getOneModel(id: Long): Flow<Model> {
-       return modelDao.getOneModel(id)
+        return modelDao.getOneModel(id)
     }
 
     override suspend fun delete(id: Long) {
