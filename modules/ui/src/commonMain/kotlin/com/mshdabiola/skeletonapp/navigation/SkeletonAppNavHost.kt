@@ -1,6 +1,7 @@
 package com.mshdabiola.skeletonapp.navigation
 
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,8 +17,7 @@ import com.mshdabiola.skeletonapp.screen.main.MainScreenNav
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Composable
-fun SkeletonAppNavHost(iRootComponent: IRootComponent, modifier: Modifier) {
-    val windowSizeClass = calculateWindowSizeClass()
+fun SkeletonAppNavHost(modifier: Modifier,iRootComponent: IRootComponent,windowSizeClass: WindowSizeClass) {
 
     Children(
         stack = iRootComponent.stack,
