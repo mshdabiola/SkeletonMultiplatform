@@ -6,6 +6,8 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -36,6 +38,8 @@ include(":modules:navigation")
 
 //include(":browser")
 include(":modules:mvvn")
+include(":modules:analytics")
 
-include(":server")
+
+//include(":server")
 

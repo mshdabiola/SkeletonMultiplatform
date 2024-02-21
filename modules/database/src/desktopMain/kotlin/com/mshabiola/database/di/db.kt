@@ -34,7 +34,7 @@ fun migrateIfNeeded(driver: JdbcSqliteDriver) {
         driver.execute(null, "PRAGMA $versionPragma=$newVersion", 0)
     } else if (oldVersion < newVersion) {
         println("Migrating DB from version $oldVersion to $newVersion!")
-        TempDatabase.Schema.migrate(driver, oldVersion, newVersion)
+        TempDatabase.Schema.migrate(driver, oldVersion.toInt(), newVersion)
         driver.execute(null, "PRAGMA $versionPragma=$newVersion", 0)
     }
 }

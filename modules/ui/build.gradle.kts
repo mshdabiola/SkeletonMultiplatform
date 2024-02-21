@@ -1,5 +1,6 @@
 plugins {
-    id("mshdabiola.mpp.feature")
+    id("mshdabiola.android.library")
+    id("mshdabiola.android.library.compose")
 }
 
 android {
@@ -21,6 +22,8 @@ kotlin {
                 implementation(project(":modules:navigation"))
 
                 implementation(project(":modules:designsystem"))
+                implementation(project(":modules:model"))
+                implementation(libs.kotlinx.collection.immutable)
 
             }
         }

@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.DefaultComponentContext
-import com.mshdabiola.designsystem.theme.AppTheme
+import com.mshdabiola.designsystem.theme.SkTheme
 import com.mshdabiola.navigation.RootComponent
 
 
@@ -19,7 +19,7 @@ fun SkeletonApp(context: DefaultComponentContext, isDarkMode: Boolean) {
     val rootComp = remember {  RootComponent(context)}
     val windowSizeClass =   calculateWindowSizeClass()
 
-    AppTheme(isDarkMode = isDarkMode) {
+    SkTheme {
         SkeletonAppNavHost(
             iRootComponent = rootComp,
             modifier = Modifier.fillMaxSize(),

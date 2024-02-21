@@ -79,6 +79,10 @@ dependencies {
     implementation(libs.androidx.profileinstaller)
     implementation(libs.androidx.core.splashscreen)
 
+    implementation(libs.koin.core)
+    implementation(libs.koin.android.compose)
+    implementation(libs.koin.android)
+
     implementation(libs.timber)
     "baselineProfile"(project(mapOf("path" to ":app:baselineprofile")))
     implementation(libs.androidx.compose.foundation)

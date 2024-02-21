@@ -1,6 +1,6 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("mshdabiola.mpp.library")
+    id("mshdabiola.android.library")
 }
 
 android {
@@ -23,31 +23,5 @@ kotlin {
             }
         }
 
-        val commonTest by getting {
-            dependencies {
-
-            }
-        }
-
-        val androidMain by getting {
-            dependencies {
-
-            }
-        }
-
-
-        val desktopMain by getting {
-            dependencies {
-
-            }
-        }
-
-        val desktopTest by getting
-
-//        val jsMain by getting {
-//            dependencies {
-//
-//            }
-//        }
     }
 }

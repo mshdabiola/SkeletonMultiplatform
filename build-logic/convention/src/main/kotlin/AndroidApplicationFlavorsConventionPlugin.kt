@@ -28,5 +28,4 @@ class AndroidApplicationFlavorsConventionPlugin : Plugin<Project> {
             }
         }
     }
-
 }

@@ -1,6 +1,8 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("mshdabiola.mpp.feature")
+    id("mshdabiola.android.library")
+    id("mshdabiola.android.library.compose")
+
 }
 
 android {
@@ -11,6 +13,9 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                implementation(libs.kotlinx.coroutines.core)
+                implementation(compose.runtime)
+                implementation(compose.ui)
 
             }
         }
@@ -33,6 +38,7 @@ kotlin {
 
 
                 implementation(libs.androidx.lifecycle.runtimeCompose)
+                implementation(libs.androidx.lifecycle.viewModelCompose)
             }
         }
 
