@@ -24,10 +24,10 @@ dependencies {
 
     implementation(compose.desktop.currentOs)
     implementation(project(":modules:designsystem"))
+    implementation(project(":modules:app"))
 //    implementation(project(":modules:data"))
 //    implementation(project(":modules:model"))
 
-    implementation(project(":modules:ui"))
     implementation(libs.kotlinx.coroutines.swing)
 
     // Dagger : A fast dependency injector for Android and Java.

@@ -31,7 +31,7 @@ include(":modules:network")
 include(":modules:data")
 include(":modules:domain")
 include(":modules:testing")
-include(":modules:ui")
+include(":modules:app")
 include(":desktop")
 include(":modules:setting")
 include(":modules:navigation")
@@ -40,6 +40,9 @@ include(":modules:navigation")
 include(":modules:mvvn")
 include(":modules:analytics")
 
+
+include(":composeApp")
+include(":shared")
 
 //include(":server")
 

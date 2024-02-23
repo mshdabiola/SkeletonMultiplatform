@@ -65,7 +65,7 @@ dependencies {
     implementation(project(":modules:designsystem"))
     implementation(project(":modules:navigation"))
     implementation(project(":modules:model"))
-    implementation(project(":modules:ui"))
+    implementation(project(":modules:app"))
     implementation(project(":modules:data"))
 
     implementation(libs.androidx.core.ktx)

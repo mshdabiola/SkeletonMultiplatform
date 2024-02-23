@@ -90,6 +90,7 @@ dependencyGuard = "0.4.3"
 
 
 
+compose = "1.6.1"
 
 
 
@@ -222,7 +223,8 @@ truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
 android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
 
 
-
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
