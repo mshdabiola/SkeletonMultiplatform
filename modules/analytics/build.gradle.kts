@@ -20,3 +20,20 @@ dependencies {
 
     implementation(libs.firebase.analytics)
 }
+kotlin{
+    sourceSets{
+        val desktopMain by getting{
+            dependencies{
+
+            }
+        }
+
+        val commonMain by getting{
+            dependencies{
+                implementation(compose.runtime)
+
+
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 package com.mshdabiola.setting
 //
 //import com.mshdabiola.model.DummySetting
-//import com.mshdabiola.setting.di.commonModule
+//import com.mshdabiola.analytics.di.getCommonModule
 //import com.russhwolf.settings.ExperimentalSettingsApi
 //import com.russhwolf.settings.MapSettings
 //import com.russhwolf.settings.coroutines.toFlowSettings

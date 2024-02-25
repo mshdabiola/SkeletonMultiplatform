@@ -12,6 +12,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(project(":modules:model"))
+                implementation(project(":modules:analytics"))
 
                 implementation(libs.koin.core)
                 //   implementation(libs.kermit.log)

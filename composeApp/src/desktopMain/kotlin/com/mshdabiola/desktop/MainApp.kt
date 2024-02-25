@@ -1,6 +1,13 @@
 package com.mshdabiola.desktop
 
 
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -19,15 +26,26 @@ import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.decompose.ExperimentalDecomposeApi
 import com.arkivanov.decompose.extensions.compose.lifecycle.LifecycleController
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
+import com.mshdabiola.analytics.LocalAnalyticsHelper
+import com.mshdabiola.designsystem.theme.SkTheme
+import com.mshdabiola.model.Contrast
+import com.mshdabiola.model.DarkThemeConfig
+import com.mshdabiola.model.ThemeBrand
+import com.mshdabiola.skeletonapp.MainActivityUiState
+import com.mshdabiola.skeletonapp.MainAppViewModel
 import com.mshdabiola.skeletonapp.di.appModule
 import com.mshdabiola.skeletonapp.navigation.SkeletonApp
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import org.koin.core.context.GlobalContext.startKoin
+import org.koin.java.KoinJavaComponent.inject
 import java.util.prefs.Preferences
 
 //import com.toxicbakery.logging.Arbor
 //import com.toxicbakery.logging.Seedling
 
-@OptIn(ExperimentalDecomposeApi::class)
+@OptIn(ExperimentalDecomposeApi::class, ExperimentalMaterial3WindowSizeClassApi::class)
 fun mainApp(appArgs: AppArgs) {
     val preference = Preferences.userRoot()//.node("main")
     val isLightKey = "isLight"
@@ -68,11 +86,12 @@ fun mainApp(appArgs: AppArgs) {
 
                 }
             }
-            //AppTheme() {
-            // Igniting navigation
-//                RootComp(rootComp, modifier = Modifier)
-            SkeletonApp(defaultComponentContext, isDarkMode = !isLight)
-            // }
+
+            SkeletonApp(
+                context = defaultComponentContext,
+            )
+
+
         }
 
     }
@@ -92,3 +111,4 @@ fun main() {
 
     mainApp(appArgs)
 }
+

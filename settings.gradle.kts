@@ -36,7 +36,7 @@ include(":desktop")
 include(":modules:setting")
 include(":modules:navigation")
 
-//include(":browser")
+include(":benchmarks")
 include(":modules:mvvn")
 include(":modules:analytics")
 
@@ -44,5 +44,5 @@ include(":modules:analytics")
 include(":composeApp")
 include(":shared")
 
-//include(":server")
+include(":modules:ui")
 

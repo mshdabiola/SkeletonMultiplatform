@@ -4,8 +4,61 @@ import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
+
+    id("mshdabiola.android.application")
+    id("mshdabiola.android.application.compose")
+    id("mshdabiola.android.application.jacoco")
+    id("jacoco")
+    id("mshdabiola.android.application.firebase")
+    alias(libs.plugins.androidx.baselineprofile)
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.roborazzi)
+}
+dependencies{
+
+    implementation(project(":modules:app"))
+    implementation(project(":modules:model"))
+    implementation(project(":modules:data"))
+    implementation(project(":modules:navigation"))
+    implementation(project(":modules:analytics"))
+    implementation(project(":modules:mvvn"))
+    implementation(project(":modules:designsystem"))
+
+
+
+    implementation(libs.decompose.core)
+    implementation(libs.decompose.compose.jetbrains)
+
+
+    implementation(libs.koin.core)
+    implementation(libs.koin.android.compose)
+    implementation(libs.koin.android)
+
+    implementation(libs.androidx.metrics)
+
+    implementation(libs.timber)
+    debugImplementation(libs.leakcanary.android)
+
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.tracing.ktx)
+    implementation(libs.androidx.profileinstaller)
+
+    debugImplementation(libs.androidx.compose.ui.testManifest)
+
+
+    testImplementation(project(":modules:testing"))
+    testImplementation(libs.accompanist.testharness)
+
+    testImplementation(libs.robolectric)
+    testImplementation(libs.roborazzi)
+
+    androidTestImplementation(project(":modules:testing"))
+    androidTestImplementation(libs.accompanist.testharness)
+    debugImplementation (libs.androidx.monitor)
+    baselineProfile(project(":benchmarks"))
 }
 
 kotlin {
@@ -50,6 +103,10 @@ kotlin {
             implementation(compose.desktop.currentOs)
             implementation(project(":modules:designsystem"))
             implementation(project(":modules:app"))
+            implementation(project(":modules:model"))
+            implementation(project(":modules:analytics"))
+            implementation(project(":modules:mvvn"))
+
             implementation(libs.kotlinx.coroutines.swing)
 
             implementation(libs.decompose.core)
@@ -150,4 +207,15 @@ compose.desktop {
 
 compose.experimental {
     web.application {}
+}
+
+
+baselineProfile {
+    // Don't build on every iteration of a full assemble.
+    // Instead enable generation directly for the release build variant.
+    automaticGenerationDuringBuild = true
+}
+
+dependencyGuard {
+    configuration("releaseRuntimeClasspath")
 }

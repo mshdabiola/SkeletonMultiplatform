@@ -15,23 +15,22 @@ import com.mshdabiola.skeletonapp.screen.detail.DetailScreenn
 import com.mshdabiola.skeletonapp.screen.main.MainScreenNav
 
 
-@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Composable
-fun SkeletonAppNavHost(modifier: Modifier,iRootComponent: IRootComponent,windowSizeClass: WindowSizeClass) {
+fun SkeletonAppNavHost(appState: SkAppState) {
 
     Children(
-        stack = iRootComponent.stack,
-        modifier = modifier,
+        stack = appState.navController.stack,
+        modifier = Modifier,
         animation = stackAnimation(fade() + slide())
     ) {
 
         when (it.instance) {
             is IRootComponent.RootScreen.MainRootScreen -> {
-                MainScreenNav { iRootComponent.navigateToDetail() }
+                MainScreenNav { appState.navController.navigateToDetail() }
             }
 
             is IRootComponent.RootScreen.DetailRootScreen -> {
-                DetailScreenn(windowSizeClass) {
+                DetailScreenn(appState.windowSizeClass) {
 
                 }
             }

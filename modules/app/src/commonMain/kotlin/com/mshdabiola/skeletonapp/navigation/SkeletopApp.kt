@@ -20,11 +20,11 @@ fun SkeletonApp(context: DefaultComponentContext, isDarkMode: Boolean) {
     val windowSizeClass =   calculateWindowSizeClass()
 
     SkTheme {
-        SkeletonAppNavHost(
-            iRootComponent = rootComp,
-            modifier = Modifier.fillMaxSize(),
-            windowSizeClass = windowSizeClass
-        )
+//        SkeletonAppNavHost(
+//            iRootComponent = rootComp,
+//            modifier = Modifier.fillMaxSize(),
+//            windowSizeClass = windowSizeClass
+//        )
     }
 
 

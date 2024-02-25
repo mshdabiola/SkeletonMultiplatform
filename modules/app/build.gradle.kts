@@ -23,6 +23,8 @@ kotlin {
 
                 implementation(project(":modules:designsystem"))
                 implementation(project(":modules:model"))
+                implementation(project(":modules:analytics"))
+
                 implementation(libs.kotlinx.collection.immutable)
 
             }
