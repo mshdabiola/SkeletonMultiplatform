@@ -19,9 +19,9 @@ data class UserDataSer(
     val darkThemeConfig: DarkThemeConfig,
     val useDynamicColor: Boolean,
     val shouldHideOnboarding: Boolean,
-    val contrast: Contrast
+    val contrast: Contrast,
 )
 
-fun UserData.toSer()=UserDataSer(themeBrand, darkThemeConfig, useDynamicColor, shouldHideOnboarding, contrast)
+fun UserData.toSer() = UserDataSer(themeBrand, darkThemeConfig, useDynamicColor, shouldHideOnboarding, contrast)
 
-fun UserDataSer.toData()=UserData(themeBrand, darkThemeConfig, useDynamicColor, shouldHideOnboarding, contrast)
+fun UserDataSer.toData() = UserData(themeBrand, darkThemeConfig, useDynamicColor, shouldHideOnboarding, contrast)

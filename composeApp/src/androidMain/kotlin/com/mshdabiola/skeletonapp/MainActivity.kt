@@ -10,12 +10,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
-import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -32,13 +26,6 @@ import com.google.firebase.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.remoteconfig.remoteConfig
 import com.google.firebase.remoteconfig.remoteConfigSettings
-import com.mshdabiola.analytics.AnalyticsHelper
-import com.mshdabiola.analytics.LocalAnalyticsHelper
-import com.mshdabiola.data.util.NetworkMonitor
-import com.mshdabiola.designsystem.theme.SkTheme
-import com.mshdabiola.model.Contrast
-import com.mshdabiola.model.DarkThemeConfig
-import com.mshdabiola.model.ThemeBrand
 import com.mshdabiola.skeletonapp.navigation.SkeletonApp
 import com.mshdabiola.skeletonapp.navigation.shouldUseDarkTheme
 import kotlinx.coroutines.flow.collect
@@ -48,7 +35,6 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.compose.viewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
-import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
 
@@ -57,9 +43,7 @@ class MainActivity : ComponentActivity() {
 //    @Inject
 //    lateinit var networkMonitor: NetworkMonitor
 
-
     private val viewModel: MainAppViewModel by viewModel()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -162,11 +146,9 @@ class MainActivity : ComponentActivity() {
                 defaultComponentContext()
             }
 
-
             SkeletonApp(
                 context = context,
             )
-
         }
     }
 }

@@ -13,5 +13,4 @@ actual open class ViewModel actual constructor() {
         viewModelScope.coroutineContext.cancel()
         viewModelScope.cancel()
     }
-
 }

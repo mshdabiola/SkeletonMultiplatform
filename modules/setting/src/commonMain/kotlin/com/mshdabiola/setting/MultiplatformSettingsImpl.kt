@@ -24,7 +24,7 @@ import kotlinx.serialization.json.Json
 
 internal class MultiplatformSettingsImpl(
     private val settings: DataStore<Preferences>,
-    private val coroutineDispatcher: CoroutineDispatcher
+    private val coroutineDispatcher: CoroutineDispatcher,
 ) : MultiplatformSettings {
 
     private val nameKey = stringPreferencesKey("Namme")
@@ -37,29 +37,32 @@ internal class MultiplatformSettingsImpl(
             val userData = it[userDataKey]
             if (userData != null) {
                 Json.decodeFromString<UserDataSer>(userData).toData()
-            } else
-               UserData(
-                   themeBrand = ThemeBrand.DEFAULT,
-                   darkThemeConfig = DarkThemeConfig.LIGHT,
-                   useDynamicColor = false,
-                   shouldHideOnboarding = false,
-                   contrast = Contrast.Normal
-               )
+            } else {
+                UserData(
+                    themeBrand = ThemeBrand.DEFAULT,
+                    darkThemeConfig = DarkThemeConfig.LIGHT,
+                    useDynamicColor = false,
+                    shouldHideOnboarding = false,
+                    contrast = Contrast.Normal,
+                )
+            }
         }
-    //.getStringFlow("NAME","Jamiu")
+
+    // .getStringFlow("NAME","Jamiu")
     override val dummy: Flow<DummySetting>
         get() = settings.data.map {
             val jjj = it[nameKey]
             if (jjj != null) {
                 Json.decodeFromString<Dummy>(jjj).toDummySetting()
-            } else
+            } else {
                 Keys.Defaults.defaultDummy.toDummySetting()
+            }
         }
 
     // MutableStateFlow(Keys.Defaults.defaultDummy.toDummySetting())
 
     override suspend fun setName(name: String) {
-        settings.edit { it[nameKey] = name }//("NAME",name)
+        settings.edit { it[nameKey] = name } // ("NAME",name)
     }
 
     override suspend fun setDummy(dummy: DummySetting) {
@@ -70,35 +73,32 @@ internal class MultiplatformSettingsImpl(
     }
 
     override suspend fun setThemeBrand(themeBrand: ThemeBrand) {
-        val userData= userData.first().copy(themeBrand = themeBrand)
-        val userDataStr=Json.encodeToString(userData.toSer())
-        settings.edit { it[userDataKey]=userDataStr }
-
+        val userData = userData.first().copy(themeBrand = themeBrand)
+        val userDataStr = Json.encodeToString(userData.toSer())
+        settings.edit { it[userDataKey] = userDataStr }
     }
 
     override suspend fun setThemeContrast(contrast: Contrast) {
-        val userData= userData.first().copy(contrast = contrast)
-        val userDataStr=Json.encodeToString(userData.toSer())
-        settings.edit { it[userDataKey]=userDataStr }
+        val userData = userData.first().copy(contrast = contrast)
+        val userDataStr = Json.encodeToString(userData.toSer())
+        settings.edit { it[userDataKey] = userDataStr }
     }
 
     override suspend fun setDynamicColorPreference(useDynamicColor: Boolean) {
-        val userData= userData.first().copy(useDynamicColor = useDynamicColor)
-        val userDataStr=Json.encodeToString(userData.toSer())
-        settings.edit { it[userDataKey]=userDataStr }
+        val userData = userData.first().copy(useDynamicColor = useDynamicColor)
+        val userDataStr = Json.encodeToString(userData.toSer())
+        settings.edit { it[userDataKey] = userDataStr }
     }
 
     override suspend fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig) {
-        val userData= userData.first().copy(darkThemeConfig = darkThemeConfig)
-        val userDataStr=Json.encodeToString(userData.toSer())
-        settings.edit { it[userDataKey]=userDataStr }
+        val userData = userData.first().copy(darkThemeConfig = darkThemeConfig)
+        val userDataStr = Json.encodeToString(userData.toSer())
+        settings.edit { it[userDataKey] = userDataStr }
     }
 
     override suspend fun setShouldHideOnboarding(shouldHideOnboarding: Boolean) {
-        val userData= userData.first().copy(shouldHideOnboarding = shouldHideOnboarding)
-        val userDataStr=Json.encodeToString(userData.toSer())
-        settings.edit { it[userDataKey]=userDataStr }
+        val userData = userData.first().copy(shouldHideOnboarding = shouldHideOnboarding)
+        val userDataStr = Json.encodeToString(userData.toSer())
+        settings.edit { it[userDataKey] = userDataStr }
     }
-
-
 }

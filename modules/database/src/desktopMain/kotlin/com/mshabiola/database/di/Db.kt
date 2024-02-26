@@ -8,7 +8,6 @@ fun withDatabase(path: String): JdbcSqliteDriver {
     return JdbcSqliteDriver("jdbc:sqlite:$path").apply {
         migrateIfNeeded(this)
     }
-
 }
 
 private const val versionPragma = "user_version"
@@ -21,10 +20,9 @@ fun migrateIfNeeded(driver: JdbcSqliteDriver) {
                     cursor.getLong(0)
                 } else {
                     null
-                }
+                },
             )
         }).value ?: 0
-
 
     val newVersion = TempDatabase.Schema.version
 

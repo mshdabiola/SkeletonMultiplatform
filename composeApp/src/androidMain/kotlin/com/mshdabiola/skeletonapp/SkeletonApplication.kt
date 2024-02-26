@@ -19,7 +19,6 @@ class SkeletonApplication : Application() {
         startKoin {
             androidContext(this@SkeletonApplication)
             modules(appModule, jankStatsModule)
-
         }
 
         if (packageName.contains("debug")) {

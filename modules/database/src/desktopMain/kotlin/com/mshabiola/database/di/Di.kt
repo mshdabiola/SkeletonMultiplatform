@@ -30,10 +30,9 @@ actual val databaseModule: Module
         }
 
         includes(daoModules)
-
     }
 
-//private var version: Int
+// private var version: Int
 //    get() {
 //        val sqlCursor = driver.executeQuery(null, "PRAGMA user_version;", 0, null)
 //        return sqlCursor.getLong(0)!!.toInt()

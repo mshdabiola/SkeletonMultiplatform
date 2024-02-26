@@ -10,5 +10,4 @@ actual open class ViewModel actual constructor() : AndroidXViewModel() {
     protected actual override fun onCleared() {
         super.onCleared()
     }
-
 }

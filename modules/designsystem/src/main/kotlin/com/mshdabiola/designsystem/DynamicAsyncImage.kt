@@ -27,7 +27,6 @@ import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter.State.Error
 import coil.compose.AsyncImagePainter.State.Loading
 import coil.compose.rememberAsyncImagePainter
-import com.mshdabiola.designsystem.R
 import com.mshdabiola.designsystem.theme.LocalTintTheme
 
 /**

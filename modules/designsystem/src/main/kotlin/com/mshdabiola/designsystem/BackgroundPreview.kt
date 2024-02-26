@@ -10,7 +10,6 @@ import com.mshdabiola.designsystem.component.SkBackground
 import com.mshdabiola.designsystem.component.SkGradientBackground
 import com.mshdabiola.designsystem.theme.SkTheme
 
-
 /**
  * Multipreview annotation that represents light and dark themes. Add this annotation to a
  * composable to render the both themes.

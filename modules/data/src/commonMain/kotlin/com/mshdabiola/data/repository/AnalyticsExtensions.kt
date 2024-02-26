@@ -43,7 +43,7 @@ internal fun AnalyticsHelper.logThemeChanged(themeName: String) =
         ),
     )
 
-internal fun AnalyticsHelper.logContrastChanged(contrastName : String) =
+internal fun AnalyticsHelper.logContrastChanged(contrastName: String) =
     logEvent(
         AnalyticsEvent(
             type = "Contrast_changed",

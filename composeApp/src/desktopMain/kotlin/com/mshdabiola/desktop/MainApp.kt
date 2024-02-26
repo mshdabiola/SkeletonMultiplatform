@@ -1,13 +1,6 @@
 package com.mshdabiola.desktop
 
-
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
-import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -26,28 +19,17 @@ import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.decompose.ExperimentalDecomposeApi
 import com.arkivanov.decompose.extensions.compose.lifecycle.LifecycleController
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
-import com.mshdabiola.analytics.LocalAnalyticsHelper
-import com.mshdabiola.designsystem.theme.SkTheme
-import com.mshdabiola.model.Contrast
-import com.mshdabiola.model.DarkThemeConfig
-import com.mshdabiola.model.ThemeBrand
-import com.mshdabiola.skeletonapp.MainActivityUiState
-import com.mshdabiola.skeletonapp.MainAppViewModel
 import com.mshdabiola.skeletonapp.di.appModule
 import com.mshdabiola.skeletonapp.navigation.SkeletonApp
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 import org.koin.core.context.GlobalContext.startKoin
-import org.koin.java.KoinJavaComponent.inject
 import java.util.prefs.Preferences
 
-//import com.toxicbakery.logging.Arbor
-//import com.toxicbakery.logging.Seedling
+// import com.toxicbakery.logging.Arbor
+// import com.toxicbakery.logging.Seedling
 
 @OptIn(ExperimentalDecomposeApi::class, ExperimentalMaterial3WindowSizeClassApi::class)
 fun mainApp(appArgs: AppArgs) {
-    val preference = Preferences.userRoot()//.node("main")
+    val preference = Preferences.userRoot() // .node("main")
     val isLightKey = "isLight"
 
     val life = LifecycleRegistry()
@@ -56,7 +38,7 @@ fun mainApp(appArgs: AppArgs) {
         val windowState = rememberWindowState(
             size = DpSize(width = 1100.dp, height = 600.dp),
             placement = WindowPlacement.Maximized,
-            position = WindowPosition.Aligned(Alignment.Center)
+            position = WindowPosition.Aligned(Alignment.Center),
         )
         LifecycleController(life, windowState)
         var isLight by remember { mutableStateOf(preference.getBoolean(isLightKey, false)) }
@@ -83,22 +65,17 @@ fun mainApp(appArgs: AppArgs) {
                             preference.flush()
                         }
                     }
-
                 }
             }
 
             SkeletonApp(
                 context = defaultComponentContext,
             )
-
-
         }
-
     }
 }
 
 fun main() {
-
     startKoin {
         modules(appModule)
     }
@@ -106,9 +83,8 @@ fun main() {
     val appArgs = AppArgs(
         appName = "Skeleton App", // To show on title bar
         version = "v2.0.0", // To show on title inside brackets
-        versionCode = 100 // To compare with latest version code (in case if you want to prompt update)
+        versionCode = 100, // To compare with latest version code (in case if you want to prompt update)
     )
 
     mainApp(appArgs)
 }
-

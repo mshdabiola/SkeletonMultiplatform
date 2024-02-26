@@ -9,15 +9,12 @@ import okio.Path.Companion.toPath
 object Keys {
     const val setting = "dummy"
 
-
     object Defaults {
         val defaultDummy = Dummy("abiola", "male")
     }
 }
 
-
 internal const val dataStoreFileName = "meetings.preferences_pb"
-
 
 fun createDataStore(
     producePath: () -> String,

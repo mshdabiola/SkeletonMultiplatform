@@ -16,9 +16,8 @@ import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
-
 val dataModule = module {
-    includes(settingModule, databaseModule, networkModule,analyticsModule)
+    includes(settingModule, databaseModule, networkModule, analyticsModule)
     singleOf(::SettingRepository) bind ISettingRepository::class
     singleOf(::RealINetworkRepository) bind INetworkRepository::class
     singleOf(::RealModelRepository) bind IModelRepository::class

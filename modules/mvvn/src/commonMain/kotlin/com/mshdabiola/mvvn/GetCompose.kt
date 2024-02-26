@@ -7,8 +7,7 @@ import androidx.compose.ui.semantics.SemanticsPropertyReceiver
 @Composable
 expect inline fun <reified T : ViewModel> KoinCommonViewModel(): T
 
-
 expect fun Modifier.semanticsCommon(
     mergeDescendants: Boolean = false,
-    properties: (SemanticsPropertyReceiver.() -> Unit)
+    properties: (SemanticsPropertyReceiver.() -> Unit),
 ): Modifier

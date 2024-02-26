@@ -3,7 +3,6 @@ package com.mshdabiola.navigation
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.router.stack.StackNavigation
-import com.arkivanov.decompose.router.stack.backStack
 import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
@@ -13,7 +12,6 @@ class RootComponent(
     componentContext: ComponentContext,
 ) : IRootComponent, ComponentContext by componentContext {
     private val navigation = StackNavigation<Config>()
-
 
     override val stack: Value<ChildStack<*, IRootComponent.RootScreen>>
         get() = _stack
@@ -27,34 +25,34 @@ class RootComponent(
         initialConfiguration = Config.Main,
         serializer = Config.serializer(),
         handleBackButton = true,
-        childFactory = ::factory
+        childFactory = ::factory,
     )
 
     @Serializable
-    private sealed interface Config  {
+    private sealed interface Config {
 
         @Serializable
         data object Main : Config
+
         @Serializable
         data object Splash : Config
-
     }
 
     private fun factory(
         config: Config,
-        componentContext: ComponentContext
+        componentContext: ComponentContext,
     ): IRootComponent.RootScreen {
         return when (config) {
             is Config.Splash -> IRootComponent.RootScreen.DetailRootScreen(
                 navigateToSplash(
-                    componentContext
-                )
+                    componentContext,
+                ),
             )
 
             is Config.Main -> IRootComponent.RootScreen.MainRootScreen(
                 navigateToMain(
-                    componentContext
-                )
+                    componentContext,
+                ),
             )
         }
     }

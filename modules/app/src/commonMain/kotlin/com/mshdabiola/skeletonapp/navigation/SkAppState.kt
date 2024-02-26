@@ -10,11 +10,9 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.mshdabiola.navigation.IRootComponent
-import com.mshdabiola.navigation.RootComponent
 import kotlinx.coroutines.CoroutineScope
 
 @Composable
@@ -49,7 +47,6 @@ class SkAppState(
             .stack
             .subscribeAsState()
 
-
 //    val shouldShowBottomBar: Boolean
 //        get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact
 
@@ -65,8 +62,8 @@ class SkAppState(
 //        )
 }
 //
-//@Composable
-//private fun NavigationTrackingSideEffect(navController: NavHostController) {
+// @Composable
+// private fun NavigationTrackingSideEffect(navController: NavHostController) {
 //    TrackDisposableJank(navController) { metricsHolder ->
 //        val listener = NavController.OnDestinationChangedListener { _, destination, _ ->
 //            metricsHolder.state?.putState("Navigation", destination.route.toString())
@@ -78,4 +75,4 @@ class SkAppState(
 //            navController.removeOnDestinationChangedListener(listener)
 //        }
 //    }
-//}
+// }

@@ -11,12 +11,11 @@ interface MultiplatformSettings {
 
     val name: Flow<String>
     val dummy: Flow<DummySetting>
-    val userData :Flow<UserData>
+    val userData: Flow<UserData>
 
     suspend fun setName(name: String)
 
     suspend fun setDummy(dummy: DummySetting)
-
 
     suspend fun setThemeBrand(themeBrand: ThemeBrand)
 
@@ -25,7 +24,6 @@ interface MultiplatformSettings {
     suspend fun setDynamicColorPreference(useDynamicColor: Boolean)
 
     suspend fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig)
-
 
     suspend fun setShouldHideOnboarding(shouldHideOnboarding: Boolean)
 }

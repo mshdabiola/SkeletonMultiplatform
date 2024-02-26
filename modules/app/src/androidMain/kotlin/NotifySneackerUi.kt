@@ -1,16 +1,16 @@
 package com.mshdabiola.ui
 //
-//import androidx.compose.material3.SnackbarDuration
-//import androidx.compose.material3.SnackbarHostState
-//import androidx.compose.material3.SnackbarResult
-//import androidx.compose.runtime.Composable
-//import androidx.compose.runtime.LaunchedEffect
-//import com.mshdabiola.ui.data.Notify
-//import kotlinx.collections.immutable.ImmutableList
+// import androidx.compose.material3.SnackbarDuration
+// import androidx.compose.material3.SnackbarHostState
+// import androidx.compose.material3.SnackbarResult
+// import androidx.compose.runtime.Composable
+// import androidx.compose.runtime.LaunchedEffect
+// import com.mshdabiola.ui.data.Notify
+// import kotlinx.collections.immutable.ImmutableList
 //
 //
-//@Composable
-//fun NotifySnacker(snackHostState: SnackbarHostState, notifys: ImmutableList<Notify>) {
+// @Composable
+// fun NotifySnacker(snackHostState: SnackbarHostState, notifys: ImmutableList<Notify>) {
 //    LaunchedEffect(key1 = notifys, block = {
 //        if (notifys.isNotEmpty()) {
 //            val first = notifys.first()
@@ -30,4 +30,4 @@ package com.mshdabiola.ui
 //            }
 //        }
 //    })
-//}
+// }

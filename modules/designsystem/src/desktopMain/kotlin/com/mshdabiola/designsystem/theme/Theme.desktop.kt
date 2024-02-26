@@ -5,7 +5,7 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 
 actual fun supportsDynamicTheming(): Boolean {
-  return false
+    return false
 }
 
 @Composable

@@ -12,10 +12,7 @@ actual val analyticsModule: Module
         single {
             object : AnalyticsHelper {
                 override fun logEvent(event: AnalyticsEvent) {
-
                 }
             }
         } bind AnalyticsHelper::class
-
-
     }

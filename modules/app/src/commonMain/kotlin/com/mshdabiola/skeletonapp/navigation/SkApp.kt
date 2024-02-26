@@ -45,11 +45,11 @@ import com.mshdabiola.model.Contrast
 import com.mshdabiola.model.DarkThemeConfig
 import com.mshdabiola.model.ThemeBrand
 import com.mshdabiola.mvvn.KoinCommonViewModel
+import com.mshdabiola.mvvn.collectAsStateWithLifecycleCommon
+import com.mshdabiola.mvvn.get
 import com.mshdabiola.navigation.RootComponent
 import com.mshdabiola.skeletonapp.MainActivityUiState
 import com.mshdabiola.skeletonapp.MainAppViewModel
-import com.mshdabiola.mvvn.*
-import org.koin.java.KoinJavaComponent.inject
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Composable
@@ -57,13 +57,11 @@ fun SkeletonApp(
     context: DefaultComponentContext,
 
 ) {
-
-
-    val rootComp = remember {  RootComponent(context)}
-    val windowSizeClass =   calculateWindowSizeClass()
-    val appState= rememberSkAppState(
-    windowSizeClass = windowSizeClass,
-    navController =rootComp
+    val rootComp = remember { RootComponent(context) }
+    val windowSizeClass = calculateWindowSizeClass()
+    val appState = rememberSkAppState(
+        windowSizeClass = windowSizeClass,
+        navController = rootComp,
     )
     val shouldShowGradientBackground = false
 
@@ -103,7 +101,7 @@ fun SkeletonApp(
 //            }
 
                     Scaffold(
-                        modifier = Modifier.semantics {  },
+                        modifier = Modifier.semantics { },
                         containerColor = Color.Transparent,
                         contentColor = MaterialTheme.colorScheme.onBackground,
                         contentWindowInsets = WindowInsets(0, 0, 0, 0),
@@ -123,7 +121,7 @@ fun SkeletonApp(
 //                    }
                         },
 
-                        ) { padding ->
+                    ) { padding ->
 
                         Column(
                             Modifier
@@ -141,12 +139,7 @@ fun SkeletonApp(
             }
         }
     }
-
-
 }
-
-
-
 
 @Composable
 private fun chooseTheme(
@@ -173,7 +166,7 @@ private fun shouldDisableDynamicTheming(
 }
 
 @Composable
- fun shouldUseDarkTheme(
+fun shouldUseDarkTheme(
     uiState: MainActivityUiState,
 ): Boolean =
     when (uiState) {

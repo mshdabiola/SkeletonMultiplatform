@@ -26,9 +26,11 @@ fun <T : HttpClientEngineConfig> HttpClientConfig<T>.init() {
         level = LogLevel.ALL
     }
     install(ContentNegotiation) {
-        json(Json {
-            this.ignoreUnknownKeys = true
-        })
+        json(
+            Json {
+                this.ignoreUnknownKeys = true
+            },
+        )
     }
 //    defaultRequest {
 //        headers {

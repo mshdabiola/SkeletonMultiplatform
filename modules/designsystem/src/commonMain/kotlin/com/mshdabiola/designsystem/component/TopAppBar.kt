@@ -28,7 +28,7 @@ import org.jetbrains.compose.resources.stringResource
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalResourceApi::class)
 @Composable
 fun SkTopAppBar(
-     titleRes :StringResource,
+    titleRes: StringResource,
     navigationIcon: ImageVector,
     navigationIconContentDescription: String,
     actionIcon: ImageVector,
@@ -39,7 +39,7 @@ fun SkTopAppBar(
     onActionClick: () -> Unit = {},
 ) {
     CenterAlignedTopAppBar(
-        title = { Text(text = stringResource( titleRes)) },
+        title = { Text(text = stringResource(titleRes)) },
         navigationIcon = {
             IconButton(onClick = onNavigationClick) {
                 Icon(

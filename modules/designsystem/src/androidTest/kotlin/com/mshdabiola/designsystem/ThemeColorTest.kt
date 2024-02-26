@@ -42,7 +42,7 @@ import kotlin.test.assertEquals
  * [LocalBackgroundTheme] — have the expected values for a given theme mode, as specified by the
  * design system.
  */
-class ThemeTest {
+class ThemeColorTest {
 
     @get:Rule
     val composeTestRule = createComposeRule()

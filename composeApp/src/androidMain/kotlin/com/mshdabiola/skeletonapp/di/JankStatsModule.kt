@@ -11,7 +11,7 @@ import androidx.metrics.performance.JankStats
 import androidx.metrics.performance.JankStats.OnFrameListener
 import org.koin.dsl.module
 
-val jankStatsModule= module {
+val jankStatsModule = module {
 
     single {
         OnFrameListener { frameData ->
@@ -23,9 +23,8 @@ val jankStatsModule= module {
         }
     }
 
-  single {
-      val context:Context=get()
-      JankStats.createAndTrack((context as Activity).window, get())
-  }
-
+    single {
+        val context: Context = get()
+        JankStats.createAndTrack((context as Activity).window, get())
+    }
 }

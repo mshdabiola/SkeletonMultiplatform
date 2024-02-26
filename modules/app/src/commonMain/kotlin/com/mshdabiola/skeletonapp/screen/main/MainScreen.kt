@@ -29,7 +29,7 @@ import com.mshdabiola.mvvn.KoinCommonViewModel
 import com.mshdabiola.mvvn.collectAsStateWithLifecycleCommon
 import kotlinx.collections.immutable.ImmutableList
 
-//import org.koin.androidx.compose.koinViewModel
+// import org.koin.androidx.compose.koinViewModel
 
 @Composable
 internal fun MainScreen(onBack: () -> Unit) {
@@ -41,7 +41,7 @@ internal fun MainScreen(onBack: () -> Unit) {
         back = onBack,
         mainState = mainState.value,
         items = modelst.value,
-        setName = viewModel::addName
+        setName = viewModel::addName,
     )
 }
 
@@ -51,7 +51,7 @@ internal fun MainScreen(
     mainState: MainState = MainState(),
     back: () -> Unit = {},
     items: ImmutableList<ModelUiState>,
-    setName: (String) -> Unit = {}
+    setName: (String) -> Unit = {},
 ) {
     val snackbarHostState = remember {
         SnackbarHostState()
@@ -64,7 +64,7 @@ internal fun MainScreen(
     }
 //    NotifySnacker(snackHostState = snackbarHostState, notifys = mainState.messages)
     Scaffold(
-        modifier = Modifier,//.semantics { this.testTagsAsResourceId = true },
+        modifier = Modifier, // .semantics { this.testTagsAsResourceId = true },
         topBar = {
             TopAppBar(
                 navigationIcon = {
@@ -77,7 +77,7 @@ internal fun MainScreen(
                 },
             )
         },
-        snackbarHost = { SnackbarHost(snackbarHostState) }
+        snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
         Column(Modifier.padding(paddingValues)) {
             TextField(
@@ -91,14 +91,14 @@ internal fun MainScreen(
                 onClick = {
                     setName(name)
                     name = ""
-
-                }) {
+                },
+            ) {
                 Text(text = "Add Test")
             }
             LazyColumn(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(1f)
+                    .weight(1f),
             ) {
                 items(items) {
                     Text(text = it.name)
@@ -108,14 +108,14 @@ internal fun MainScreen(
     }
 }
 //
-//@Preview
-//@Composable
-//fun MainScreenPreview() {
+// @Preview
+// @Composable
+// fun MainScreenPreview() {
 //    MainScreen(
 //        mainState = MainState(),
 //       items =listOf(ModelUiState(2, "")).toImmutableList()
 //    )
-//}
+// }
 
 @Composable
 expect fun MainScreenPreview()

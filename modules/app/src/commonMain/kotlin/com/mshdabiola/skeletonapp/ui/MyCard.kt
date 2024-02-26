@@ -20,16 +20,14 @@ import androidx.compose.ui.unit.dp
 fun MyCard() {
     Card(
         Modifier.height(180.dp).fillMaxWidth().padding(16.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary)
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary),
     ) {
         Column(Modifier.fillMaxSize().padding(16.dp)) {
             Text("Card", style = MaterialTheme.typography.headlineMedium)
             Icon(Icons.Default.Android, "")
         }
-
     }
 }
-
 
 @Composable
 expect fun MycardPrev()

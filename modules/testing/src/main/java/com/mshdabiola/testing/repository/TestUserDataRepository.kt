@@ -22,7 +22,7 @@ val emptyUserData = UserData(
     darkThemeConfig = DarkThemeConfig.FOLLOW_SYSTEM,
     useDynamicColor = false,
     shouldHideOnboarding = false,
-    contrast = Contrast.Normal
+    contrast = Contrast.Normal,
 )
 
 class TestUserDataRepository : UserDataRepository {

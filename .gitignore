@@ -255,3 +255,4 @@ local.properties
 /common/designsystem/build/classes/kotlin/desktop/main/com/mshabiola/theme/TypeKt.class
 /composeApp/build/
 /shared/build/
+/modules/build/

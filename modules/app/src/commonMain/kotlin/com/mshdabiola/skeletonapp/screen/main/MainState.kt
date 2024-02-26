@@ -2,16 +2,15 @@ package com.mshdabiola.skeletonapp.screen.main
 
 import com.mshdabiola.model.Model
 
-
-//sealed interface MainState {
+// sealed interface MainState {
 //    data class Show(val models: List<ModelUiState>) : MainState
 //    object Error : MainState
 //
 //    object Loading : MainState
-//}
+// }
 
 data class MainState(
-    val name: String = "abiola"
+    val name: String = "abiola",
 //    val messages: ImmutableList<Notify> = emptyList<Notify>().toImmutableList()
 )
 

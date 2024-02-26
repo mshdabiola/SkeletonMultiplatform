@@ -20,11 +20,9 @@ abstract class AbstractTest : KoinTest {
 
                 TempDatabase(driver)
             }
-
         }
         // Your KoinApplication instance here
         modules(module, daoModules)
-
     }
 
     @Test
@@ -38,6 +36,4 @@ abstract class AbstractTest : KoinTest {
 
     @Test
     abstract fun getAll()
-
-
 }

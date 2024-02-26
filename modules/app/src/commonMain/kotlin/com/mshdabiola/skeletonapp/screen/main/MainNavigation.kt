@@ -8,4 +8,3 @@ fun MainScreenNav(onBack: () -> Unit) {
         onBack()
     }
 }
-

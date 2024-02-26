@@ -16,7 +16,6 @@ import androidx.compose.ui.unit.dp
 import com.mshdabiola.model.Contrast
 import com.mshdabiola.model.ThemeBrand
 
-
 @Immutable
 data class ColorFamily(
     val color: Color,
@@ -33,16 +32,16 @@ val unspecified_scheme = ColorFamily(
 )
 
 @Composable
-fun  SkTheme(
+fun SkTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     themeBrand: ThemeBrand = ThemeBrand.DEFAULT,
     themeContrast: Contrast = Contrast.Normal,
     disableDynamicTheming: Boolean = true,
     content: @Composable () -> Unit,
 ) {
-    val theme = when (themeBrand) {
-        ThemeBrand.GREEN -> Theme.GreenTheme(darkTheme, themeContrast)
-        else -> Theme.DefaultTheme(darkTheme, themeContrast)
+    val themeColor = when (themeBrand) {
+        ThemeBrand.GREEN -> ThemeColor.GreenThemeColor(darkTheme, themeContrast)
+        else -> ThemeColor.DefaultThemeColor(darkTheme, themeContrast)
     }
 
     val useDynamicTheme = when {
@@ -53,18 +52,22 @@ fun  SkTheme(
     val colorScheme = if (useDynamicTheme && supportsDynamicTheming()) {
         getDynamicColor(darkTheme)
     } else {
-        theme.getColorScheme()
+        themeColor.getColorScheme()
     }
 
     // Composition locals
     CompositionLocalProvider(
-        LocalGradientColors provides if (useDynamicTheme) GradientColors(
-            container = colorScheme.surfaceColorAtElevation(
-                2.dp,
-            ),
-        ) else theme.getGradientColors(),
-        LocalBackgroundTheme provides theme.getBackgroundTheme(),
-        LocalTintTheme provides theme.getTintTheme(),
+        LocalGradientColors provides if (useDynamicTheme) {
+            GradientColors(
+                container = colorScheme.surfaceColorAtElevation(
+                    2.dp,
+                ),
+            )
+        } else {
+            themeColor.getGradientColors()
+        },
+        LocalBackgroundTheme provides themeColor.getBackgroundTheme(),
+        LocalTintTheme provides themeColor.getTintTheme(),
     ) {
         MaterialTheme(
             colorScheme = colorScheme,
@@ -74,7 +77,7 @@ fun  SkTheme(
     }
 }
 
-expect fun supportsDynamicTheming() :Boolean
-@Composable
-expect fun getDynamicColor(darkTheme:Boolean):ColorScheme
+expect fun supportsDynamicTheming(): Boolean
 
+@Composable
+expect fun getDynamicColor(darkTheme: Boolean): ColorScheme
