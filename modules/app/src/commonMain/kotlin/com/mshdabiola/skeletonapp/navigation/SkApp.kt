@@ -47,6 +47,7 @@ import com.mshdabiola.model.ThemeBrand
 import com.mshdabiola.mvvn.KoinCommonViewModel
 import com.mshdabiola.mvvn.collectAsStateWithLifecycleCommon
 import com.mshdabiola.mvvn.get
+import com.mshdabiola.mvvn.semanticsCommon
 import com.mshdabiola.navigation.RootComponent
 import com.mshdabiola.skeletonapp.MainActivityUiState
 import com.mshdabiola.skeletonapp.MainAppViewModel
@@ -101,7 +102,7 @@ fun SkeletonApp(
 //            }
 
                     Scaffold(
-                        modifier = Modifier.semantics { },
+                        modifier = Modifier.semanticsCommon{},
                         containerColor = Color.Transparent,
                         contentColor = MaterialTheme.colorScheme.onBackground,
                         contentWindowInsets = WindowInsets(0, 0, 0, 0),

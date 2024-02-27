@@ -16,9 +16,10 @@ import com.google.accompanist.testharness.TestHarness
 import com.mshdabiola.designsystem.component.SkTopAppBar
 import com.mshdabiola.designsystem.icon.SkIcons
 import com.mshdabiola.designsystem.theme.SkTheme
+import com.mshdabiola.testing.TestApplication
 import com.mshdabiola.testing.util.DefaultRoborazziOptions
 import com.mshdabiola.testing.util.captureMultiTheme
-import dagger.hilt.android.testing.HiltTestApplication
+import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -30,7 +31,7 @@ import org.robolectric.annotation.LooperMode
 @OptIn(ExperimentalMaterial3Api::class)
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
-@Config(application = HiltTestApplication::class, qualifiers = "480dpi")
+@Config(qualifiers = "480dpi")
 @LooperMode(LooperMode.Mode.PAUSED)
 class TopAppBarScreenshotTests() {
 
@@ -66,8 +67,9 @@ class TopAppBarScreenshotTests() {
 
     @Composable
     private fun NiaTopAppBarExample() {
+
         SkTopAppBar(
-            titleRes = android.R.string.untitled,
+            titleRes = "Testing",
             navigationIcon = SkIcons.Search,
             navigationIconContentDescription = "Navigation icon",
             actionIcon = SkIcons.MoreVert,

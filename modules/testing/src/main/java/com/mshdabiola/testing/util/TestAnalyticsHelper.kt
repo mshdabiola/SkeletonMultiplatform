@@ -4,6 +4,9 @@
 
 package com.mshdabiola.testing.util
 
+import com.mshdabiola.analytics.AnalyticsEvent
+import com.mshdabiola.analytics.AnalyticsHelper
+
 class TestAnalyticsHelper : AnalyticsHelper {
 
     private val events = mutableListOf<AnalyticsEvent>()

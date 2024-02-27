@@ -22,6 +22,7 @@ import com.github.takahirom.roborazzi.RoborazziOptions.RecordOptions
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.google.accompanist.testharness.TestHarness
 import com.mshdabiola.designsystem.theme.SkTheme
+import com.mshdabiola.model.ThemeBrand
 import org.robolectric.RuntimeEnvironment
 
 val DefaultRoborazziOptions =
@@ -101,7 +102,7 @@ fun <A : ComponentActivity> AndroidComposeTestRule<ActivityScenarioRule<A>, A>.c
             LocalInspectionMode provides true,
         ) {
             SkTheme(
-                androidTheme = androidTheme,
+                themeBrand = ThemeBrand.DEFAULT,
                 darkTheme = darkMode,
                 disableDynamicTheming = !dynamicTheming,
             ) {
