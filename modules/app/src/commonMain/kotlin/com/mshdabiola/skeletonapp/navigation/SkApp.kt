@@ -48,6 +48,7 @@ import com.mshdabiola.mvvn.KoinCommonViewModel
 import com.mshdabiola.mvvn.collectAsStateWithLifecycleCommon
 import com.mshdabiola.mvvn.get
 import com.mshdabiola.mvvn.semanticsCommon
+import com.mshdabiola.navigation.IRootComponent
 import com.mshdabiola.navigation.RootComponent
 import com.mshdabiola.skeletonapp.MainActivityUiState
 import com.mshdabiola.skeletonapp.MainAppViewModel
@@ -108,7 +109,7 @@ fun SkeletonApp(
                         contentWindowInsets = WindowInsets(0, 0, 0, 0),
                         snackbarHost = { SnackbarHost(snackbarHostState) },
                         floatingActionButton = {
-//                    if (appState.currentDestination.value.backStack.first().instance is IRootComponent.RootScreen.MainRootScreen) {
+                    if (appState.currentDestination.value.active.instance is IRootComponent.RootScreen.MainRootScreen) {
                             ExtendedFloatingActionButton(
                                 modifier = Modifier
                                     .windowInsetsPadding(WindowInsets.safeDrawing)
@@ -119,7 +120,7 @@ fun SkeletonApp(
 //                            Spacer(modifier = )
                                 Text(text = "Add note")
                             }
-//                    }
+                    }
                         },
 
                     ) { padding ->
