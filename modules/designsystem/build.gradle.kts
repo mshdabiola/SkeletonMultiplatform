@@ -68,3 +68,4 @@ kotlin {
 
     }
 }
+task("testClasses")
