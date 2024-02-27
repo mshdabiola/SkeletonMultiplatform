@@ -46,7 +46,7 @@ fun mainApp(appArgs: AppArgs) {
         Window(
             onCloseRequest = ::exitApplication,
             title = "${appArgs.appName} (${appArgs.version})",
-            icon = painterResource("drawables/launcher/system.png"),
+            icon = painterResource("drawable/launcher/system.png"),
             state = windowState,
         ) {
             MenuBar {

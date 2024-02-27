@@ -28,11 +28,6 @@ dependencies{
 
 
 
-    implementation(libs.decompose.core)
-    implementation(libs.decompose.compose.jetbrains)
-
-
-    implementation(libs.koin.core)
     implementation(libs.koin.android.compose)
     implementation(libs.koin.android)
 
@@ -99,6 +94,13 @@ kotlin {
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
             implementation(project(":shared"))
+
+            implementation(libs.androidx.compose.material3.windowSizeClass)
+
+            implementation(libs.decompose.core)
+            implementation(libs.decompose.compose.jetbrains)
+
+            implementation(libs.koin.core)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -110,9 +112,6 @@ kotlin {
 
             implementation(libs.kotlinx.coroutines.swing)
 
-            implementation(libs.decompose.core)
-            implementation(libs.decompose.compose.jetbrains)
-            implementation(libs.koin.core)
         }
     }
 }
@@ -121,7 +120,7 @@ android {
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")
-    sourceSets["main"].resources.srcDirs("src/commonMain/resources")
+    sourceSets["main"].resources.srcDirs("src/commonMain/composeResources")
 
     namespace = "com.mshdabiola.skeletonapp"
 
@@ -199,7 +198,7 @@ compose.desktop {
             version.set("7.3.0")
         }
 
-        val iconsRoot = project.file("src/main/resources/drawables/launcher")
+        val iconsRoot = project.file("src/main/composeResources/drawable/launcher")
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageVersion = "1.0.1"
