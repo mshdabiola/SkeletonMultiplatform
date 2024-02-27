@@ -77,14 +77,14 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                         this.dependencies {
                             // implementation(libs.findLibrary("koin.core").get())
                             implementation(kotlin("test"))
-                            implementation(project(":modules:testing"))
+
                         }
 
                     }
                     getByName("androidMain") {
                         this.dependencies {
                             implementation(libs.findLibrary("timber").get())
-
+                            implementation(libs.findLibrary("koin.android").get())
                         }
 
                     }
@@ -92,6 +92,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                         this.dependencies {
 //                            implementation(kotlin("test"))
                             //  implementation(project(":core:testing"))
+                            implementation(project(":modules:testing"))
                         }
 
                     }
@@ -105,7 +106,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                     getByName("desktopTest") {
                         this.dependencies {
                             // implementation(libs.findLibrary("koin.core").get())
-
+                            implementation(project(":modules:testing"))
                         }
 
                     }

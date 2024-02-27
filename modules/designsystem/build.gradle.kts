@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+
 /*
  *abiola 2024
  */
@@ -38,6 +40,10 @@ dependencies {
 
 }
 kotlin {
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -46,8 +52,8 @@ kotlin {
                 api(compose.material3)
                 api(compose.materialIconsExtended)
                 api(compose.components.resources)
-                api(compose.preview)
-                implementation(project(":modules:model"))
+                api(libs.kotlinx.collection.immutable)
+                api(project(":modules:model"))
                 api(libs.androidx.compose.material3.windowSizeClass)
 
 
@@ -55,13 +61,15 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
+                api(compose.preview)
+                api(libs.koin.android.compose)
 
             }
         }
 
         val desktopMain by getting {
             dependencies {
-
+                api(compose.preview)
             }
         }
 

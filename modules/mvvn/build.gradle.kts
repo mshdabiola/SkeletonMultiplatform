@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("mshdabiola.android.library")
@@ -10,6 +12,10 @@ android {
 }
 
 kotlin {
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -29,16 +35,14 @@ kotlin {
         val androidMain by getting {
             dependencies {
 
-                implementation(libs.koin.core)
-                implementation(libs.koin.android)
-                implementation(libs.koin.android.compose)
 
-                implementation(libs.androidx.core.ktx)
+
+                api(libs.androidx.core.ktx)
 
 
 
-                implementation(libs.androidx.lifecycle.runtimeCompose)
-                implementation(libs.androidx.lifecycle.viewModelCompose)
+                api(libs.androidx.lifecycle.runtimeCompose)
+                api(libs.androidx.lifecycle.viewModelCompose)
             }
         }
 
