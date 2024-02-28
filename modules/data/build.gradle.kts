@@ -18,7 +18,7 @@ kotlin {
                 //   implementation(libs.kermit.log)
                 implementation(project(":modules:model"))
                 implementation(project(":modules:database"))
-                implementation(project(":modules:setting"))
+                implementation(project(":modules:datastore"))
                 implementation(project(":modules:network"))
                 implementation(libs.kotlinx.coroutines.core)
             }

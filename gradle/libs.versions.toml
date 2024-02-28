@@ -87,7 +87,7 @@ jacoco = "0.8.7"
 truth = "1.1.5"
 dependencyGuard = "0.4.3"
 
-
+multiplatform_settings = "1.1.1"
 
 
 compose = "1.6.1"
@@ -190,6 +190,16 @@ koin_test = { module = "io.insert-koin:koin-test", version.ref = "koinTest" }
 koin_test_junit = { module = "io.insert-koin:koin-test-junit4", version.ref = "koinTest" }
 koin_test_junit5 = { module = "io.insert-koin:koin-test-junit5", version.ref = "koinTest" }
 koin_android_test = { module = "io.insert-koin:koin-android-test", version.ref = "koinTest" }
+
+androidx-dataStore-core2 = { module = "androidx.datastore:datastore", version.ref = "androidxDataStore" }
+androidx-dataStore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "androidxDataStore" }
+
+multiplatform_settings_core = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatform_settings" }
+multiplatform_settings_noArg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatform_settings" }
+multiplatform_settings_coroutines = { module = "com.russhwolf:multiplatform-settings-coroutines", version.ref = "multiplatform_settings" }
+multiplatform_settings_serializtion = { module = "com.russhwolf:multiplatform-settings-serialization", version.ref = "multiplatform_settings" }
+multiplatform_settings_test = { module = "com.russhwolf:multiplatform-settings-test", version.ref = "multiplatform_settings" }
+multiplatform_settings_datastore = { module = "com.russhwolf:multiplatform-settings-datastore", version.ref = "multiplatform_settings" }
 
 sqldelight_plugin = { module = "com.squareup.sqldelight:gradle-plugin", version.ref = "sqlDelight" }
 
