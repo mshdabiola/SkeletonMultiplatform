@@ -106,6 +106,7 @@ kotlin {
             implementation(project(":modules:analytics"))
             implementation(project(":modules:mvvn"))
             implementation(project(":modules:navigation"))
+            implementation(project(":modules:network"))
         }
 
         desktopMain.dependencies {

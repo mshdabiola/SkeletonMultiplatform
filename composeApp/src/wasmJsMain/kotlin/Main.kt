@@ -16,7 +16,7 @@ fun main() {
     val context =DefaultComponentContext(lifecycle = lifecycle)
 
     startKoin {
-        modules(analyticsModule)
+        modules(appModule)
 
     }
 
