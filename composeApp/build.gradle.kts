@@ -101,14 +101,16 @@ kotlin {
             implementation(libs.decompose.compose.jetbrains)
 
             implementation(libs.koin.core)
-        }
-        desktopMain.dependencies {
-            implementation(compose.desktop.currentOs)
+
             implementation(project(":modules:designsystem"))
-            implementation(project(":modules:app"))
-            implementation(project(":modules:model"))
             implementation(project(":modules:analytics"))
             implementation(project(":modules:mvvn"))
+            implementation(project(":modules:navigation"))
+        }
+
+        desktopMain.dependencies {
+            implementation(compose.desktop.currentOs)
+            implementation(project(":modules:app"))
 
             implementation(libs.kotlinx.coroutines.swing)
 

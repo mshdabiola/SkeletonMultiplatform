@@ -39,7 +39,7 @@ sealed class ThemeColor(val isDark: Boolean, val contrast: Contrast) {
     class DefaultThemeColor(isDark: Boolean, contrast: Contrast) : ThemeColor(isDark, contrast) {
         override fun getColorScheme(): ColorScheme {
             return when {
-                contrast == Contrast.Normal && !isDark -> {
+                contrast == Contrast.Normal && isDark -> {
                     val primaryDark = Color(0xFF9CCBFB)
                     val onPrimaryDark = Color(0xFF003354)
                     val primaryContainerDark = Color(0xFF124A73)
@@ -456,7 +456,7 @@ sealed class ThemeColor(val isDark: Boolean, val contrast: Contrast) {
     class GreenThemeColor(isDark: Boolean, contrast: Contrast) : ThemeColor(isDark, contrast) {
         override fun getColorScheme(): ColorScheme {
             return when {
-                contrast == Contrast.Normal && !isDark -> {
+                contrast == Contrast.Normal && isDark -> {
                     val primaryDark = Color(0xFFB6D085)
                     val onPrimaryDark = Color(0xFF243600)
                     val primaryContainerDark = Color(0xFF394D11)
