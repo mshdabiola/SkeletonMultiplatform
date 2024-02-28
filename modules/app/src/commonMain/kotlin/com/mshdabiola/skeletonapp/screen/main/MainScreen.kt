@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -32,15 +33,17 @@ import kotlinx.collections.immutable.ImmutableList
 // import org.koin.androidx.compose.koinViewModel
 
 @Composable
-internal fun MainScreen(onBack: () -> Unit) {
+internal fun MainScreen(navigateToDetail: () -> Unit,
+                        navigateToSetting: () -> Unit) {
     val viewModel: MainViewModel = KoinCommonViewModel()
     val mainState = viewModel.mainState.collectAsStateWithLifecycleCommon()
     val modelst = viewModel.modelState.collectAsStateWithLifecycleCommon()
 
     MainScreen(
-        back = onBack,
         mainState = mainState.value,
         items = modelst.value,
+        navigateToDetail = navigateToDetail,
+        navigateToSetting = navigateToSetting,
         setName = viewModel::addName,
     )
 }
@@ -49,32 +52,29 @@ internal fun MainScreen(onBack: () -> Unit) {
 @Composable
 internal fun MainScreen(
     mainState: MainState = MainState(),
-    back: () -> Unit = {},
+    navigateToDetail: () -> Unit={},
+    navigateToSetting: () -> Unit={},
     items: ImmutableList<ModelUiState>,
     setName: (String) -> Unit = {},
 ) {
     val snackbarHostState = remember {
         SnackbarHostState()
     }
-//    LaunchedEffect(key1 = mainState.messages, block = {
-//        Timber.d(mainState.messages.joinToString())
-//    })
     var name by remember {
         mutableStateOf("")
     }
-//    NotifySnacker(snackHostState = snackbarHostState, notifys = mainState.messages)
     Scaffold(
         modifier = Modifier, // .semantics { this.testTagsAsResourceId = true },
         topBar = {
             TopAppBar(
-                navigationIcon = {
-                    IconButton(onClick = back) {
-                        Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "back")
-                    }
-                },
                 title = {
-                    Text(text = "name")
+                    Text(text = "Skeleton App")
                 },
+                actions = {
+                    IconButton(onClick = navigateToSetting){
+                        Icon(Icons.Default.Settings,"settings")
+                    }
+                }
             )
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },

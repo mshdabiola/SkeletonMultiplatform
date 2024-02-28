@@ -5,6 +5,7 @@ import com.mshdabiola.mvvn.commonViewModel
 import com.mshdabiola.skeletonapp.MainAppViewModel
 import com.mshdabiola.skeletonapp.screen.detail.DetailViewModel
 import com.mshdabiola.skeletonapp.screen.main.MainViewModel
+import com.mshdabiola.skeletonapp.screen.setting.SettingViewModel
 import org.koin.dsl.module
 
 val appModule = module {
@@ -12,4 +13,5 @@ val appModule = module {
     commonViewModel { DetailViewModel() }
     commonViewModel { MainViewModel(get()) }
     commonViewModel { MainAppViewModel(get()) }
+    commonViewModel { SettingViewModel(get()) }
 }

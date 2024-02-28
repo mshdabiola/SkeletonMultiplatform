@@ -28,7 +28,7 @@ internal fun DetailScreen(
     windowSizeClass: WindowSizeClass,
     back: () -> Unit = {},
 ) {
-    var name = windowSizeClass.widthSizeClass.toString()
+
 
     Scaffold(
         topBar = {
@@ -39,7 +39,7 @@ internal fun DetailScreen(
                     }
                 },
                 title = {
-                    Text(text = name)
+                    Text(text = "Detail")
                 },
             )
         },

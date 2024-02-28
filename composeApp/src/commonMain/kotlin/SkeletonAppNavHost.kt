@@ -29,6 +29,12 @@ fun SkeletonAppNavHost(appState: SkAppState) {
                     Text("detail")
                 }
             }
+
+            is IRootComponent.RootScreen.SettingRootScreen -> {
+                Box(modifier = Modifier.fillMaxSize()){
+                    Text("Setting")
+                }
+            }
         }
     }
 }

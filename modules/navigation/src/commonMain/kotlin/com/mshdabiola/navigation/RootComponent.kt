@@ -4,6 +4,7 @@ import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.router.stack.StackNavigation
 import com.arkivanov.decompose.router.stack.childStack
+import com.arkivanov.decompose.router.stack.pop
 import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
 import kotlinx.serialization.Serializable
@@ -17,7 +18,15 @@ class RootComponent(
         get() = _stack
 
     override fun navigateToDetail() {
-        navigation.push(Config.Splash)
+        navigation.push(Config.Detail)
+    }
+
+    override fun navigateToSetting() {
+        navigation.push(Config.Setting)
+    }
+
+    override fun back() {
+        navigation.pop()
     }
 
     private val _stack = childStack(
@@ -35,7 +44,10 @@ class RootComponent(
         data object Main : Config
 
         @Serializable
-        data object Splash : Config
+        data object Detail : Config
+
+        @Serializable
+        data object Setting : Config
     }
 
     private fun factory(
@@ -43,17 +55,25 @@ class RootComponent(
         componentContext: ComponentContext,
     ): IRootComponent.RootScreen {
         return when (config) {
-            is Config.Splash -> IRootComponent.RootScreen.DetailRootScreen(
-                navigateToSplash(
-                    componentContext,
-                ),
-            )
-
             is Config.Main -> IRootComponent.RootScreen.MainRootScreen(
                 navigateToMain(
                     componentContext,
                 ),
             )
+
+            is Config.Detail -> IRootComponent.RootScreen.DetailRootScreen(
+                navigateToDetail(
+                    componentContext,
+                ),
+            )
+
+            is Config.Setting -> IRootComponent.RootScreen.SettingRootScreen(
+                navigateToSetting(
+                    componentContext,
+                ),
+            )
+
+
         }
     }
 
@@ -61,8 +81,15 @@ class RootComponent(
         return MainComponent(componentContext)
     }
 
-    private fun navigateToSplash(componentContext: ComponentContext): DetailComponent {
+    private fun navigateToDetail(componentContext: ComponentContext): DetailComponent {
         return DetailComponent(
+            componentContext,
+            //  onSplashFinished = {navigation.replaceCurrent(Config.Main)}
+        )
+    }
+
+    private fun navigateToSetting(componentContext: ComponentContext): SettingComponent {
+        return SettingComponent(
             componentContext,
             //  onSplashFinished = {navigation.replaceCurrent(Config.Main)}
         )
