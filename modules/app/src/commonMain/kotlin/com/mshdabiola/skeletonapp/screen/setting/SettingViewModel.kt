@@ -22,7 +22,7 @@ import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 class SettingViewModel constructor(
-    userDataRepository: UserDataRepository,
+   private val userDataRepository: UserDataRepository,
 ) : ViewModel() {
     private val default=  UserData(
         useDynamicColor = false,
@@ -39,5 +39,29 @@ class SettingViewModel constructor(
         ),
         started = SharingStarted.WhileSubscribed(5_000),
     )
+
+
+
+     fun setThemeBrand(themeBrand: ThemeBrand){
+         viewModelScope.launch {
+             userDataRepository.setThemeBrand(themeBrand)
+         }
+
+     }
+
+     fun setThemeContrast(contrast: Contrast){
+         viewModelScope.launch {
+             userDataRepository.setThemeContrast(contrast)
+         }
+     }
+
+    /**
+     * Sets the desired dark theme config.
+     */
+     fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig){
+        viewModelScope.launch {
+            userDataRepository.setDarkThemeConfig(darkThemeConfig)
+        }
+     }
 
 }
