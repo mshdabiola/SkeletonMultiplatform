@@ -253,3 +253,6 @@ local.properties
 /common/designsystem/build/classes/kotlin/desktop/main/com/mshabiola/theme/Theme.class
 /common/designsystem/build/classes/kotlin/desktop/main/com/mshabiola/theme/ThemeKt.class
 /common/designsystem/build/classes/kotlin/desktop/main/com/mshabiola/theme/TypeKt.class
+/composeApp/build/
+/shared/build/
+/modules/build/

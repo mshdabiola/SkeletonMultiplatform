@@ -1,63 +1,50 @@
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+
+/*
+ *abiola 2024
+ */
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("mshdabiola.mpp.feature")
+    id("mshdabiola.android.library")
+    id("mshdabiola.android.library.compose")
+//    id("mshdabiola.android.library.jacoco")
 }
 
 android {
+    defaultConfig {
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
     namespace = "com.mshdabiola.ui"
-
 }
 
-kotlin {
-    androidTarget()
-    jvm("desktop")
-    sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(project(":modules:data"))
-                implementation(libs.decompose.core)
-                implementation(libs.decompose.compose.jetbrains)
-
-                implementation(project(":modules:mvvn"))
-                implementation(project(":modules:navigation"))
-
-                implementation(project(":modules:designsystem"))
-
-            }
-        }
-        val androidMain by getting {
-            dependencies {
-
-//                implementation(project(":modules:navigation"))
+dependencies {
+    api(libs.androidx.metrics)
 
 
-                implementation(libs.koin.core)
-                implementation(libs.koin.android)
-                implementation(libs.koin.android.compose)
+    implementation(libs.coil.kt)
+    implementation(libs.coil.kt.compose)
 
-                implementation(libs.androidx.core.ktx)
+    androidTestImplementation(project(":modules:testing"))
+}
 
-
-
-                implementation(libs.androidx.lifecycle.runtimeCompose)
-
+kotlin{
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+    }
+    sourceSets{
+        val desktopMain by getting{
+            dependencies{
 
             }
         }
 
-        val desktopMain by getting {
-            dependencies {
-                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
-                implementation(compose.desktop.components.splitPane)
-                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
-                implementation(compose.desktop.components.animatedImage)
+        val commonMain by getting{
+            dependencies{
+                api(project(":modules:analytics"))
+                api(project(":modules:designsystem"))
+                api(project(":modules:model"))
             }
         }
-
-
     }
 }
-
-
-//    kotlin {
-//        jvmToolchain(17)
-//    }

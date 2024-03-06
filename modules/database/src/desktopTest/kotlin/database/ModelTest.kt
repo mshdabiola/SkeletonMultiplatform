@@ -32,6 +32,4 @@ class ModelTest : AbstractTest() {
 
     override fun getAll() {
     }
-
-
 }

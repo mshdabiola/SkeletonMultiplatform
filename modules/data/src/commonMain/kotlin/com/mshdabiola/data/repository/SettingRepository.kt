@@ -7,5 +7,4 @@ internal class SettingRepository(private val settings: MultiplatformSettings) : 
     override suspend fun setDummy(dummy: DummySetting) {
         settings.setDummy(dummy)
     }
-
 }

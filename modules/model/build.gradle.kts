@@ -1,6 +1,8 @@
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("mshdabiola.mpp.library")
+    id("mshdabiola.android.library")
 }
 
 android {
@@ -8,6 +10,10 @@ android {
 }
 
 kotlin {
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {
