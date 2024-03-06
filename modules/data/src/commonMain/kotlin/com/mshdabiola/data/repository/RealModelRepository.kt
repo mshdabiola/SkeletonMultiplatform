@@ -26,5 +26,4 @@ internal class RealModelRepository constructor(
     override suspend fun delete(id: Long) {
         modelDao.delete(id)
     }
-
 }

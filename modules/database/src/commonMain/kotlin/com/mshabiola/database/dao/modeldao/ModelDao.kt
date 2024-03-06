@@ -14,13 +14,12 @@ import kotlinx.coroutines.withContext
 
 class ModelDao(
     private val modelQueries: ModelQueries,
-    private val coroutineDispatcher: CoroutineDispatcher
+    private val coroutineDispatcher: CoroutineDispatcher,
 ) : IModelDao {
     override suspend fun insert(modelEntity: Model) {
         withContext(coroutineDispatcher) {
             modelQueries.insertFullModelObject(modelEntity.toEntity())
         }
-
     }
 
     override fun getAllModel(): Flow<List<Model>> {
@@ -47,7 +46,5 @@ class ModelDao(
         withContext(coroutineDispatcher) {
             modelQueries.deleteById(id)
         }
-
     }
-
 }

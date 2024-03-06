@@ -37,20 +37,9 @@ internal class NetworkDataSource constructor(
         val string: String = if (response.status == HttpStatusCode.OK) {
             response.body()
         } else {
-
             throw Exception("Error occur")
         }
 
-
         return string
-
     }
-
 }
-
-
-
-
-
-
-

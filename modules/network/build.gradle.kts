@@ -1,6 +1,8 @@
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("mshdabiola.mpp.library")
+    id("mshdabiola.android.library")
     alias(libs.plugins.kotlin.serialization)
 }
 
@@ -17,12 +19,15 @@ android {
 }
 
 kotlin {
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {
                 // implementation("ch.qos.logback:logback-classic:1.4.7")
 
-                implementation(libs.ktor.client.logging)
                 implementation(libs.ktor.client.content.negotiation)
                 implementation(libs.ktor.client.core)
                 implementation(libs.ktor.client.serialization)
@@ -39,17 +44,27 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(libs.ktor.client.android)
+                implementation(libs.ktor.client.logging)
             }
         }
 
 
         val desktopMain by getting {
             dependencies {
+                implementation(libs.ktor.client.logging)
+
                 implementation(libs.ktor.client.cio)
             }
         }
 
+        val wasmJsMain by getting {
+            dependencies {
+                implementation(libs.ktor.client.js)
+            }
+        }
+
         val desktopTest by getting
+
 
 //        val jsMain by getting {
 //            dependencies {

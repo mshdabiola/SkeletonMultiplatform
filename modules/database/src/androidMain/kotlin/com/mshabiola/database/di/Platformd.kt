@@ -13,9 +13,8 @@ actual val databaseModule: Module
             val driver = AndroidSqliteDriver(
                 schema = TempDatabase.Schema,
                 context = get(),
-                name = Constant.databaseName
+                name = Constant.databaseName,
             )
-
 
             Log.e("version", "version ${TempDatabase.Schema.version}")
 

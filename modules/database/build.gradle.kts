@@ -1,5 +1,5 @@
 plugins {
-    id("mshdabiola.mpp.library")
+    id("mshdabiola.android.library")
     id("app.cash.sqldelight") version libs.versions.sqlDelight
 }
 
