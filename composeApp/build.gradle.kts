@@ -200,8 +200,7 @@ compose.desktop {
             obfuscate.set(true)
             version.set("7.3.0")
         }
-
-        val iconsRoot = project.file("src/main/composeResources/drawable/launcher")
+        val iconsRoot = project.file("src/commonMain/composeResources/drawable/launcher")
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageVersion = "1.0.1"
