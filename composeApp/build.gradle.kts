@@ -249,7 +249,7 @@ compose.experimental {
 baselineProfile {
     // Don't build on every iteration of a full assemble.
     // Instead enable generation directly for the release build variant.
-    automaticGenerationDuringBuild = true
+    automaticGenerationDuringBuild = false
 }
 
 dependencyGuard {
