@@ -20,7 +20,7 @@ fun SkeletonAppNavHost(appState: SkAppState) {
         when (it.instance) {
             is IRootComponent.RootScreen.MainRootScreen -> {
                Box(modifier = Modifier.fillMaxSize()){
-                   Text("main")
+                   Text("abiola")
                }
             }
 
