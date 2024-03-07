@@ -1,6 +1,9 @@
 name: Web CI
 
-on: pull_request
+on:
+  push:
+    tags:
+      - 'w[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   build:
@@ -20,14 +23,14 @@ jobs:
 
 
       - name: Build web app
-        run: ./gradlew :web:assemble
+        run: ./gradlew wasmJsBrowserDistribution
 
       # If main branch update, deploy to gh-pages
       - name: Deploy
-        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+#        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: web/build/distributions # The folder the action should deploy.
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          BRANCH: master # The branch the action should deploy to.
+          FOLDER: composeApp/build/dist/wasmJs/productionExecutable # The folder the action should deploy.
           CLEAN: true # Automatically remove deleted files from the deploy branch
