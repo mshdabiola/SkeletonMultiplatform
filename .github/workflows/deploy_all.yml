@@ -56,7 +56,7 @@ jobs:
         uses: r0adkll/sign-android-release@v1
         if: ${{ matrix.runtime == 'android' }}
         with:
-          releaseDirectory: app/build/outputs/apk/release
+          releaseDirectory: composeApp/build/outputs/apk/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
@@ -68,10 +68,10 @@ jobs:
         with:
           name: runner-package-${{ matrix.runtime }}
           path: |
-            desktop/build/compose/binaries/main/*/
-            desktop/build/compose/binaries/main-release/*/
-            desktop/build/compose/jars/
-            !desktop/build/compose/binaries/main/app/
+            composeApp/build/compose/binaries/main/*/
+            composeApp/build/compose/binaries/main-release/*/
+            composeApp/build/compose/jars/
+            !composeApp/build/compose/binaries/main/app/
             ${{ env.SIGNED_RELEASE_FILE }}
 
         # Upload runner errors
@@ -81,7 +81,7 @@ jobs:
         with:
           name: runner-errors-${{ matrix.runtime }}
           path: |
-            desktop/build/compose/logs/
+            composeApp/build/compose/logs/
   ReleaseBinaries:
     name: Make a release
     needs: [ BuildBinaries ]
