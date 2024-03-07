@@ -200,7 +200,8 @@ compose.desktop {
             obfuscate.set(true)
             version.set("7.3.0")
         }
-        val iconsRoot = project.file("src/commonMain/composeResources/drawable/launcher")
+
+        val iconsRoot = project.file("src/main/composeResources/drawable/launcher")
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageVersion = "1.0.1"
@@ -249,7 +250,7 @@ compose.experimental {
 baselineProfile {
     // Don't build on every iteration of a full assemble.
     // Instead enable generation directly for the release build variant.
-    automaticGenerationDuringBuild = false
+    automaticGenerationDuringBuild = true
 }
 
 dependencyGuard {
