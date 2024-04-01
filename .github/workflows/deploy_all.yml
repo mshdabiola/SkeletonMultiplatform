@@ -85,6 +85,7 @@ jobs:
             composeApp/build/compose/binaries/main/*/
             composeApp/build/compose/binaries/main-release/*/
             composeApp/build/compose/jars/
+            composeApp/build/outputs/apk/release
             !composeApp/build/compose/binaries/main/app/
             ${{ env.SIGNED_RELEASE_FILE }}
 
