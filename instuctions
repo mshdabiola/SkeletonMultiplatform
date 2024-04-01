@@ -16,7 +16,7 @@
 
     ./gradlew assembleDebug -PenableComposeCompilerMetrics=true -PenableComposeCompilerReports=true
 
-    ./gradlew :app:generateReleaseBaselineProfile
+    ./gradlew :composeApp:generateReleaseBaselineProfile
 
     ./gradlew wasmJsBrowserRun -t
     ./gradlew wasmJsBrowserDistribution

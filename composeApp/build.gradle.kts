@@ -201,7 +201,7 @@ compose.desktop {
             version.set("7.3.0")
         }
 
-        val iconsRoot = project.file("src/main/composeResources/drawable/launcher")
+        val iconsRoot = project.file("src/commonMain/composeResources/drawable/launcher")
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageVersion = "1.0.1"
@@ -225,6 +225,8 @@ compose.desktop {
                 iconFile.set(iconsRoot.resolve("windows.ico"))
                 shortcut = true
                 menuGroup = packageName
+//                https://www.guidgen.com/
+
                 //https://wixtoolset.org/documentation/manual/v3/howtos/general/generate_guids.html
                 upgradeUuid = "791AC64E-C9A7-4CBF-A1C4-AFE5CFFDDDFA"
             }
@@ -250,7 +252,7 @@ compose.experimental {
 baselineProfile {
     // Don't build on every iteration of a full assemble.
     // Instead enable generation directly for the release build variant.
-    automaticGenerationDuringBuild = true
+    automaticGenerationDuringBuild = false
 }
 
 dependencyGuard {
