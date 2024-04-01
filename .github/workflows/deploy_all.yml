@@ -86,6 +86,7 @@ jobs:
             composeApp/build/compose/binaries/main-release/*/
             composeApp/build/compose/jars/
             !composeApp/build/compose/binaries/main/app/
+            composeApp/build/outputs/apk/release/*signed.apk
             ${{ env.SIGNED_RELEASE_FILE }}
 
         # Upload runner errors
@@ -108,6 +109,6 @@ jobs:
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "*/binaries/main/*/*.*,*/binaries/main-release/*/*.*,*/jars/*.jar,*/app/build/outputs/apk/release/*.apk"
+          artifacts: "*/binaries/main/*/*.*,*/binaries/main-release/*/*.*,*/jars/*.jar,*/apk/release/*.apk"
           draft: true
           token: ${{ secrets.TOKEN }}

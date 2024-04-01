@@ -1,7 +1,9 @@
 package com.mshdabiola.skeletonapp.screen.setting
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -20,8 +22,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.mshdabiola.model.Contrast
 import com.mshdabiola.model.DarkThemeConfig
 import com.mshdabiola.model.ThemeBrand
@@ -72,8 +76,10 @@ internal fun SettingScreen(
             )
         },
     ) { paddingValues ->
-        Column(Modifier.padding(paddingValues)) {
-            Row {
+        Column(Modifier.padding(paddingValues).padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Row(modifier = Modifier.fillMaxWidth(0.8f),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically) {
                 Text("Theme")
                 DropdownMenu(
                     currentIndex = ThemeBrand.entries.indexOf(settingState.userData.themeBrand),
@@ -92,7 +98,9 @@ internal fun SettingScreen(
                 )
             }
 
-            Row {
+            Row (modifier = Modifier.fillMaxWidth(0.8f),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically){
                 Text("Contrast")
                 DropdownMenu(
                     currentIndex = Contrast.entries.indexOf(settingState.userData.contrast),
@@ -111,7 +119,9 @@ internal fun SettingScreen(
                 )
             }
 
-            Row {
+            Row (modifier = Modifier.fillMaxWidth(0.8f),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically){
                 Text("Dark")
                 DropdownMenu(
                     currentIndex = DarkThemeConfig.entries.indexOf(settingState.userData.darkThemeConfig),
