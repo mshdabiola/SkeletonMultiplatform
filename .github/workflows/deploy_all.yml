@@ -86,7 +86,6 @@ jobs:
             composeApp/build/compose/binaries/main-release/*/
             composeApp/build/compose/jars/
             !composeApp/build/compose/binaries/main/app/
-#            composeApp/build/outputs/apk/release/*signed.apk
             ${{ env.SIGNED_RELEASE_FILE }}
 
         # Upload runner errors
