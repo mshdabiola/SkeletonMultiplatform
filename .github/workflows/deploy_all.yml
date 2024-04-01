@@ -109,6 +109,6 @@ jobs:
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "*/binaries/main/*/*.*,*/binaries/main-release/*/*.*,*/jars/*.jar,*/outputs/apk/*/*.apk"
+          artifacts: "**/*"
           draft: true
           token: ${{ secrets.TOKEN }}
