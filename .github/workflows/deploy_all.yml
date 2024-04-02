@@ -76,24 +76,14 @@ jobs:
         env:
           BUILD_TOOLS_VERSION: ${{ env.BUILD_TOOL_VERSION }}
 
-      - name: Create destination directory
-        if: ${{ matrix.runtime == 'android' }}
-        run: mkdir -p composeApp/build/compose/binaries/main
-
-      - name: Move directory release
-        if: ${{ matrix.runtime == 'android' }}
-        run: mv composeApp/build/outputs/apk/release composeApp/build/compose/binaries/main/release
-
-      - name: Move directory mapping
-        if: ${{ matrix.runtime == 'android' }}
-        run: mv composeApp/build/outputs/mapping composeApp/build/compose/binaries/main/mapping
-
       # Upload runner package tar.gz/zip as artifact
       - name: Publish Artifact
         uses: actions/upload-artifact@v3
         with:
           name: runner-package-${{ matrix.runtime }}
           path: |
+            composeApp/build/outputs/apk/release
+            composeApp/build/outputs/mapping
             composeApp/build/compose/binaries/main/*/
             composeApp/build/compose/binaries/main-release/*/
             composeApp/build/compose/jars/
@@ -123,6 +113,6 @@ jobs:
 
       - uses: ncipollo/release-action@v1.14.0
         with:
-          artifacts: "*/binaries/**/**/*,*/binaries/main-release/*/*.*,*/jars/*.jar"
+          artifacts: "*/outputs/apk/release/*.*,*/outputs/mapping/*.*,*/binaries/**/**/*,*/binaries/main-release/*/*.*,*/jars/*.jar"
           draft: true
           token: ${{ secrets.TOKEN }}
