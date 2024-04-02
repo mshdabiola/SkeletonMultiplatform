@@ -118,6 +118,9 @@ jobs:
       - name: Download Build Artifacts
         uses: actions/download-artifact@v3
 
+      - name: list
+        run: ls find . -type f
+
       - uses: ncipollo/release-action@v1.14.0
         with:
           artifacts: "*/binaries/**/**/*,*/binaries/main-release/*/*.*,*/jars/*.jar"
