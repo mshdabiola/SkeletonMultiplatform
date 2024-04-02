@@ -121,7 +121,7 @@ jobs:
 
       - uses: ncipollo/release-action@v1.14.0
         with:
-          artifacts: "*/binaries/**/**/*,*/binaries/main-release/*/*.*,*/jars/*.jar"
+          artifacts: "*/binaries/**/**/*,*/composeApp/build/compose/binaries/**/**/*,*/composeApp/build/compose/binaries/main-release/*/*.*,*/composeApp/build/compose/jars/*.jar"
           draft: true
           token: ${{ secrets.TOKEN }}
 
