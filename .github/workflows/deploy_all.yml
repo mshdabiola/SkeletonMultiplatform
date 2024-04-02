@@ -63,7 +63,6 @@ jobs:
         with:
           arguments: >
             ${{ matrix.build }}
-
       - name: Sign APK
         uses: r0adkll/sign-android-release@v1
         if: ${{ matrix.runtime == 'android' }}
@@ -76,20 +75,30 @@ jobs:
         env:
           BUILD_TOOLS_VERSION: ${{ env.BUILD_TOOL_VERSION }}
 
+      - name: Create destination directory
+        if: ${{ matrix.runtime == 'android' }}
+        run: mkdir -p binaries/main
+
+      - name: Move directory release
+        if: ${{ matrix.runtime == 'android' }}
+        run: mv composeApp/build/outputs/apk/release binaries/main/release
+
+      - name: Move directory mapping
+        if: ${{ matrix.runtime == 'android' }}
+        run: mv composeApp/build/outputs/mapping binaries/main/mapping
+
       # Upload runner package tar.gz/zip as artifact
       - name: Publish Artifact
         uses: actions/upload-artifact@v3
         with:
           name: runner-package-${{ matrix.runtime }}
           path: |
-            composeApp/build/outputs/apk/release
-            composeApp/build/outputs/mapping
+            binaries/main/*/
             composeApp/build/compose/binaries/main/*/
             composeApp/build/compose/binaries/main-release/*/
             composeApp/build/compose/jars/
             !composeApp/build/compose/binaries/main/app/
             ${{ env.SIGNED_RELEASE_FILE }}
-
         # Upload runner errors
       - name: Upload error logs
         uses: actions/upload-artifact@v3
@@ -107,12 +116,12 @@ jobs:
 
       - name: Download Build Artifacts
         uses: actions/download-artifact@v3
-
       - name: list
         run: find . -type f
 
       - uses: ncipollo/release-action@v1.14.0
         with:
-          artifacts: "*/outputs/apk/release/*.*,*/outputs/mapping/*.*,*/binaries/**/**/*,*/binaries/main-release/*/*.*,*/jars/*.jar"
+          artifacts: "*/binaries/**/**/*,*/binaries/main-release/*/*.*,*/jars/*.jar"
           draft: true
           token: ${{ secrets.TOKEN }}
+
