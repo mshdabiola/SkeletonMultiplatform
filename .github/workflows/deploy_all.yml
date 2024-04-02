@@ -120,6 +120,6 @@ jobs:
 
       - uses: ncipollo/release-action@v1.14.0
         with:
-          artifacts: "*/binaries/main/*/*.*,*/binaries/main-release/*/*.*,*/jars/*.jar"
+          artifacts: "*/binaries/main/**/*,*/binaries/main-release/*/*.*,*/jars/*.jar"
           draft: true
           token: ${{ secrets.TOKEN }}
