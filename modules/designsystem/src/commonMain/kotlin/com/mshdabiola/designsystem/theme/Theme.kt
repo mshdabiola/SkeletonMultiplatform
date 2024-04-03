@@ -45,7 +45,6 @@ fun SkTheme(
         else -> ThemeColor.DefaultThemeColor(darkTheme, themeContrast)
     }
 
-
     // Color scheme
     val colorScheme = when {
         useAndroidTheme -> themeColor.getColorScheme()
