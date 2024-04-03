@@ -16,10 +16,8 @@ import com.google.accompanist.testharness.TestHarness
 import com.mshdabiola.designsystem.component.SkTopAppBar
 import com.mshdabiola.designsystem.icon.SkIcons
 import com.mshdabiola.designsystem.theme.SkTheme
-import com.mshdabiola.testing.TestApplication
 import com.mshdabiola.testing.util.DefaultRoborazziOptions
 import com.mshdabiola.testing.util.captureMultiTheme
-import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -67,7 +65,6 @@ class TopAppBarScreenshotTests() {
 
     @Composable
     private fun NiaTopAppBarExample() {
-
         SkTopAppBar(
             titleRes = "Testing",
             navigationIcon = SkIcons.Search,

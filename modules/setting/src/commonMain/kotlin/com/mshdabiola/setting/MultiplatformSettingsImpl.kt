@@ -25,14 +25,13 @@ internal class MultiplatformSettingsImpl(
     private val settings: FlowSettings,
     private val coroutineDispatcher: CoroutineDispatcher,
 ) : MultiplatformSettings {
-    private val nameKey="name"
-    private val dummyKey="dummy"
-    private val userKey="userKey"
-
+    private val nameKey = "name"
+    private val dummyKey = "dummy"
+    private val userKey = "userKey"
 
     override val name: Flow<String> = settings.getStringOrNullFlow(nameKey).map { it ?: "nothing" }
     override val userData: Flow<UserData>
-        get() = settings.getStringOrNullFlow(userKey) .map {
+        get() = settings.getStringOrNullFlow(userKey).map {
 
             if (it != null) {
                 Json.decodeFromString<UserDataSer>(it).toData()
@@ -61,43 +60,43 @@ internal class MultiplatformSettingsImpl(
     // MutableStateFlow(Keys.Defaults.defaultDummy.toDummySetting())
 
     override suspend fun setName(name: String) {
-        settings.putString(nameKey,name)
+        settings.putString(nameKey, name)
     }
 
     override suspend fun setDummy(dummy: DummySetting) {
 // Store values for the properties of someClass in settings
         val jjj = Json.encodeToString(dummy.toDummy())
 
-        settings.putString(dummyKey,jjj)
+        settings.putString(dummyKey, jjj)
     }
 
     override suspend fun setThemeBrand(themeBrand: ThemeBrand) {
         val userData = userData.first().copy(themeBrand = themeBrand)
         val userDataStr = Json.encodeToString(userData.toSer())
-        settings.putString(userKey,userDataStr)
+        settings.putString(userKey, userDataStr)
     }
 
     override suspend fun setThemeContrast(contrast: Contrast) {
         val userData = userData.first().copy(contrast = contrast)
         val userDataStr = Json.encodeToString(userData.toSer())
-        settings.putString(userKey,userDataStr)
+        settings.putString(userKey, userDataStr)
     }
 
     override suspend fun setDynamicColorPreference(useDynamicColor: Boolean) {
         val userData = userData.first().copy(useDynamicColor = useDynamicColor)
         val userDataStr = Json.encodeToString(userData.toSer())
-        settings.putString(userKey,userDataStr)
+        settings.putString(userKey, userDataStr)
     }
 
     override suspend fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig) {
         val userData = userData.first().copy(darkThemeConfig = darkThemeConfig)
         val userDataStr = Json.encodeToString(userData.toSer())
-        settings.putString(userKey,userDataStr)
+        settings.putString(userKey, userDataStr)
     }
 
     override suspend fun setShouldHideOnboarding(shouldHideOnboarding: Boolean) {
         val userData = userData.first().copy(shouldHideOnboarding = shouldHideOnboarding)
         val userDataStr = Json.encodeToString(userData.toSer())
-        settings.putString(userKey,userDataStr)
+        settings.putString(userKey, userDataStr)
     }
 }
