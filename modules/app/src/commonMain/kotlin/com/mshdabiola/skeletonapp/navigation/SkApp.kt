@@ -150,6 +150,7 @@ private fun chooseTheme(
     MainActivityUiState.Loading -> ThemeBrand.DEFAULT
     is MainActivityUiState.Success -> uiState.userData.themeBrand
 }
+
 @Composable
 private fun shouldUseAndroidTheme(
     uiState: MainActivityUiState,
