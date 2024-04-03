@@ -75,7 +75,7 @@ jobs:
       # https://android-review.googlesource.com/c/platform/frameworks/support/+/2602790 landed in a
       # release build
       - name: Build all build type and flavor permutations
-        run: ./gradlew ::composeApp:assemble :benchmarks:assemble
+        run: ./gradlew :composeApp:assemble :benchmarks:assemble
           -x pixel6Api33NonMinifiedReleaseAndroidTest
           -x pixel6Api33NonMinifiedBenchmarkAndroidTest
           -x collectNonMinifiedReleaseBaselineProfile
