@@ -47,8 +47,11 @@ class ThemeColorTest {
             SkTheme(
                 darkTheme = false,
                 disableDynamicTheming = true,
+                useAndroidTheme = false,
             ) {
-                val colorScheme = ThemeColor.DefaultThemeColor(false, Contrast.Normal).getColorScheme()
+                val colorScheme = ThemeColor
+                    .DefaultThemeColor(false, Contrast.Normal)
+                    .getColorScheme()
                 assertColorSchemesEqual(colorScheme, MaterialTheme.colorScheme)
                 val gradientColors = defaultGradientColors(colorScheme)
                 assertEquals(gradientColors, LocalGradientColors.current)
@@ -66,8 +69,11 @@ class ThemeColorTest {
             SkTheme(
                 darkTheme = true,
                 disableDynamicTheming = true,
+                useAndroidTheme = false,
             ) {
-                val colorScheme = ThemeColor.DefaultThemeColor(true, Contrast.Normal).getColorScheme()
+                val colorScheme = ThemeColor
+                    .DefaultThemeColor(true, Contrast.Normal)
+                    .getColorScheme()
                 assertColorSchemesEqual(colorScheme, MaterialTheme.colorScheme)
                 val gradientColors = defaultGradientColors(colorScheme)
                 assertEquals(gradientColors, LocalGradientColors.current)
@@ -85,6 +91,7 @@ class ThemeColorTest {
             SkTheme(
                 darkTheme = false,
                 disableDynamicTheming = false,
+                useAndroidTheme = false,
             ) {
                 val colorScheme = dynamicLightColorSchemeWithFallback()
                 assertColorSchemesEqual(colorScheme, MaterialTheme.colorScheme)
@@ -104,6 +111,7 @@ class ThemeColorTest {
             SkTheme(
                 darkTheme = true,
                 disableDynamicTheming = false,
+                useAndroidTheme = false,
             ) {
                 val colorScheme = dynamicDarkColorSchemeWithFallback()
                 assertColorSchemesEqual(colorScheme, MaterialTheme.colorScheme)
@@ -123,12 +131,19 @@ class ThemeColorTest {
             SkTheme(
                 darkTheme = false,
                 disableDynamicTheming = true,
+                useAndroidTheme = true,
             ) {
-                val colorScheme = ThemeColor.DefaultThemeColor(false, Contrast.Normal).getColorScheme()
+                val colorScheme = ThemeColor
+                    .DefaultThemeColor(false, Contrast.Normal)
+                    .getColorScheme()
                 assertColorSchemesEqual(colorScheme, MaterialTheme.colorScheme)
-                val gradientColors = ThemeColor.DefaultThemeColor(false, Contrast.Normal).getGradientColors()
+                val gradientColors = ThemeColor
+                    .DefaultThemeColor(false, Contrast.Normal)
+                    .getGradientColors()
                 assertEquals(gradientColors, LocalGradientColors.current)
-                val backgroundTheme = ThemeColor.DefaultThemeColor(false, Contrast.Normal).getBackgroundTheme()
+                val backgroundTheme = ThemeColor
+                    .DefaultThemeColor(false, Contrast.Normal)
+                    .getBackgroundTheme()
                 assertEquals(backgroundTheme, LocalBackgroundTheme.current)
                 val tintTheme = defaultTintTheme()
                 assertEquals(tintTheme, LocalTintTheme.current)
@@ -142,6 +157,7 @@ class ThemeColorTest {
             SkTheme(
                 darkTheme = true,
                 disableDynamicTheming = true,
+                useAndroidTheme = true,
             ) {
                 val colorScheme = ThemeColor.DefaultThemeColor(true, Contrast.Normal).getColorScheme()
                 assertColorSchemesEqual(colorScheme, MaterialTheme.colorScheme)
@@ -161,6 +177,7 @@ class ThemeColorTest {
             SkTheme(
                 darkTheme = false,
                 disableDynamicTheming = false,
+                useAndroidTheme = true,
             ) {
                 val colorScheme = ThemeColor.DefaultThemeColor(false, Contrast.Normal).getColorScheme()
                 assertColorSchemesEqual(colorScheme, MaterialTheme.colorScheme)
@@ -180,6 +197,7 @@ class ThemeColorTest {
             SkTheme(
                 darkTheme = true,
                 disableDynamicTheming = false,
+                useAndroidTheme = true,
             ) {
                 val colorScheme = ThemeColor.DefaultThemeColor(true, Contrast.Normal).getColorScheme()
                 assertColorSchemesEqual(colorScheme, MaterialTheme.colorScheme)
