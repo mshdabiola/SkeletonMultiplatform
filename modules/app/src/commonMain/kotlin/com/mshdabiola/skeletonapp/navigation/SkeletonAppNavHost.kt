@@ -21,9 +21,9 @@ fun SkeletonAppNavHost(appState: SkAppState) {
     ) {
         when (it.instance) {
             is IRootComponent.RootScreen.MainRootScreen -> {
-                MainScreenNav (
+                MainScreenNav(
                     navigateToDetail = appState.navController::navigateToDetail,
-                    navigateToSetting = appState.navController::navigateToSetting
+                    navigateToSetting = appState.navController::navigateToSetting,
                 )
             }
 
@@ -34,7 +34,7 @@ fun SkeletonAppNavHost(appState: SkAppState) {
             }
 
             is IRootComponent.RootScreen.SettingRootScreen -> {
-                SettingScreenNav  {
+                SettingScreenNav {
                     appState.navController.back()
                 }
             }

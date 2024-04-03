@@ -11,7 +11,6 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import com.mshdabiola.designsystem.component.SkButton
 import com.mshdabiola.designsystem.icon.SkIcons
-import com.mshdabiola.testing.TestApplication
 import com.mshdabiola.testing.util.captureMultiTheme
 import org.junit.Rule
 import org.junit.Test

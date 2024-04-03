@@ -19,19 +19,19 @@ fun SkeletonAppNavHost(appState: SkAppState) {
     ) {
         when (it.instance) {
             is IRootComponent.RootScreen.MainRootScreen -> {
-               Box(modifier = Modifier.fillMaxSize()){
-                   Text("abiola")
-               }
+                Box(modifier = Modifier.fillMaxSize()) {
+                    Text("abiola")
+                }
             }
 
             is IRootComponent.RootScreen.DetailRootScreen -> {
-                Box(modifier = Modifier.fillMaxSize()){
+                Box(modifier = Modifier.fillMaxSize()) {
                     Text("detail")
                 }
             }
 
             is IRootComponent.RootScreen.SettingRootScreen -> {
-                Box(modifier = Modifier.fillMaxSize()){
+                Box(modifier = Modifier.fillMaxSize()) {
                     Text("Setting")
                 }
             }

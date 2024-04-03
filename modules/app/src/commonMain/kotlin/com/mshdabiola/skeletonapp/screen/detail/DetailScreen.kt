@@ -28,8 +28,6 @@ internal fun DetailScreen(
     windowSizeClass: WindowSizeClass,
     back: () -> Unit = {},
 ) {
-
-
     Scaffold(
         topBar = {
             TopAppBar(

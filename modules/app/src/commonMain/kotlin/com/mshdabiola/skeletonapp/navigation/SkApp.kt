@@ -32,7 +32,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
-import androidx.compose.ui.semantics.semantics
 import com.arkivanov.decompose.DefaultComponentContext
 import com.mshdabiola.analytics.AnalyticsHelper
 import com.mshdabiola.analytics.LocalAnalyticsHelper
@@ -103,24 +102,24 @@ fun SkeletonApp(
 //            }
 
                     Scaffold(
-                        modifier = Modifier.semanticsCommon{},
+                        modifier = Modifier.semanticsCommon {},
                         containerColor = Color.Transparent,
                         contentColor = MaterialTheme.colorScheme.onBackground,
                         contentWindowInsets = WindowInsets(0, 0, 0, 0),
                         snackbarHost = { SnackbarHost(snackbarHostState) },
                         floatingActionButton = {
-                    if (appState.currentDestination.value.active.instance is IRootComponent.RootScreen.MainRootScreen) {
-                            ExtendedFloatingActionButton(
-                                modifier = Modifier
-                                    .windowInsetsPadding(WindowInsets.safeDrawing)
-                                    .testTag("add"),
-                                onClick = { appState.navController.navigateToDetail() },
-                            ) {
-                                Icon(imageVector = Icons.Rounded.Add, contentDescription = "add note")
+                            if (appState.currentDestination.value.active.instance is IRootComponent.RootScreen.MainRootScreen) {
+                                ExtendedFloatingActionButton(
+                                    modifier = Modifier
+                                        .windowInsetsPadding(WindowInsets.safeDrawing)
+                                        .testTag("add"),
+                                    onClick = { appState.navController.navigateToDetail() },
+                                ) {
+                                    Icon(imageVector = Icons.Rounded.Add, contentDescription = "add note")
 //                            Spacer(modifier = )
-                                Text(text = "Add note")
+                                    Text(text = "Add note")
+                                }
                             }
-                    }
                         },
 
                     ) { padding ->
