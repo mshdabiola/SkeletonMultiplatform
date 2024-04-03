@@ -39,27 +39,27 @@ jobs:
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: physics_release_bundle
           path: ${{steps.sign_physics_app.outputs.signedReleaseFile}}
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: free_mapping
           path: app/build/outputs/mapping/physicsRelease/mapping.txt
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: math_release_bundle
           path: ${{steps.sign_math_app.outputs.signedReleaseFile}}
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: math_mapping
           path: app/build/outputs/mapping/mathRelease/mapping.txt
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: distribution
           path: distribution
