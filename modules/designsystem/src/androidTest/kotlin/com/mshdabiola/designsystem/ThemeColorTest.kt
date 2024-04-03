@@ -67,7 +67,7 @@ class ThemeColorTest {
                 darkTheme = true,
                 disableDynamicTheming = true,
             ) {
-                val colorScheme = ThemeColor.DefaultThemeColor(false,Contrast.Normal).getColorScheme()
+                val colorScheme = ThemeColor.DefaultThemeColor(true,Contrast.Normal).getColorScheme()
                 assertColorSchemesEqual(colorScheme, MaterialTheme.colorScheme)
                 val gradientColors = defaultGradientColors(colorScheme)
                 assertEquals(gradientColors, LocalGradientColors.current)

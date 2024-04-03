@@ -57,7 +57,7 @@ jobs:
         id: screenshotsrecord
         if: steps.screenshotsverify.outcome == 'failure'
         run: |
-          ./gradlew recordRoborazziDemoDebug
+          ./gradlew recordRoborazziDebug
 
       - name: Push new screenshots if available
         uses: stefanzweifel/git-auto-commit-action@v5
@@ -75,7 +75,7 @@ jobs:
       # https://android-review.googlesource.com/c/platform/frameworks/support/+/2602790 landed in a
       # release build
       - name: Build all build type and flavor permutations
-        run: ./gradlew :app:assemble :benchmarks:assemble
+        run: ./gradlew ::composeApp:assemble :benchmarks:assemble
           -x pixel6Api33NonMinifiedReleaseAndroidTest
           -x pixel6Api33NonMinifiedBenchmarkAndroidTest
           -x collectNonMinifiedReleaseBaselineProfile
@@ -95,7 +95,7 @@ jobs:
           path: '**/build/test-results/test*UnitTest/**.xml'
 
       - name: Check lint
-        run: ./gradlew :app:lintRelease
+        run: ./gradlew :composeApp:lintRelease
 
       - name: Upload lint reports (HTML)
         if: always()
@@ -105,7 +105,7 @@ jobs:
           path: '**/build/reports/lint-results-*.html'
 
       - name: Check badging
-        run: ./gradlew :app:checkDebugBadging
+        run: ./gradlew :composeApp:checkDebugBadging
 
   androidTest:
     runs-on: ubuntu-latest
