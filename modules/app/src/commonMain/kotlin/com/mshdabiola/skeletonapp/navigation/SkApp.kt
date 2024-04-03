@@ -77,6 +77,7 @@ fun SkeletonApp(
             themeBrand = chooseTheme(uiState),
             themeContrast = chooseContrast(uiState),
             disableDynamicTheming = shouldDisableDynamicTheming(uiState),
+            useAndroidTheme = shouldUseAndroidTheme(uiState),
         ) {
             SkBackground {
                 SkGradientBackground(
@@ -148,6 +149,16 @@ private fun chooseTheme(
 ): ThemeBrand = when (uiState) {
     MainActivityUiState.Loading -> ThemeBrand.DEFAULT
     is MainActivityUiState.Success -> uiState.userData.themeBrand
+}
+@Composable
+private fun shouldUseAndroidTheme(
+    uiState: MainActivityUiState,
+): Boolean = when (uiState) {
+    MainActivityUiState.Loading -> false
+    is MainActivityUiState.Success -> when (uiState.userData.themeBrand) {
+        ThemeBrand.DEFAULT -> false
+        ThemeBrand.GREEN -> true
+    }
 }
 
 @Composable
