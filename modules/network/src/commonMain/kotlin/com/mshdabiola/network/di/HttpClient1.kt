@@ -41,5 +41,4 @@ fun <T : HttpClientEngineConfig> HttpClientConfig<T>.init() {
         retryOnServerErrors(5)
         exponentialDelay()
     }
-
 }

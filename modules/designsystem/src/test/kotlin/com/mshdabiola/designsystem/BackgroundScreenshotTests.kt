@@ -12,7 +12,6 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.unit.dp
 import com.mshdabiola.designsystem.component.SkBackground
 import com.mshdabiola.designsystem.component.SkGradientBackground
-import com.mshdabiola.testing.TestApplication
 import com.mshdabiola.testing.util.captureMultiTheme
 import org.junit.Rule
 import org.junit.Test

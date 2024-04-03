@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -33,8 +32,10 @@ import kotlinx.collections.immutable.ImmutableList
 // import org.koin.androidx.compose.koinViewModel
 
 @Composable
-internal fun MainScreen(navigateToDetail: () -> Unit,
-                        navigateToSetting: () -> Unit) {
+internal fun MainScreen(
+    navigateToDetail: () -> Unit,
+    navigateToSetting: () -> Unit,
+) {
     val viewModel: MainViewModel = KoinCommonViewModel()
     val mainState = viewModel.mainState.collectAsStateWithLifecycleCommon()
     val modelst = viewModel.modelState.collectAsStateWithLifecycleCommon()
@@ -52,8 +53,8 @@ internal fun MainScreen(navigateToDetail: () -> Unit,
 @Composable
 internal fun MainScreen(
     mainState: MainState = MainState(),
-    navigateToDetail: () -> Unit={},
-    navigateToSetting: () -> Unit={},
+    navigateToDetail: () -> Unit = {},
+    navigateToSetting: () -> Unit = {},
     items: ImmutableList<ModelUiState>,
     setName: (String) -> Unit = {},
 ) {
@@ -71,10 +72,10 @@ internal fun MainScreen(
                     Text(text = "Skeleton App")
                 },
                 actions = {
-                    IconButton(onClick = navigateToSetting){
-                        Icon(Icons.Default.Settings,"settings")
+                    IconButton(onClick = navigateToSetting) {
+                        Icon(Icons.Default.Settings, "settings")
                     }
-                }
+                },
             )
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },

@@ -46,7 +46,7 @@ internal fun SettingScreen(onBack: () -> Unit) {
         onBack = onBack,
         setThemeBrand = viewModel::setThemeBrand,
         setContrast = viewModel::setThemeContrast,
-        setDarkThemeConfig = viewModel::setDarkThemeConfig
+        setDarkThemeConfig = viewModel::setDarkThemeConfig,
     )
 }
 
@@ -59,8 +59,7 @@ internal fun SettingScreen(
     setDarkThemeConfig: (DarkThemeConfig) -> Unit = {},
     setContrast: (Contrast) -> Unit = {},
 
-    ) {
-
+) {
     Scaffold(
         modifier = Modifier, // .semantics { this.testTagsAsResourceId = true },
         topBar = {
@@ -77,9 +76,11 @@ internal fun SettingScreen(
         },
     ) { paddingValues ->
         Column(Modifier.padding(paddingValues).padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Row(modifier = Modifier.fillMaxWidth(0.8f),
+            Row(
+                modifier = Modifier.fillMaxWidth(0.8f),
                 horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically) {
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
                 Text("Theme")
                 DropdownMenu(
                     currentIndex = ThemeBrand.entries.indexOf(settingState.userData.themeBrand),
@@ -98,9 +99,11 @@ internal fun SettingScreen(
                 )
             }
 
-            Row (modifier = Modifier.fillMaxWidth(0.8f),
+            Row(
+                modifier = Modifier.fillMaxWidth(0.8f),
                 horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically){
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
                 Text("Contrast")
                 DropdownMenu(
                     currentIndex = Contrast.entries.indexOf(settingState.userData.contrast),
@@ -119,9 +122,11 @@ internal fun SettingScreen(
                 )
             }
 
-            Row (modifier = Modifier.fillMaxWidth(0.8f),
+            Row(
+                modifier = Modifier.fillMaxWidth(0.8f),
                 horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically){
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
                 Text("Dark")
                 DropdownMenu(
                     currentIndex = DarkThemeConfig.entries.indexOf(settingState.userData.darkThemeConfig),
@@ -139,8 +144,6 @@ internal fun SettingScreen(
                     },
                 )
             }
-
-
         }
     }
 }
@@ -196,5 +199,4 @@ fun DropdownMenu(
             }
         }
     }
-
 }

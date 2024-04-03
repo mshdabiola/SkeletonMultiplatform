@@ -7,14 +7,13 @@ import com.mshdabiola.designsystem.component.DetailTopAppBar
 import com.mshdabiola.designsystem.component.SkTopAppBar
 import com.mshdabiola.designsystem.icon.SkIcons
 import org.jetbrains.compose.resources.ExperimentalResourceApi
-import org.jetbrains.compose.resources.StringResource
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalResourceApi::class)
 @Preview("Top App Bar")
 @Composable
 private fun SkTopAppBarPreview() {
     SkTopAppBar(
-        titleRes ="Testing",
+        titleRes = "Testing",
         navigationIcon = SkIcons.Search,
         navigationIconContentDescription = "Navigation icon",
         actionIcon = SkIcons.MoreVert,

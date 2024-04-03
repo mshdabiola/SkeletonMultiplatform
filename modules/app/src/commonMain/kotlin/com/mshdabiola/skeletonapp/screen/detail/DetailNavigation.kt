@@ -5,8 +5,8 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun MainScreenNav(windowSizeClass: WindowSizeClass, onBack: () -> Unit) {
-    DetailScreenn (
+    DetailScreenn(
         windowSizeClass,
-        onBack
+        onBack,
     )
 }

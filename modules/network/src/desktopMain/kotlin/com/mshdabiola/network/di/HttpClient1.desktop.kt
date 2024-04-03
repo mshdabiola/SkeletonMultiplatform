@@ -11,7 +11,6 @@ import io.ktor.client.plugins.logging.SIMPLE
 import java.io.File
 
 actual fun <T : HttpClientEngineConfig> HttpClientConfig<T>.initPlatform() {
-
     install(Logging) {
         logger = Logger.SIMPLE
         level = LogLevel.ALL
