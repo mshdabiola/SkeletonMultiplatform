@@ -53,7 +53,7 @@ androidx-baselineprofile = "1.2.3"
 androidxStartup = "1.1.1"
 androidxWork = "2.9.0"
 
-coil = "2.5.0"
+coil = "3.0.0-alpha06"
 
 kotlinxCollectionImmutable = "0.3.7"
 kotlinxCoroutines = "1.8.0"
@@ -151,9 +151,9 @@ androidx-benchmark-macro = { module = "androidx.benchmark:benchmark-macro-junit4
 androidx-work-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "androidxWork" }
 androidx-work-testing = { module = "androidx.work:work-testing", version.ref = "androidxWork" }
 
-coil-kt = { module = "io.coil-kt:coil", version.ref = "coil" }
-coil-kt-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
-coil-kt-svg = { module = "io.coil-kt:coil-svg", version.ref = "coil" }
+coil-kt = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
+coil-kt-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
+coil-kt-svg = { module = "io.coil-kt.coil3:coil-svg", version.ref = "coil" }
 
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
