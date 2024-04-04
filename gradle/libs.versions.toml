@@ -90,7 +90,7 @@ dependencyGuard = "0.4.3"
 multiplatform_settings = "1.1.1"
 
 
-compose = "1.6.1"
+compose = "1.6.4"
 
 
 
