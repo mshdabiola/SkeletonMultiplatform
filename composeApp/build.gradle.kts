@@ -10,7 +10,6 @@ plugins {
     id("mshdabiola.android.application")
     id("mshdabiola.android.application.compose")
     id("mshdabiola.android.application.jacoco")
-    id("jacoco")
     id("mshdabiola.android.application.firebase")
     alias(libs.plugins.androidx.baselineprofile)
     alias(libs.plugins.androidApplication)
