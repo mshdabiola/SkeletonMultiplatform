@@ -53,7 +53,7 @@ androidx-baselineprofile = "1.2.3"
 androidxStartup = "1.1.1"
 androidxWork = "2.9.0"
 
-coil = "2.5.0"
+coil = "2.6.0"
 
 kotlinxCollectionImmutable = "0.3.7"
 kotlinxCoroutines = "1.8.0"
