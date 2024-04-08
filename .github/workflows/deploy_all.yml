@@ -1,3 +1,6 @@
+name: Release all on github
+
+
 on:
   push:
     tags:

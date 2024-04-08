@@ -21,8 +21,7 @@ dependencies {
     api(libs.androidx.metrics)
 
 
-    implementation(libs.coil.kt)
-    implementation(libs.coil.kt.compose)
+
 
     androidTestImplementation(project(":modules:testing"))
 }
@@ -44,6 +43,10 @@ kotlin{
                 api(project(":modules:analytics"))
                 api(project(":modules:designsystem"))
                 api(project(":modules:model"))
+                implementation(libs.coil.kt)
+                implementation(libs.coil.kt.compose)
+                implementation(libs.coil.kt.svg)
+
             }
         }
     }
