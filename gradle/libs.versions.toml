@@ -1,26 +1,29 @@
 [versions]
-agp = "8.5.0-alpha03"
+agp = "8.3.2"
 androidTools = "31.3.1"
 
 accompanist = "0.34.0"
 
-kotlin = "1.9.23"
-coreKtx = "1.12.0"
+kotlin = "2.0.0-RC1"
+coreKtx = "1.13.0"
 leakcanaryAndroid = "3.0-alpha-1"
 lifecycleRuntimeKtx = "2.7.0"
 androidxSavedState = "1.2.1"
 androidxLifecycle = "2.7.0"
 
 
+lifecycleViewmodelCompose = "2.8.0-alpha01"
 monitor = "1.6.1"
+navigationCompose = "2.8.0-alpha02"
+pagingComposeCommon = "3.3.0-alpha02-0.5.1"
 turbine = "1.0.0"
 timber = "5.0.1"
 
 androidxComposeCompiler = "1.5.8"
-activityCompose = "1.8.2"
-androidxComposeBom = "2024.04.00"
+activityCompose = "1.9.0"
+androidxComposeBom = "2024.04.01"
 androidxComposeRuntimeTracing = "1.0.0-beta01"
-compose-plugin = "1.6.1"
+compose-plugin = "1.6.10-beta02"
 
 
 androidxConstraintLayout = "1.1.0-alpha13"
@@ -39,15 +42,15 @@ windowSizeClass = "0.5.0-rc01"
 
 sqlDelight = "2.0.0-rc01"
 
-androidxDataStore = "1.1.0-rc01"
+androidxDataStore = "1.1.0"
 secrets = "2.0.1"
 ktor-wasm = "3.0.0-wasm2"
 ktorKotlinxSerializationJson = "1.0.1"
 
 
-androidxMacroBenchmark = "1.3.0-alpha02"
+androidxMacroBenchmark = "1.3.0-alpha03"
 androidxProfileinstaller = "1.4.0-alpha01"
-androidx-baselineprofile = "1.3.0-alpha02"
+androidx-baselineprofile = "1.3.0-alpha03"
 
 
 androidxStartup = "1.1.1"
@@ -64,7 +67,7 @@ playGame = "20.0.0"
 playReview = "2.0.1"
 playUpdate = "2.1.0"
 playCoroutine = "1.8.0"
-firebaseBom = "32.8.0"
+firebaseBom = "32.8.1"
 firebaseAnalytics = "21.2.2"
 firebaseCrashlyticsKts = "18.3.6"
 
@@ -90,7 +93,7 @@ dependencyGuard = "0.5.0"
 multiplatform_settings = "1.1.1"
 
 
-compose = "1.6.4"
+compose = "1.6.6"
 
 
 
@@ -154,6 +157,8 @@ androidx-work-testing = { module = "androidx.work:work-testing", version.ref = "
 coil-kt = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
 coil-kt-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-kt-svg = { module = "io.coil-kt.coil3:coil-svg", version.ref = "coil" }
+coil-kt-network = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coil" }
+
 
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
@@ -165,6 +170,9 @@ firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashly
 firebase-crashlytics-gradle = { group = "com.google.firebase", name = "firebase-crashlytics-gradle", version.ref = "firebaseCrashylyticsPlugins" }
 firebase-performance = { group = "com.google.firebase", name = "firebase-perf" }
 
+navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
+paging-compose-common = { module = "app.cash.paging:paging-compose-common", version.ref = "pagingComposeCommon" }
 play-game = { module = "com.google.android.gms:play-services-games-v2", version.ref = "playGame" }
 play-review = { module = "com.google.android.play:review", version.ref = "playReview" }
 play-review-kts = { module = "com.google.android.play:review-ktx", version.ref = "playReview" }
@@ -207,6 +215,7 @@ sqldelight_runtime = { module = "app.cash.sqldelight:runtime", version.ref = "sq
 sqldelight_coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
 sqldelight_android_driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
 sqldelight_sqlite_driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqlDelight" }
+sqldelight_paging = { module = "app.cash.sqldelight:androidx-paging3-extensions", version.ref = "sqlDelight" }
 sqldelight_primitive_adapter = { module = "app.cash.sqldelight:primitive-adapters", version.ref = "sqlDelight" }
 
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
