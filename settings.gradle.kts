@@ -32,11 +32,10 @@ include(":modules:network")
 include(":modules:data")
 include(":modules:domain")
 include(":modules:testing")
-include(":modules:app")
+//include(":modules:app")
 //include(":desktop")
 //include(":modules:setting")
 include(":modules:datastore")
-include(":modules:navigation")
 
 include(":benchmarks")
 include(":modules:mvvn")
@@ -44,7 +43,12 @@ include(":modules:analytics")
 
 
 include(":composeApp")
-include(":shared")
+//include(":shared")
 
 include(":modules:ui")
+
+include(":features:main")
+include(":features:detail")
+include(":features:setting")
+
 

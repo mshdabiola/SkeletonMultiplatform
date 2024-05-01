@@ -17,14 +17,14 @@ plugins {
 }
 dependencies{
 
-    implementation(project(":modules:app"))
-    implementation(project(":modules:model"))
-    implementation(project(":modules:data"))
-    implementation(project(":modules:navigation"))
-    implementation(project(":modules:analytics"))
-    implementation(project(":modules:mvvn"))
-    implementation(project(":modules:designsystem"))
-
+//    implementation(project(":modules:app"))
+//    implementation(project(":modules:model"))
+//    implementation(project(":modules:data"))
+//    implementation(project(":modules:navigation"))
+//    implementation(project(":modules:analytics"))
+//    implementation(project(":modules:mvvn"))
+//    implementation(project(":modules:designsystem"))
+//
 
 
     implementation(libs.koin.android.compose)
@@ -58,15 +58,15 @@ dependencies{
 
 kotlin {
     @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
-        moduleName = "composeApp"
-        browser {
-            commonWebpackConfig {
-                outputFileName = "composeApp.js"
-            }
-        }
-        binaries.executable()
-    }
+//    wasmJs {
+//        moduleName = "composeApp"
+//        browser {
+//            commonWebpackConfig {
+//                outputFileName = "composeApp.js"
+//            }
+//        }
+//        binaries.executable()
+//    }
     
     androidTarget {
         compilations.all {
@@ -86,31 +86,51 @@ kotlin {
             implementation(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material)
-            implementation(compose.ui)
-            @OptIn(ExperimentalComposeLibrary::class)
-            implementation(compose.components.resources)
-            implementation(project(":shared"))
-
-            implementation(libs.androidx.compose.material3.windowSizeClass)
-
-            implementation(libs.decompose.core)
-            implementation(libs.decompose.compose.jetbrains)
-
+//            implementation(compose.runtime)
+//            implementation(compose.foundation)
+//            implementation(compose.material)
+//            implementation(compose.ui)
+//            @OptIn(ExperimentalComposeLibrary::class)
+//            implementation(compose.components.resources)
+//            implementation(project(":shared"))
+//
+//            implementation(libs.androidx.compose.material3.windowSizeClass)
+//
+//            implementation(libs.decompose.core)
+//            implementation(libs.decompose.compose.jetbrains)
+//
             implementation(libs.koin.core)
+//
+//            implementation(project(":modules:designsystem"))
+//            implementation(project(":modules:analytics"))
+//            implementation(project(":modules:mvvn"))
+//            implementation(project(":modules:navigation"))
+//            implementation(project(":modules:network"))
+            implementation(project(":modules:data"))
+
+
+            implementation(project(":modules:mvvn"))
+            implementation(project(":modules:ui"))
+
 
             implementation(project(":modules:designsystem"))
             implementation(project(":modules:analytics"))
-            implementation(project(":modules:mvvn"))
-            implementation(project(":modules:navigation"))
-            implementation(project(":modules:network"))
+
+
+
+
+            implementation(project(":features:main"))
+            implementation(project(":features:detail"))
+            implementation(project(":features:setting"))
+
+
+
+
         }
 
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
-            implementation(project(":modules:app"))
+           // implementation(project(":modules:app"))
 
             implementation(libs.kotlinx.coroutines.swing)
 
@@ -200,7 +220,7 @@ compose.desktop {
             version.set("7.3.0")
         }
 
-        val iconsRoot = project.file("src/commonMain/composeResources/drawable/launcher")
+        val iconsRoot = project.file("src/desktopMain/resources/launcher")
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageVersion = "1.0.1"
@@ -243,9 +263,9 @@ compose.desktop {
 }
 
 
-compose.experimental {
-    web.application {}
-}
+//compose.experimental {
+//    web.application {}
+//}
 
 
 baselineProfile {

@@ -27,10 +27,10 @@ dependencies {
 }
 
 kotlin{
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
-        browser()
-    }
+//    @OptIn(ExperimentalWasmDsl::class)
+//    wasmJs {
+//        browser()
+//    }
     sourceSets{
         val desktopMain by getting{
             dependencies{
@@ -43,9 +43,14 @@ kotlin{
                 api(project(":modules:analytics"))
                 api(project(":modules:designsystem"))
                 api(project(":modules:model"))
-                implementation(libs.coil.kt)
-                implementation(libs.coil.kt.compose)
-                implementation(libs.coil.kt.svg)
+                api(libs.coil.kt)
+                api(libs.coil.kt.compose)
+                api(libs.coil.kt.svg)
+                api(libs.coil.kt.network)
+
+                api(compose.components.resources)
+
+
 
             }
         }

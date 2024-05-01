@@ -26,13 +26,12 @@ import com.google.firebase.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.remoteconfig.remoteConfig
 import com.google.firebase.remoteconfig.remoteConfigSettings
-import com.mshdabiola.skeletonapp.navigation.SkeletonApp
-import com.mshdabiola.skeletonapp.navigation.shouldUseDarkTheme
+import com.mshdabiola.skeletonapp.ui.SkeletonApp
+import com.mshdabiola.skeletonapp.ui.shouldUseDarkTheme
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
-import org.koin.androidx.compose.viewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 

@@ -19,10 +19,10 @@ android {
 }
 
 kotlin {
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
-        browser()
-    }
+//    @OptIn(ExperimentalWasmDsl::class)
+//    wasmJs {
+//        browser()
+//    }
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -57,11 +57,11 @@ kotlin {
             }
         }
 
-        val wasmJsMain by getting {
-            dependencies {
-                implementation(libs.ktor.client.js)
-            }
-        }
+//        val wasmJsMain by getting {
+//            dependencies {
+//                implementation(libs.ktor.client.js)
+//            }
+//        }
 
         val desktopTest by getting
 
@@ -84,3 +84,4 @@ kotlin {
 //    implementation(libs.paging.runtime)
 //    implementation(libs.paging.common)
 //}
+//task("testClasses")

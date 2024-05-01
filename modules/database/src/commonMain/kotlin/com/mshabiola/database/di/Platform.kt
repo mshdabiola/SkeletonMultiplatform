@@ -1,6 +1,8 @@
 package com.mshabiola.database.di
 
+import com.mshabiola.database.dao.modeldao.IImageDao
 import com.mshabiola.database.dao.modeldao.IModelDao
+import com.mshabiola.database.dao.modeldao.ImageDao
 import com.mshabiola.database.dao.modeldao.ModelDao
 import com.mshdabiola.database.TempDatabase
 import kotlinx.coroutines.CoroutineDispatcher
@@ -16,6 +18,11 @@ val daoModules = module {
     single {
         get<TempDatabase>().modelQueries
     }
+    single {
+        get<TempDatabase>().imageQueries
+    }
     single { Dispatchers.IO } bind CoroutineDispatcher::class
     singleOf(::ModelDao) bind IModelDao::class
+    singleOf(::ImageDao) bind IImageDao::class
+
 }

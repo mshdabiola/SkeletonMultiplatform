@@ -40,10 +40,10 @@ dependencies {
 
 }
 kotlin {
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
-        browser()
-    }
+//    @OptIn(ExperimentalWasmDsl::class)
+//    wasmJs {
+//        browser()
+//    }
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -55,6 +55,9 @@ kotlin {
                 api(libs.kotlinx.collection.immutable)
                 api(project(":modules:model"))
                 api(libs.androidx.compose.material3.windowSizeClass)
+                api(libs.navigation.compose)
+                api(libs.paging.compose.common)
+
 
 
             }

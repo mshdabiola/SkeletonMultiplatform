@@ -1,0 +1,36 @@
+
+
+CREATE TABLE IF NOT EXISTS imageEntity (
+  id TEXT PRIMARY KEY  ,
+  user TEXT NOT NULL,
+  userId INTEGER,
+  url TEXT NOT NULL,
+  timestamp TEXT,
+  mime TEXT,
+  mediatype TEXT,
+  descriptionUrl TEXT,
+  descriptionShortUr TEXT
+);
+
+-- CREATE INDEX IF NOT EXISTS hockeyPlayer_full_name ON hockeyPlayer(full_name);
+
+
+select:
+SELECT *
+FROM imageEntity;
+
+insertFullModelObject:
+INSERT INTO imageEntity(id,user,userId,url,timestamp,mime,mediatype,descriptionUrl,descriptionShortUr)
+VALUES ?;
+
+clear:
+DELETE FROM imageEntity;
+
+countPlayers:
+SELECT count(*) FROM imageEntity;
+
+all:
+SELECT *
+FROM imageEntity
+LIMIT :limit OFFSET :offset;
+

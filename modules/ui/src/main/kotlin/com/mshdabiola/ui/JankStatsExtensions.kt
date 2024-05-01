@@ -33,7 +33,7 @@ fun rememberMetricsStateHolder(): Holder {
 
 /**
  * Convenience function to work with [PerformanceMetricsState] state. The side effect is
- * re-launched if any of the [keys] value is not equal to the previous composition.
+ * re-launched if any of the [keys] values is not equal to the previous composition.
  * @see TrackDisposableJank if you need to work with DisposableEffect to cleanup added state.
  */
 @Composable
@@ -49,7 +49,7 @@ fun TrackJank(
 
 /**
  * Convenience function to work with [PerformanceMetricsState] state that needs to be cleaned up.
- * The side effect is re-launched if any of the [keys] value is not equal to the previous composition.
+ * The side effect is re-launched if any of the [keys] values is not equal to the previous composition.
  */
 @Composable
 fun TrackDisposableJank(

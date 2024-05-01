@@ -29,6 +29,8 @@ kotlin {
                 //   implementation(libs.kermit.log)
                 implementation(libs.sqldelight.runtime)
                 implementation(libs.sqldelight.coroutines)
+                implementation(libs.sqldelight.paging)
+
             }
         }
 
