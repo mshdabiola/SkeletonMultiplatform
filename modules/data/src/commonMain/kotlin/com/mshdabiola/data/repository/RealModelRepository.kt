@@ -1,54 +1,73 @@
 package com.mshdabiola.data.repository
 
-import androidx.paging.PagingSource
-import com.mshabiola.database.dao.modeldao.IImageDao
-import com.mshabiola.database.dao.modeldao.IModelDao
-import com.mshdabiola.data.ModeRemoteMediator
-import com.mshdabiola.data.ModelPagingSource
-import com.mshdabiola.model.ImageModel
-import com.mshdabiola.model.Model
+import com.mshdabiola.data.model.asNote
+import com.mshdabiola.data.model.asNoteEntity
+import com.mshdabiola.database.dao.ImageDao
+import com.mshdabiola.database.dao.NoteDao
+import com.mshdabiola.model.Note
 import com.mshdabiola.network.INetworkDataSource
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
 
 internal class RealModelRepository constructor(
-    private val modelDao: IModelDao,
+    private val noteDao: NoteDao,
     private val iNetworkDataSource: INetworkDataSource,
-    private val imageDao: IImageDao
+    private val imageDao: ImageDao,
+    private val ioDispatcher: CoroutineDispatcher
 ) : IModelRepository {
-
-    override suspend fun upsert(model: Model): Long {
-      return  modelDao.upsert(model)
+    override suspend fun upsert(note: Note): Long {
+        return withContext(ioDispatcher) {
+            noteDao.upsert(note.asNoteEntity())
+        }
     }
 
-    override fun getAllModel(): Flow<List<Model>> {
-        return  modelDao.getAllModel()
+    override fun getAll(): Flow<List<Note>> {
+        return noteDao
+            .getAll()
+            .map { noteEntities -> noteEntities.map {
+                it.asNote()
+            } }
+            .flowOn(ioDispatcher)
     }
 
-    override suspend fun updateModel(model: Model) {
-        modelDao.updateModel(model)
-    }
-
-    override fun getOneModel(id: Long): Flow<Model> {
-        return modelDao.getOneModel(id)
+    override fun getOne(id: Long): Flow<Note?> {
+        return noteDao
+            .getOne(id)
+            .map {  it?.asNote() }
+            .flowOn(ioDispatcher)
     }
 
     override suspend fun delete(id: Long) {
-        modelDao.delete(id)
+        withContext(ioDispatcher) {
+            noteDao.delete(id)
+        }
     }
 
-    override fun getTimeline(): ModelPagingSource {
-       return ModelPagingSource(iNetworkDataSource)
-    }
 
-    override fun getTimelineMediator(): ModeRemoteMediator {
-        return ModeRemoteMediator(iNetworkDataSource,imageDao)
-    }
-
-    override fun getTimeSource(): PagingSource<Int, ImageModel> {
-        return imageDao.pagingSource
-    }
-
-    override fun getModePagingSource(): PagingSource<Int, Model> {
-        return modelDao.pagingSource
-    }
+//    @OptIn(ExperimentalPagingApi::class)
+//    override fun imagePagingData(): Flow<PagingData<Image>> {
+//
+//        return Pager(
+//            PagingConfig(4),
+//            remoteMediator = ModeRemoteMediator(iNetworkDataSource,imageDao)
+//        ){
+//            imageDao.pagingSource()
+//        }
+//            .flow
+//            .map { pagingData -> pagingData.map { it.asImage() } }
+//
+//
+//    }
+//
+//    override fun notePagingData(): Flow<PagingData<Note>>{
+//        return Pager(PagingConfig(20)){
+//            noteDao.pagingSource()
+//        }
+//            .flow
+//            .map { pagingData -> pagingData.map { it.asNote() } }
+//
+//    }
 }

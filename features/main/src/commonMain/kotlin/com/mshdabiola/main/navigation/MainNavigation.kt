@@ -27,7 +27,6 @@ fun NavGraphBuilder.mainScreen(
     ) {
 
     composable(route = MAIN_ROUTE) {
-        val viewModel: MainViewModel = KoinCommonViewModel()
 
         MainRoute(
             screenSize= screenSize,
@@ -35,7 +34,6 @@ fun NavGraphBuilder.mainScreen(
             onShowSnackbar = onShowSnack,
             navigateToSetting = navigateToSetting,
             navigateToDetail = navigateToDetail,
-            viewModel = viewModel,
         )
     }
 }

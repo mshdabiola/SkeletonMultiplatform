@@ -1,7 +1,3 @@
-/*
- *abiola 2024
- */
-
 package com.mshdabiola.model
 
 data class Note(

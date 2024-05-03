@@ -1,6 +1,6 @@
 package com.mshdabiola.data.di
 
-import com.mshabiola.database.di.databaseModule
+import com.mshdabiola.database.di.databaseModule
 import com.mshdabiola.analytics.di.analyticsModule
 import com.mshdabiola.data.repository.IModelRepository
 import com.mshdabiola.data.repository.INetworkRepository

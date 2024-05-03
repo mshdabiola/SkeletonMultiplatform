@@ -4,33 +4,22 @@
 
 package com.mshdabiola.setting
 
-import androidx.paging.ExperimentalPagingApi
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.cachedIn
-import com.mshdabiola.data.repository.IModelRepository
-import com.mshdabiola.mvvn.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.mshdabiola.mvvn.ViewModeli
 import com.mshdabiola.data.repository.UserDataRepository
 import com.mshdabiola.model.Contrast
 import com.mshdabiola.model.DarkThemeConfig
-import com.mshdabiola.model.Model
 import com.mshdabiola.model.ThemeBrand
 import com.mshdabiola.model.UserData
-import kotlinx.collections.immutable.toImmutableList
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import kotlin.random.Random
 
 class SettingViewModel constructor(
     private val userDataRepository: UserDataRepository,
-) : ViewModel() {
+) : ViewModeli() {
     private val default = UserData(
         useDynamicColor = false,
         themeBrand = ThemeBrand.DEFAULT,

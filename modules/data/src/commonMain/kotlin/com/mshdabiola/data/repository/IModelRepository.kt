@@ -1,27 +1,22 @@
 package com.mshdabiola.data.repository
 
-import androidx.paging.PagingSource
-import com.mshdabiola.data.ModeRemoteMediator
-import com.mshdabiola.data.ModelPagingSource
-import com.mshdabiola.model.ImageModel
-import com.mshdabiola.model.Model
+import androidx.paging.PagingData
+import com.mshdabiola.model.Image
+import com.mshdabiola.model.Note
 import kotlinx.coroutines.flow.Flow
 
 interface IModelRepository {
 
-    suspend fun upsert(model: Model):Long
+    suspend fun upsert(note: Note): Long
+    fun getAll(): Flow<List<Note>>
 
-    fun getAllModel(): Flow<List<Model>>
+    fun getOne(id: Long): Flow<Note?>
 
-    suspend fun updateModel(model: Model)
-    fun getOneModel(id: Long): Flow<Model>
     suspend fun delete(id: Long)
 
-    fun getTimeline():ModelPagingSource
-    fun getTimelineMediator():ModeRemoteMediator
-    fun getTimeSource (): PagingSource<Int, ImageModel>
+//    fun imagePagingData (): Flow<PagingData<Image>>
 
-    fun getModePagingSource (): PagingSource<Int, Model>
+//    fun notePagingData (): Flow<PagingData<Note>>
 
 
 }

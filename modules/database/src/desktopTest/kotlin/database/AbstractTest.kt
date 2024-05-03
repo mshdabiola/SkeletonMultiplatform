@@ -1,7 +1,7 @@
 package database
 
 import app.cash.sqldelight.driver.jdbc.sqlite.JdbcSqliteDriver
-import com.mshabiola.database.di.daoModules
+import com.mshdabiola.database.di.daoModules
 import com.mshdabiola.database.TempDatabase
 import org.junit.Rule
 import org.junit.Test

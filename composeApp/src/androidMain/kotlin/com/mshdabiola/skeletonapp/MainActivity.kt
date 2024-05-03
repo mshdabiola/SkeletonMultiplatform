@@ -20,7 +20,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.metrics.performance.JankStats
-import com.arkivanov.decompose.defaultComponentContext
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
@@ -141,12 +140,9 @@ class MainActivity : ComponentActivity() {
                 )
                 onDispose {}
             }
-            val context = remember {
-                defaultComponentContext()
-            }
+
 
             SkeletonApp(
-                context = context,
             )
         }
     }

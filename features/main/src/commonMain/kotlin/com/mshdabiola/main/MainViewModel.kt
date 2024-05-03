@@ -4,17 +4,14 @@
 
 package com.mshdabiola.main
 
-import androidx.paging.ExperimentalPagingApi
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.cachedIn
-import androidx.paging.map
+import androidx.lifecycle.viewModelScope
 import com.mshdabiola.data.repository.IModelRepository
-import com.mshdabiola.mvvn.ViewModel
+import com.mshdabiola.mvvn.ViewModeli
 import com.mshdabiola.data.repository.UserDataRepository
-import com.mshdabiola.model.Model
+import com.mshdabiola.model.Note
 import com.mshdabiola.ui.MainState
-import com.mshdabiola.ui.asModelUiState
+import com.mshdabiola.ui.asNoteUiState
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -27,24 +24,20 @@ class MainViewModel constructor(
     private val userDataRepository: UserDataRepository,
     private val modelRepository: IModelRepository,
 
-    ) : ViewModel() {
+    ) : ViewModeli() {
 
-    val timeLine = Pager(PagingConfig(20)){
-        modelRepository.getModePagingSource()
-    }
-        .flow
-        .map { it.map { it.asModelUiState() } }
-        .cachedIn(viewModelScope)
-    @OptIn(ExperimentalPagingApi::class)
+//    val timeLine = modelRepository
+//        .imagePagingData()
 
-    val pager = Pager(
-        PagingConfig(4),
-        remoteMediator = modelRepository.getTimelineMediator()
-    ){
-        modelRepository.getTimeSource()
-    }
-        .flow
-        .cachedIn(viewModelScope)
+    val notes =modelRepository
+        .getAll()
+        .map { it.map { it.asNoteUiState() }.toImmutableList() }
+
+
+//    val pager = modelRepository
+//        .notePagingData()
+//        .map { it.map { it.asNoteUiState() } }
+//        .cachedIn(viewModelScope)
 
     private val _mainState = MutableStateFlow(MainState())
     val mainState = _mainState.asStateFlow()
@@ -58,12 +51,12 @@ class MainViewModel constructor(
     }
 
     fun addName(name: String) {
-        insert(Model(title = name, id = Random(34).nextLong()))
+        insert(Note(title = name, id = Random(34).nextLong()))
     }
 
-    fun insert(model: Model) {
+    fun insert(note: Note) {
         viewModelScope.launch(Dispatchers.IO) {
-            modelRepository.upsert(model)
+            modelRepository.upsert(note)
         }
     }
 

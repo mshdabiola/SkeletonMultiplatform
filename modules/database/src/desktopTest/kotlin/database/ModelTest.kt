@@ -2,7 +2,7 @@ package database
 
 import app.cash.turbine.test
 import com.mshabiola.database.dao.modeldao.ModelDao
-import com.mshdabiola.model.Model
+import com.mshdabiola.model.Note
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.koin.core.component.inject
@@ -14,7 +14,7 @@ class ModelTest : AbstractTest() {
     override fun insert() = runTest {
         val modelDao by inject<ModelDao>()
 
-        modelDao.insert(Model(2, "ai"))
+        modelDao.insert(Note(2, "ai"))
         modelDao.getAllModel()
             .test {
                 val list = awaitItem()

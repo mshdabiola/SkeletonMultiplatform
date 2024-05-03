@@ -4,26 +4,27 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
-import com.mshabiola.database.dao.modeldao.IImageDao
-import com.mshdabiola.model.ImageModel
+import com.mshdabiola.data.model.asExternalImage
+import com.mshdabiola.database.dao.ImageDao
+import com.mshdabiola.database.model.ImageEntity
+import com.mshdabiola.model.Image
 import com.mshdabiola.network.INetworkDataSource
 import com.mshdabiola.network.model.Imageinfo
 import java.io.IOException
 import java.net.http.HttpConnectTimeoutException
 import kotlin.random.Random
 import kotlin.random.nextInt
-import kotlin.random.nextULong
 
 @OptIn(ExperimentalPagingApi::class)
 class ModeRemoteMediator(
     private val iNetworkDataSource: INetworkDataSource,
-    private val iImageDao: IImageDao
-) :RemoteMediator<Int,ImageModel>() {
+    private val iImageDao: ImageDao
+) :RemoteMediator<Int, ImageEntity>() {
 
  var key2:String?=null
     override suspend fun load(
         loadType: LoadType,
-        state: PagingState<Int, ImageModel>,
+        state: PagingState<Int, ImageEntity>,
     ): MediatorResult {
 
         return try {
@@ -72,15 +73,20 @@ class ModeRemoteMediator(
             }
 
             if (loadType == LoadType.REFRESH) {
-                   iImageDao.clear()
+                   iImageDao.clearAll()
                 }
 
                 // Insert new users into database, which invalidates the
                 // current PagingData, allowing Paging to present the updates
                 // in the DB.
-            maps?.flatten()?.forEach {
-                iImageDao.insert(it.copy(id = it.id+random.nextULong()))
+            maps
+                ?.flatten()
+                ?.map { it.asExternalImage() }
+            ?.let {
+                iImageDao.insertAll(it)
+
             }
+
 
 
 
@@ -171,14 +177,14 @@ class ModeRemoteMediator(
 }
 
 
-fun Imageinfo.toModel()= ImageModel(
+fun Imageinfo.toModel()= Image(
     id = id?:"",
     user = user?:"",
-    userid = userid?.toInt(),
+    userid = userid ?:4,
     url = url?:"",
-    timestamp = timestamp,
-    mime = mime,
-    mediatype = mediatype,
-    descriptionurl = descriptionurl,
-    descriptionshorturl = descriptionshorturl
+    timestamp = timestamp ?:"",
+    mime = mime?:"",
+    mediaType = mediatype?:"",
+    descriptionUrl = descriptionurl?:"",
+    descriptionShortUrl = descriptionshorturl?:""
 )

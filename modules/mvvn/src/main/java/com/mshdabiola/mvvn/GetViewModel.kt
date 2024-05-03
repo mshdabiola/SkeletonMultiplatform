@@ -1,19 +1,16 @@
 package com.mshdabiola.mvvn
 
 import androidx.compose.runtime.Composable
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import org.koin.androidx.compose.defaultExtras
-import org.koin.androidx.viewmodel.parameter.AndroidParametersHolder
 import org.koin.androidx.viewmodel.resolveViewModel
 import org.koin.compose.LocalKoinScope
 import org.koin.core.annotation.KoinInternalApi
 import org.koin.core.parameter.ParametersDefinition
 import org.koin.core.qualifier.Qualifier
 import org.koin.core.scope.Scope
-import kotlin.reflect.KClass
 
 /**
  * Resolve CommonViewModel instance
@@ -26,7 +23,7 @@ import kotlin.reflect.KClass
  */
 @OptIn(KoinInternalApi::class)
 @Composable
-inline fun <reified T : ViewModel> getCommonViewModel(
+inline fun <reified T : ViewModeli> getCommonViewModel(
     qualifier: Qualifier? = null,
     viewModelStoreOwner: ViewModelStoreOwner = checkNotNull(LocalViewModelStoreOwner.current) {
         "No ViewModelStoreOwner was provided via LocalViewModelStoreOwner"

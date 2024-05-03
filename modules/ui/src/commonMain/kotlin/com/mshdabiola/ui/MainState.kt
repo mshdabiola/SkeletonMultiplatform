@@ -1,6 +1,6 @@
 package com.mshdabiola.ui
 
-import com.mshdabiola.model.Model
+import com.mshdabiola.model.Note
 
 // sealed interface MainState {
 //    data class Show(val models: List<ModelUiState>) : MainState
@@ -14,10 +14,4 @@ data class MainState(
 //    val messages: ImmutableList<Notify> = emptyList<Notify>().toImmutableList()
 )
 
-data class ModelUiState(
-    val id: Long? = null,
-    val title: String = "",
-    val content: String = "",
-)
-
-fun Model.asModelUiState() = ModelUiState(id, title,content)
+fun Note.asNoteUiState() = NoteUiState(id, title,content)

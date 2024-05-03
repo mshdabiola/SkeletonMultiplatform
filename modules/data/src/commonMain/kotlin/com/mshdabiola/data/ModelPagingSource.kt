@@ -2,15 +2,15 @@ package com.mshdabiola.data
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.mshdabiola.model.ImageModel
+import com.mshdabiola.model.Image
 import com.mshdabiola.network.INetworkDataSource
 import kotlin.random.Random
 import kotlin.random.nextInt
 
 class ModelPagingSource(
     private val iNetworkDataSource: INetworkDataSource
-) : PagingSource<String,ImageModel>() {
-    override fun getRefreshKey(state: PagingState<String, ImageModel>): String? {
+) : PagingSource<String,Image>() {
+    override fun getRefreshKey(state: PagingState<String, Image>): String? {
         return getKey()
 //        return state.anchorPosition?.let { anchorPosition ->
 //            val anchorPage = state.closestPageToPosition(anchorPosition)
@@ -18,8 +18,9 @@ class ModelPagingSource(
 //        }
     }
 
-    override suspend fun load(params: LoadParams<String>): LoadResult<String, ImageModel> {
-     return   try {
+    override suspend fun load(params: LoadParams<String>): LoadResult<String, Image> {
+
+     return try {
             // Start refresh at page 1 if undefined.
             val next=params.key ?: getKey()
             val response = iNetworkDataSource.getTimeline(4, next)

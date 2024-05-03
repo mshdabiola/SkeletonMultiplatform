@@ -7,46 +7,43 @@ package com.mshdabiola.detail
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.snapshotFlow
+import androidx.lifecycle.viewModelScope
 import com.mshdabiola.data.repository.IModelRepository
-import com.mshdabiola.model.Model
+import com.mshdabiola.model.Note
 import kotlinx.coroutines.Job
-import com.mshdabiola.mvvn.ViewModel
+import com.mshdabiola.mvvn.ViewModeli
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import kotlin.random.Random
 
 
 class DetailViewModel  constructor(
     //savedStateHandle: SavedStateHandle,
     id:Long,
-    private val modelRepository: IModelRepository,
-    ) : ViewModel() {
-//    private val topicArgs: DetailArgs = DetailArgs(savedStateHandle)
-//
-//    private val topicId = topicArgs.id
+    private val noteRepository: IModelRepository,
+    ) : ViewModeli() {
 
-    private var _noteState = mutableStateOf(Model())
-    val noteState: State<Model> = _noteState
+    private val topicId = id
+
+    private var _noteState = mutableStateOf(Note())
+    val noteState: State<Note> = _noteState
 
     init {
         viewModelScope.launch {
-            println("id is $id")
-            if (id > 0) {
-                val note = modelRepository.getOneModel(id)
+            if (topicId > 0) {
+                val note = noteRepository.getOne(topicId)
                     .first()
-                _noteState.value = note
+                if (note != null) {
+                    _noteState.value = note
+                }
             }
         }
 
         viewModelScope.launch {
             snapshotFlow { noteState.value }
                 .collectLatest {
-                  val newId=  modelRepository.updateModel(it)
-
-                    if (it.id == null) {
-
-
+                    if (it.id != null) {
+                        noteRepository.upsert(it)
                     }
                 }
         }
@@ -55,22 +52,33 @@ class DetailViewModel  constructor(
     var job: Job? = null
     fun onTitleChange(text: String) {
         _noteState.value = noteState.value.copy(title = text)
-
+        if (noteState.value.id == null) {
+            job?.cancel()
+            job = viewModelScope.launch {
+                val id = getId()
+                _noteState.value = noteState.value.copy(id = id)
+            }
+        }
     }
 
     fun onContentChange(text: String) {
         _noteState.value = noteState.value.copy(content = text)
+        if (noteState.value.id == null) {
+            job?.cancel()
+            job = viewModelScope.launch {
+                val id = getId()
+                _noteState.value = noteState.value.copy(id = id)
+            }
+        }
     }
 
     fun onDelete() {
         viewModelScope.launch {
-            noteState.value.id?.let { modelRepository.delete(it) }
+            noteState.value.id?.let { noteRepository.delete(it) }
         }
     }
 
-    private  fun getId(): Long {
-        val id=Random.nextLong()
-        return id
+    private suspend fun getId(): Long {
+        return noteRepository.upsert(Note())
     }
-
 }
