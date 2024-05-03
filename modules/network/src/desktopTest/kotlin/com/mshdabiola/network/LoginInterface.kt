@@ -1,17 +1,17 @@
 package com.mshdabiola.network
 //
-//import fr.free.nrw.commons.wikidata.WikidataConstants.MW_API_PREFIX
-//import io.reactivex.Observable
-//import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
-//import retrofit2.Call
-//import retrofit2.http.Field
-//import retrofit2.http.FormUrlEncoded
-//import retrofit2.http.GET
-//import retrofit2.http.Headers
-//import retrofit2.http.POST
-//import retrofit2.http.Query
+// import fr.free.nrw.commons.wikidata.WikidataConstants.MW_API_PREFIX
+// import io.reactivex.Observable
+// import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
+// import retrofit2.Call
+// import retrofit2.http.Field
+// import retrofit2.http.FormUrlEncoded
+// import retrofit2.http.GET
+// import retrofit2.http.Headers
+// import retrofit2.http.POST
+// import retrofit2.http.Query
 //
-//interface LoginInterface {
+// interface LoginInterface {
 //    @Headers("Cache-Control: no-cache")
 //    @GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
 //    fun getLoginToken(): Call<MwQueryResponse?>
@@ -42,4 +42,4 @@ package com.mshdabiola.network
 //
 //    @GET(MW_API_PREFIX + "action=query&meta=userinfo&list=users&usprop=groups|cancreate")
 //    fun getUserInfo(@Query("ususers") userName: String): Observable<MwQueryResponse?>
-//}
+// }

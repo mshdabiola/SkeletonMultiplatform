@@ -1,5 +1,4 @@
 import com.mshdabiola.app.BuildType
-import org.jetbrains.compose.ExperimentalComposeLibrary
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 
@@ -15,7 +14,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.roborazzi)
 }
-dependencies{
+dependencies {
 
 //    implementation(project(":modules:app"))
 //    implementation(project(":modules:model"))
@@ -52,7 +51,7 @@ dependencies{
 
     androidTestImplementation(project(":modules:testing"))
     androidTestImplementation(libs.accompanist.testharness)
-    debugImplementation (libs.androidx.monitor)
+    debugImplementation(libs.androidx.monitor)
     baselineProfile(project(":benchmarks"))
 }
 
@@ -67,7 +66,7 @@ kotlin {
 //        }
 //        binaries.executable()
 //    }
-    
+
     androidTarget {
         compilations.all {
             kotlinOptions {
@@ -75,9 +74,9 @@ kotlin {
             }
         }
     }
-    
+
     jvm("desktop")
-    
+
     sourceSets {
         val desktopMain by getting
 
@@ -124,13 +123,11 @@ kotlin {
             implementation(project(":features:setting"))
 
 
-
-
         }
 
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
-           // implementation(project(":modules:app"))
+            // implementation(project(":modules:app"))
 
             implementation(libs.kotlinx.coroutines.swing)
 
@@ -168,7 +165,7 @@ android {
             applicationIdSuffix = BuildType.RELEASE.applicationIdSuffix
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
 
             // To publish on the Play store a private signing key is required, but to allow anyone

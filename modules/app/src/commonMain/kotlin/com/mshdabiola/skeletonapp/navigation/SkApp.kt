@@ -116,7 +116,10 @@ fun SkeletonApp(
                                         .testTag("add"),
                                     onClick = { appState.navController.navigateToDetail() },
                                 ) {
-                                    Icon(imageVector = Icons.Rounded.Add, contentDescription = "add note")
+                                    Icon(
+                                        imageVector = Icons.Rounded.Add,
+                                        contentDescription = "add note",
+                                    )
 //                            Spacer(modifier = )
                                     Text(text = "Add note")
                                 }

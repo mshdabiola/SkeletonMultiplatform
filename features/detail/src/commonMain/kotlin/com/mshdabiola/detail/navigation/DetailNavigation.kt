@@ -18,7 +18,6 @@ import com.mshdabiola.detail.DetailViewModel
 import com.mshdabiola.mvvn.KoinCommonViewModel
 import com.mshdabiola.ui.ScreenSize
 import org.koin.core.parameter.parameterSetOf
-import org.koin.core.qualifier.qualifier
 
 val DETAIL_ROUTE = mainRoute[1]
 
@@ -57,18 +56,19 @@ fun NavGraphBuilder.detailScreen(
         exitTransition = {
             slideOutOfContainer(towards = AnimatedContentTransitionScope.SlideDirection.Right)
         },
-    ) {backStack->
-      val id=  backStack.arguments?.getLong(DETAIL_ID_ARG)
+    ) { backStack ->
+        val id = backStack.arguments?.getLong(DETAIL_ID_ARG)
 
         val viewModel: DetailViewModel = KoinCommonViewModel(
             parameters = {
-                parameterSetOf(id
+                parameterSetOf(
+                    id,
                 )
-            }
+            },
         )
 
         DetailRoute(
-            screenSize=screenSize,
+            screenSize = screenSize,
             onShowSnackbar = onShowSnack,
             onBack = onBack,
             viewModel = viewModel,

@@ -16,7 +16,7 @@ internal class RealModelRepository constructor(
     private val noteDao: NoteDao,
     private val iNetworkDataSource: INetworkDataSource,
     private val imageDao: ImageDao,
-    private val ioDispatcher: CoroutineDispatcher
+    private val ioDispatcher: CoroutineDispatcher,
 ) : IModelRepository {
     override suspend fun upsert(note: Note): Long {
         return withContext(ioDispatcher) {
@@ -27,16 +27,18 @@ internal class RealModelRepository constructor(
     override fun getAll(): Flow<List<Note>> {
         return noteDao
             .getAll()
-            .map { noteEntities -> noteEntities.map {
-                it.asNote()
-            } }
+            .map { noteEntities ->
+                noteEntities.map {
+                    it.asNote()
+                }
+            }
             .flowOn(ioDispatcher)
     }
 
     override fun getOne(id: Long): Flow<Note?> {
         return noteDao
             .getOne(id)
-            .map {  it?.asNote() }
+            .map { it?.asNote() }
             .flowOn(ioDispatcher)
     }
 
@@ -45,7 +47,6 @@ internal class RealModelRepository constructor(
             noteDao.delete(id)
         }
     }
-
 
 //    @OptIn(ExperimentalPagingApi::class)
 //    override fun imagePagingData(): Flow<PagingData<Image>> {

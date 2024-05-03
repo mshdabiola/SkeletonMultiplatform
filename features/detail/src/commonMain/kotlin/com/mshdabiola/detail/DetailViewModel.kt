@@ -10,18 +10,17 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.lifecycle.viewModelScope
 import com.mshdabiola.data.repository.IModelRepository
 import com.mshdabiola.model.Note
-import kotlinx.coroutines.Job
 import com.mshdabiola.mvvn.ViewModeli
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
-
-class DetailViewModel  constructor(
-    //savedStateHandle: SavedStateHandle,
-    id:Long,
+class DetailViewModel constructor(
+    // savedStateHandle: SavedStateHandle,
+    id: Long,
     private val noteRepository: IModelRepository,
-    ) : ViewModeli() {
+) : ViewModeli() {
 
     private val topicId = id
 

@@ -8,8 +8,8 @@ import org.koin.core.qualifier.Qualifier
 
 @Composable
 expect inline fun <reified T : ViewModeli> KoinCommonViewModel(
-    qualifier: Qualifier?=null,
-    noinline parameters: ParametersDefinition?=null,
+    qualifier: Qualifier? = null,
+    noinline parameters: ParametersDefinition? = null,
 ): T
 
 expect fun Modifier.semanticsCommon(

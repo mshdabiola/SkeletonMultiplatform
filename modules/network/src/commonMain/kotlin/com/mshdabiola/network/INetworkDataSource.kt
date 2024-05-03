@@ -7,15 +7,15 @@ interface INetworkDataSource {
 
     suspend fun goToGoogle(): Response
 
-    suspend fun searchCategory(search:String,limit:Int,offset:Int) : Response
+    suspend fun searchCategory(search: String, limit: Int, offset: Int): Response
 
     suspend fun searchCategoriesForPrefix(
-        prefix : String,
+        prefix: String,
         limit: Int,
-        offset: Int
-    ) :Response
+        offset: Int,
+    ): Response
 
-//
+    //
 //
 //    @GET("w/api.php?action=query&format=json&formatversion=2&generator=allcategories&prop=categoryinfo|description|pageimages&piprop=thumbnail&pithumbsize=70")
 //    fun searchCategoriesForPrefix(
@@ -26,11 +26,12 @@ interface INetworkDataSource {
 //
     suspend fun getCategoriesByName(
         prefix: String,
-        suffix : String,
+        suffix: String,
         limit: Int,
-        offset: Int
-    ) :Response
-//
+        offset: Int,
+    ): Response
+
+    //
 //    @GET("w/api.php?action=query&format=json&formatversion=2&generator=allcategories&prop=categoryinfo|description|pageimages&piprop=thumbnail&pithumbsize=70")
 //    fun getCategoriesByName(
 //        @Query("gacfrom") startingCategory: String?,
@@ -40,19 +41,20 @@ interface INetworkDataSource {
 //    ): Single<MwQueryResponse>
 //
     suspend fun getSubCategoryList(
-    categoryName:String,
-    continuation:Map<String,String>
-    ):Response
-//    @GET("w/api.php?action=query&format=json&formatversion=2&generator=categorymembers&gcmtype=subcat&prop=info&gcmlimit=50")
+        categoryName: String,
+        continuation: Map<String, String>,
+    ): Response
+
+    //    @GET("w/api.php?action=query&format=json&formatversion=2&generator=categorymembers&gcmtype=subcat&prop=info&gcmlimit=50")
 //    fun getSubCategoryList(
 //        @Query("gcmtitle") categoryName: String,
 //        @QueryMap(encoded = true) continuation: Map<String, String>
 //    ): Single<MwQueryResponse>
 //
-suspend fun getParentCategoryList(
-    categoryName:String,
-    continuation:Map<String,String>
-):Response
+    suspend fun getParentCategoryList(
+        categoryName: String,
+        continuation: Map<String, String>,
+    ): Response
 //    @GET("w/api.php?action=query&format=json&formatversion=2&generator=categories&prop=info&gcllimit=50")
 //    fun getParentCategoryList(
 //        @Query("titles") categoryName: String?,
@@ -61,4 +63,3 @@ suspend fun getParentCategoryList(
 
     suspend fun getTimeline(limit: Int, continuation: String): Response
 }
-

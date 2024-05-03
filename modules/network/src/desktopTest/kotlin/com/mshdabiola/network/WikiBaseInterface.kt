@@ -1,20 +1,20 @@
 package com.mshdabiola.network
 //
-//import fr.free.nrw.commons.wikidata.WikidataConstants
-//import fr.free.nrw.commons.wikidata.mwapi.MwPostResponse
-//import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
-//import io.reactivex.Observable
-//import retrofit2.http.Field
-//import retrofit2.http.FormUrlEncoded
-//import retrofit2.http.GET
-//import retrofit2.http.Headers
-//import retrofit2.http.POST
-//import retrofit2.http.Query
+// import fr.free.nrw.commons.wikidata.WikidataConstants
+// import fr.free.nrw.commons.wikidata.mwapi.MwPostResponse
+// import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
+// import io.reactivex.Observable
+// import retrofit2.http.Field
+// import retrofit2.http.FormUrlEncoded
+// import retrofit2.http.GET
+// import retrofit2.http.Headers
+// import retrofit2.http.POST
+// import retrofit2.http.Query
 //
-///**
+// /**
 // * Retrofit calls for managing responses network calls of entity ids required for uploading depictions
 // */
-//interface WikiBaseInterface {
+// interface WikiBaseInterface {
 //    @Headers("Cache-Control: no-cache")
 //    @FormUrlEncoded
 //    @POST(WikidataConstants.MW_API_PREFIX + "action=wbeditentity")
@@ -59,4 +59,4 @@ package com.mshdabiola.network
 //        @Field("language") language: String?,
 //        @Field("value") captionValue: String?
 //    ): Observable<MwPostResponse>
-//}
+// }

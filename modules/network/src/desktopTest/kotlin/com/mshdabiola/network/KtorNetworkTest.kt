@@ -11,11 +11,7 @@ import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpStatusCode
-import io.ktor.http.URLBuilder
-import io.ktor.http.URLProtocol
-import io.ktor.http.formUrlEncode
 import io.ktor.http.headersOf
-import io.ktor.http.parametersOf
 import io.ktor.utils.io.ByteReadChannel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
@@ -38,7 +34,7 @@ class KtorNetworkTest {
             )
         }
         val client = Client.get(engine)
-        ktorNetwork = NetworkDataSource(HttpClient(CIO){init()})
+        ktorNetwork = NetworkDataSource(HttpClient(CIO) { init() })
     }
 
     @After
@@ -49,28 +45,24 @@ class KtorNetworkTest {
     fun get() = runTest {
         val model = ktorNetwork.goToGoogle()
         println(model)
-       // assertEquals(model.id, 98)
+        // assertEquals(model.id, 98)
     }
 
     @Test
-    fun searchCategoryTest()= runTest{
-        val category=ktorNetwork.searchCategory("mosque",10,100)
+    fun searchCategoryTest() = runTest {
+        val category = ktorNetwork.searchCategory("mosque", 10, 100)
         println(category)
-
     }
 
     @Test
-    fun searchCategoryForPrefixTest()= runTest{
-        val category=ktorNetwork.searchCategoriesForPrefix("mos",10,100)
+    fun searchCategoryForPrefixTest() = runTest {
+        val category = ktorNetwork.searchCategoriesForPrefix("mos", 10, 100)
         println(category)
-
     }
 
     @Test
-    fun timelineTest()= runTest{
-        val category=ktorNetwork.getTimeline(4,"")
+    fun timelineTest() = runTest {
+        val category = ktorNetwork.getTimeline(4, "")
         println(category)
-
     }
-
 }

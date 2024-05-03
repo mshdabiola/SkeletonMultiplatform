@@ -1,6 +1,5 @@
 package com.mshdabiola.data.di
 
-import com.mshdabiola.database.di.databaseModule
 import com.mshdabiola.analytics.di.analyticsModule
 import com.mshdabiola.data.repository.IModelRepository
 import com.mshdabiola.data.repository.INetworkRepository
@@ -10,6 +9,7 @@ import com.mshdabiola.data.repository.RealINetworkRepository
 import com.mshdabiola.data.repository.RealModelRepository
 import com.mshdabiola.data.repository.SettingRepository
 import com.mshdabiola.data.repository.UserDataRepository
+import com.mshdabiola.database.di.databaseModule
 import com.mshdabiola.network.di.networkModule
 import com.mshdabiola.setting.di.settingModule
 import org.koin.core.module.dsl.singleOf

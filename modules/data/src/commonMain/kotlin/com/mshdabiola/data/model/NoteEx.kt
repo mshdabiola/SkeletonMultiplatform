@@ -12,7 +12,6 @@ import com.mshdabiola.model.Note
 fun Note.asNoteEntity() = NoteEntity(id, title, content)
 fun NoteEntity.asNote() = Note(id, title, content)
 
-
 fun ImageEntity.asImage() = Image(
     descriptionShortUrl = descriptionShortUrl,
     descriptionUrl = descriptionUrl,
@@ -22,9 +21,8 @@ fun ImageEntity.asImage() = Image(
     url = url,
     user = user,
     userid = userid,
-    id = id
+    id = id,
 )
-
 
 fun Image.asExternalImage() = ImageEntity(
     descriptionShortUrl = descriptionShortUrl,
@@ -35,5 +33,5 @@ fun Image.asExternalImage() = ImageEntity(
     url = url,
     user = user,
     userid = userid,
-    id = id
+    id = id,
 )

@@ -13,7 +13,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Lifecycle
@@ -141,9 +140,7 @@ class MainActivity : ComponentActivity() {
                 onDispose {}
             }
 
-
-            SkeletonApp(
-            )
+            SkeletonApp()
         }
     }
 }

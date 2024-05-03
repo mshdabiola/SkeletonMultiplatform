@@ -1,17 +1,17 @@
 package com.mshdabiola.network
 //
-//import fr.free.nrw.commons.wikidata.WikidataConstants
-//import fr.free.nrw.commons.wikidata.model.Entities
-//import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
-//import io.reactivex.Observable
-//import io.reactivex.Single
-//import retrofit2.http.GET
-//import retrofit2.http.Query
+// import fr.free.nrw.commons.wikidata.WikidataConstants
+// import fr.free.nrw.commons.wikidata.model.Entities
+// import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
+// import io.reactivex.Observable
+// import io.reactivex.Single
+// import retrofit2.http.GET
+// import retrofit2.http.Query
 //
-///**
+// /**
 // * Interface for interacting with Commons Structured Data related APIs
 // */
-//interface MediaDetailInterface {
+// interface MediaDetailInterface {
 //    /**
 //     * Fetches entity using file name
 //     *
@@ -50,4 +50,4 @@ package com.mshdabiola.network
 //    fun getWikiText(
 //        @Query("titles") title: String?
 //    ): Single<MwQueryResponse>
-//}
+// }

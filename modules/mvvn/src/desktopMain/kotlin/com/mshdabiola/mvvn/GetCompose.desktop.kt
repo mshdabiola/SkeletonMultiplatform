@@ -10,7 +10,7 @@ import org.koin.core.qualifier.Qualifier
 @Composable
 actual inline fun <reified T : ViewModeli> KoinCommonViewModel(
     qualifier: Qualifier?,
-    noinline parameters: ParametersDefinition?
+    noinline parameters: ParametersDefinition?,
 ): T {
     return get(qualifier, parameters)
 }

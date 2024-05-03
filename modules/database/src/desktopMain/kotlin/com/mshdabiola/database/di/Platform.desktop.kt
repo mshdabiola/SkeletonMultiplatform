@@ -14,16 +14,17 @@ actual val databaseModule: Module
     get() = module {
         single {
             getRoomDatabase(getDatabaseBuilder())
-            }
+        }
         includes(daoModules)
-
     }
 
- fun getDatabaseBuilder(): RoomDatabase.Builder<SkeletonDatabase> {
-     val dbFile = File(generalPath, Constant.databaseName)//File(System.getProperty("java.io.tmpdir"), Constant.databaseName)
-     return Room.databaseBuilder<SkeletonDatabase>(
-         name = dbFile.absolutePath,
-     )
-         .setDriver(BundledSQLiteDriver())
-
+fun getDatabaseBuilder(): RoomDatabase.Builder<SkeletonDatabase> {
+    val dbFile = File(
+        generalPath,
+        Constant.databaseName,
+    ) // File(System.getProperty("java.io.tmpdir"), Constant.databaseName)
+    return Room.databaseBuilder<SkeletonDatabase>(
+        name = dbFile.absolutePath,
+    )
+        .setDriver(BundledSQLiteDriver())
 }

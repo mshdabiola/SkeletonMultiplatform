@@ -6,25 +6,12 @@ package com.mshdabiola.ui
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ListItem
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import app.cash.paging.LoadStateError
-import app.cash.paging.LoadStateLoading
-import app.cash.paging.LoadStateNotLoading
-import app.cash.paging.compose.LazyPagingItems
 import kotlinx.collections.immutable.ImmutableList
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -32,10 +19,9 @@ fun LazyListScope.noteItem(
     items: ImmutableList<NoteUiState>,
     onClick: (Long) -> Unit = {},
 ) {
-
-            items(items){ noteUiState ->
-                NoteUi(noteUiState = noteUiState,onClick={onClick(noteUiState.id?:0)})
-            }
+    items(items) { noteUiState ->
+        NoteUi(noteUiState = noteUiState, onClick = { onClick(noteUiState.id ?: 0) })
+    }
 
 //            items(items.itemCount) { index ->
 //                val item = items[index]
@@ -44,9 +30,9 @@ fun LazyListScope.noteItem(
 //                    NoteUi(
 //                    noteUiState = item,
 //                    onClick = {
-////                        analyticsHelper.logNoteOpened(
-////                            newsResourceId = note.id.toString(),
-////                        )
+// //                        analyticsHelper.logNoteOpened(
+// //                            newsResourceId = note.id.toString(),
+// //                        )
 //                        onClick(item.id?:0)
 //                        // launchCustomChromeTab(context, Uri.parse(""), backgroundColor)
 //                    })
@@ -97,20 +83,20 @@ fun LazyListScope.noteItem(
 //
 //                    refresh is LoadStateError -> {
 //                        item {
-////                                ErrorView(
-////                                    message = "No Internet Connection",
-////                                    onClickRetry = { data.retry() },
-////                                    modifier = Modifier.fillParentMaxSize()
-////                                )
+// //                                ErrorView(
+// //                                    message = "No Internet Connection",
+// //                                    onClickRetry = { data.retry() },
+// //                                    modifier = Modifier.fillParentMaxSize()
+// //                                )
 //                        }
 //                    }
 //
 //                    append is LoadStateError -> {
 //                        item {
-////                                ErrorItem(
-////                                    message = "No Internet Connection",
-////                                    onClickRetry = { data.retry() },
-////                                )
+// //                                ErrorItem(
+// //                                    message = "No Internet Connection",
+// //                                    onClickRetry = { data.retry() },
+// //                                )
 //                        }
 //                    }
 //                }
@@ -136,23 +122,20 @@ fun LazyListScope.noteItem(
 //                        .animateItemPlacement(),
 //                )
 //            }
-
-    }
-
+}
 
 @Composable
 fun NoteUi(
-    modifier: Modifier=Modifier,
+    modifier: Modifier = Modifier,
     noteUiState: NoteUiState,
     onClick: (Long) -> Unit,
 ) {
     ListItem(
-        modifier = modifier.clickable { onClick(noteUiState.id ?:0) },
+        modifier = modifier.clickable { onClick(noteUiState.id ?: 0) },
         headlineContent = { Text(text = noteUiState.title) },
         supportingContent = { Text(text = noteUiState.content) },
     )
 }
-
 
 data class NoteUiState(
     val id: Long?,

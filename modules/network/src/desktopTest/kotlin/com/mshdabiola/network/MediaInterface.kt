@@ -1,17 +1,17 @@
 package com.mshdabiola.network
 //
-//import fr.free.nrw.commons.OkHttpConnectionFactory.UnsuccessfulResponseInterceptor.SUPPRESS_ERROR_LOG_HEADER
-//import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
-//import io.reactivex.Single
-//import retrofit2.http.GET
-//import retrofit2.http.Headers
-//import retrofit2.http.Query
-//import retrofit2.http.QueryMap
+// import fr.free.nrw.commons.OkHttpConnectionFactory.UnsuccessfulResponseInterceptor.SUPPRESS_ERROR_LOG_HEADER
+// import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
+// import io.reactivex.Single
+// import retrofit2.http.GET
+// import retrofit2.http.Headers
+// import retrofit2.http.Query
+// import retrofit2.http.QueryMap
 //
-///**
+// /**
 // * Interface for interacting with Commons media related APIs
 // */
-//interface MediaInterface {
+// interface MediaInterface {
 //    /**
 //     * Checks if a page exists or not.
 //     *
@@ -179,4 +179,4 @@ package com.mshdabiola.network
 //        const val MEDIA_PARAMS_WITH_CATEGORY_DETAILS =
 //            "&clprop=hidden&prop=categories|imageinfo&iiprop=url|extmetadata|user&&iiurlwidth=640&iiextmetadatafilter=DateTime|GPSLatitude|GPSLongitude|ImageDescription|DateTimeOriginal|Artist|LicenseShortName|LicenseUrl"
 //    }
-//}
+// }

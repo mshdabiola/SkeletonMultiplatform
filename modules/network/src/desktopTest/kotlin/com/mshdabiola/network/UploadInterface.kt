@@ -1,18 +1,18 @@
 package com.mshdabiola.network
 //
-//import com.google.gson.JsonObject
-//import fr.free.nrw.commons.wikidata.WikidataConstants
-//import io.reactivex.Observable
-//import okhttp3.RequestBody
-//import retrofit2.http.Field
-//import retrofit2.http.FormUrlEncoded
-//import retrofit2.http.Headers
-//import retrofit2.http.Multipart
-//import retrofit2.http.POST
-//import retrofit2.http.Part
-//import okhttp3.MultipartBody.Part as MultipartBodyPart
+// import com.google.gson.JsonObject
+// import fr.free.nrw.commons.wikidata.WikidataConstants
+// import io.reactivex.Observable
+// import okhttp3.RequestBody
+// import retrofit2.http.Field
+// import retrofit2.http.FormUrlEncoded
+// import retrofit2.http.Headers
+// import retrofit2.http.Multipart
+// import retrofit2.http.POST
+// import retrofit2.http.Part
+// import okhttp3.MultipartBody.Part as MultipartBodyPart
 //
-//interface UploadInterface {
+// interface UploadInterface {
 //    @Multipart
 //    @POST(WikidataConstants.MW_API_PREFIX + "action=upload&stash=1&ignorewarnings=1")
 //    fun uploadFileToStash(
@@ -34,4 +34,4 @@ package com.mshdabiola.network
 //        @Field("filename") filename: String,
 //        @Field("filekey") filekey: String
 //    ): Observable<JsonObject>
-//}
+// }

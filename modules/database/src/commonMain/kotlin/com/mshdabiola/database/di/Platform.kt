@@ -1,7 +1,6 @@
 package com.mshdabiola.database.di
 
 import androidx.room.RoomDatabase
-import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 import com.mshdabiola.database.SkeletonDatabase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -20,18 +19,15 @@ val daoModules = module {
         get<SkeletonDatabase>().getImageDao()
     }
     single { Dispatchers.IO } bind CoroutineDispatcher::class
-
-
-
 }
 
 fun getRoomDatabase(
-    builder: RoomDatabase.Builder<SkeletonDatabase>
+    builder: RoomDatabase.Builder<SkeletonDatabase>,
 ): SkeletonDatabase {
     return builder
-       // .addMigrations(MIGRATIONS)
+        // .addMigrations(MIGRATIONS)
         .fallbackToDestructiveMigrationOnDowngrade(false)
-       // .setDriver(BundledSQLiteDriver())
+        // .setDriver(BundledSQLiteDriver())
         .setQueryCoroutineContext(Dispatchers.IO)
         .build()
 }

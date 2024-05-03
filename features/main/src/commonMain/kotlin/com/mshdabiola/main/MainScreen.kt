@@ -29,8 +29,6 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
-import app.cash.paging.compose.LazyPagingItems
-import app.cash.paging.compose.collectAsLazyPagingItems
 import coil3.compose.AsyncImage
 import com.mshdabiola.model.Image
 import com.mshdabiola.mvvn.KoinCommonViewModel
@@ -50,17 +48,16 @@ internal fun MainRoute(
     onShowSnackbar: suspend (String, String?) -> Boolean,
     onClicked: (Long) -> Unit,
     navigateToSetting: () -> Unit,
-    navigateToDetail: (Long) -> Unit ,
+    navigateToDetail: (Long) -> Unit,
 //    viewModel: MainViewModel,
 ) {
-
     val viewModel: MainViewModel = KoinCommonViewModel()
 
     val mainState = viewModel.mainState.collectAsStateWithLifecycleCommon()
 
-    //val timeline = viewModel.pager.collectAsLazyPagingItems()
-    val notes =viewModel.notes.collectAsStateWithLifecycleCommon(
-        initialValue = listOf<NoteUiState>().toImmutableList()
+    // val timeline = viewModel.pager.collectAsLazyPagingItems()
+    val notes = viewModel.notes.collectAsStateWithLifecycleCommon(
+        initialValue = listOf<NoteUiState>().toImmutableList(),
     )
 
     MainScreen(
@@ -68,8 +65,8 @@ internal fun MainRoute(
         screenSize = screenSize,
         navigateToDetail = navigateToDetail,
         navigateToSetting = navigateToSetting,
-     //   items = timeline,
-        items = notes.value
+        //   items = timeline,
+        items = notes.value,
 
     )
 }
@@ -106,7 +103,6 @@ internal fun MainScreen(
         snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
         Column(Modifier.padding(paddingValues)) {
-
             LazyColumn(
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -116,9 +112,8 @@ internal fun MainScreen(
                     .testTag("main:list"),
             ) {
 //
-                noteItem(items,navigateToDetail)
+                noteItem(items, navigateToDetail)
             }
-
         }
     }
 }
@@ -134,7 +129,6 @@ internal fun MainScreen(
 
 @Composable
 fun ItemImage(imageModel: Image) {
-
     ListItem(
         headlineContent = { Text(imageModel.user ?: "name") },
         leadingContent = {
@@ -145,5 +139,4 @@ fun ItemImage(imageModel: Image) {
             )
         },
     )
-
 }

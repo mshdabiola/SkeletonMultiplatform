@@ -18,15 +18,14 @@ import kotlin.random.nextInt
 @OptIn(ExperimentalPagingApi::class)
 class ModeRemoteMediator(
     private val iNetworkDataSource: INetworkDataSource,
-    private val iImageDao: ImageDao
-) :RemoteMediator<Int, ImageEntity>() {
+    private val iImageDao: ImageDao,
+) : RemoteMediator<Int, ImageEntity>() {
 
- var key2:String?=null
+    var key2: String? = null
     override suspend fun load(
         loadType: LoadType,
         state: PagingState<Int, ImageEntity>,
     ): MediatorResult {
-
         return try {
             // The network load method takes an optional String
             // parameter. For every page after the first, pass the String
@@ -39,7 +38,7 @@ class ModeRemoteMediator(
                 // will always load the first page in the list. Immediately
                 // return, reporting end of pagination.
                 LoadType.PREPEND -> return MediatorResult.Success(
-                    endOfPaginationReached = true
+                    endOfPaginationReached = true,
                 )
                 // Query remoteKeyDao for the next RemoteKey.
                 LoadType.APPEND -> {
@@ -47,13 +46,11 @@ class ModeRemoteMediator(
 //                        remoteKeyDao.remoteKeyByQuery(query)
 //                    }
 
-
                     // You must explicitly check if the page key is null when
                     // appending, since null is only valid for initial load.
                     // If you receive null for APPEND, that means you have
                     // reached the end of pagination and there are no more
                     // items to load.
-
 
                     key2
                 }
@@ -64,34 +61,30 @@ class ModeRemoteMediator(
             // since Retrofit's Coroutine CallAdapter dispatches on a
             // worker thread.
 
+            val response =
+                iNetworkDataSource.getTimeline(state.config.pageSize, loadKey ?: getKey())
 
-            val response = iNetworkDataSource.getTimeline( state.config.pageSize, loadKey?:getKey())
-
-            key2=response.continueX?.grncontinue ?: getKey()
-            val maps=response.query?.pages?.mapNotNull { page ->
+            key2 = response.continueX?.grncontinue ?: getKey()
+            val maps = response.query?.pages?.mapNotNull { page ->
                 page?.imageinfo?.mapNotNull { it?.toModel() }
             }
 
             if (loadType == LoadType.REFRESH) {
-                   iImageDao.clearAll()
-                }
+                iImageDao.clearAll()
+            }
 
-                // Insert new users into database, which invalidates the
-                // current PagingData, allowing Paging to present the updates
-                // in the DB.
+            // Insert new users into database, which invalidates the
+            // current PagingData, allowing Paging to present the updates
+            // in the DB.
             maps
                 ?.flatten()
                 ?.map { it.asExternalImage() }
-            ?.let {
-                iImageDao.insertAll(it)
-
-            }
-
-
-
+                ?.let {
+                    iImageDao.insertAll(it)
+                }
 
             MediatorResult.Success(
-                endOfPaginationReached = false
+                endOfPaginationReached = false,
             )
         } catch (e: IOException) {
             MediatorResult.Error(e)
@@ -162,29 +155,24 @@ class ModeRemoteMediator(
 //        } catch (e: HttpConnectTimeoutException) {
 //            MediatorResult.Error(e)
 //        }
-
     }
 
-
-    val random= Random(4)
-    fun getKey():String{
-
-        val num=random.nextInt(10,99)
-        val number=random.nextInt(10..99)
-        return  "0.5739937985$num|0.57399474331|620566$number|0"
-
+    val random = Random(4)
+    fun getKey(): String {
+        val num = random.nextInt(10, 99)
+        val number = random.nextInt(10..99)
+        return "0.5739937985$num|0.57399474331|620566$number|0"
     }
 }
 
-
-fun Imageinfo.toModel()= Image(
-    id = id?:"",
-    user = user?:"",
-    userid = userid ?:4,
-    url = url?:"",
-    timestamp = timestamp ?:"",
-    mime = mime?:"",
-    mediaType = mediatype?:"",
-    descriptionUrl = descriptionurl?:"",
-    descriptionShortUrl = descriptionshorturl?:""
+fun Imageinfo.toModel() = Image(
+    id = id ?: "",
+    user = user ?: "",
+    userid = userid ?: 4,
+    url = url ?: "",
+    timestamp = timestamp ?: "",
+    mime = mime ?: "",
+    mediaType = mediatype ?: "",
+    descriptionUrl = descriptionurl ?: "",
+    descriptionShortUrl = descriptionshorturl ?: "",
 )

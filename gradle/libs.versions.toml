@@ -100,9 +100,9 @@ room = "2.7.0.alpha01"
 androidx-paging = "3.3.0-rc01"
 androidx-room = "2.7.0-alpha01"
 pagingComposeAndroid = "3.3.0-rc01"
-room-plugin="2.6.1"
+room-plugin = "2.6.1"
 roomKtx = "2.6.1"
-sqlite="2.5.0-alpha01"
+sqlite = "2.5.0-alpha01"
 
 
 
@@ -146,9 +146,9 @@ androidx-dataStore-core = { module = "androidx.datastore:datastore-preferences-c
 
 
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androidx-room" }
-room-ktx =  {group = "androidx.room", name = "room-ktx", version.ref = "androidx-room" }
-room-runtime =  { group = "androidx.room", name = "room-runtime", version.ref = "androidx-room" }
-room-paging ={ group = "androidx.room", name = "room-paging", version.ref = "androidx-room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "androidx-room" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "androidx-room" }
+room-paging = { group = "androidx.room", name = "room-paging", version.ref = "androidx-room" }
 paging-common = { module = "androidx.paging:paging-common", version.ref = "androidx-paging" }
 
 sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }

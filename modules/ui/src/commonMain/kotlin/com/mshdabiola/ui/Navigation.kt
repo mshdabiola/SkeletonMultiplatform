@@ -10,17 +10,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.Logout
-import androidx.compose.material.icons.filled.Bookmarks
-import androidx.compose.material.icons.filled.Explore
-import androidx.compose.material.icons.filled.Feedback
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Insights
 import androidx.compose.material.icons.filled.LocalLibrary
-import androidx.compose.material.icons.filled.Map
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Reviews
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -32,7 +22,6 @@ import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.NavigationDrawerItemDefaults
 import androidx.compose.material3.NavigationRail
 import androidx.compose.material3.NavigationRailItem
-import androidx.compose.material3.PermanentNavigationDrawer
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -50,35 +39,31 @@ import skeletonmultiplatform.modules.ui.generated.resources.app_name
 import skeletonmultiplatform.modules.ui.generated.resources.main
 import skeletonmultiplatform.modules.ui.generated.resources.main_navigator
 import skeletonmultiplatform.modules.ui.generated.resources.setting_navigator
-import javax.sql.CommonDataSource
 
 @Composable
 fun CommonNavigation(
     modifier: Modifier = Modifier,
     currentNavigation: String = mainRoute[0],
     onCreate: () -> Unit = {},
-    showLong: Boolean=true,
-            onNavigate: (String) -> Unit = {},
+    showLong: Boolean = true,
+    onNavigate: (String) -> Unit = {},
 
 ) {
+    val color = NavigationDrawerItemDefaults.colors(unselectedContainerColor = Color.Transparent)
 
-    val color=NavigationDrawerItemDefaults.colors(unselectedContainerColor = Color.Transparent)
-
-    Card (
-        modifier=modifier,
+    Card(
+        modifier = modifier,
         colors = CardDefaults.cardColors(contentColor = MaterialTheme.colorScheme.onBackground),
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 4.dp),
-        shape = RoundedCornerShape(0.dp)
+        shape = RoundedCornerShape(0.dp),
 
-    ){
+    ) {
         Column(
             verticalArrangement = Arrangement.SpaceBetween,
             modifier = modifier
                 .padding(8.dp)
                 .verticalScroll(state = rememberScrollState()),
         ) {
-
-
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(Icons.Default.LocalLibrary, "Logo")
                 Text(
@@ -100,7 +85,7 @@ fun CommonNavigation(
 //            }
 //        }
 
-            if (showLong){
+            if (showLong) {
                 Column(
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
@@ -140,12 +125,8 @@ fun CommonNavigation(
             Spacer(Modifier.height(8.dp))
 
             ProfileCard()
-
-
         }
     }
-
-
 }
 
 @Composable
@@ -155,64 +136,55 @@ fun CommonRail(
     onCreate: () -> Unit = {},
     onNavigate: (String) -> Unit = {},
 ) {
+    NavigationRail(modifier) {
+        Column(
+            verticalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier
+                .padding(8.dp)
+                .verticalScroll(state = rememberScrollState()),
+        ) {
+            Icon(Icons.Default.LocalLibrary, "Logo")
 
-    NavigationRail (modifier){
+            Spacer(Modifier.height(32.dp))
+
             Column(
-                verticalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier
-                    .padding(8.dp)
-                    .verticalScroll(state = rememberScrollState()),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
-
-
-                    Icon(Icons.Default.LocalLibrary, "Logo")
-
-
-                Spacer(Modifier.height(32.dp))
-
-
-                Column(
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    Text(stringResource(Res.string.main))
-                    stringArrayResource(Res.array.main_navigator)
-                        .forEachIndexed { index, navigator ->
-                            NavigationRailItem(
-                                selected = currentNavigation.contains(mainRoute[index]),
-                                label = { Text(navigator) },
-                                onClick = { onNavigate(navigator) },
-                                alwaysShowLabel = false,
-                                icon = { Icon(mainIcons[index], navigator) },
-                            )
-                        }
-                }
-
-                Spacer(Modifier.height(64.dp))
-
-                Column(
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    stringArrayResource(Res.array.setting_navigator)
-                        .forEachIndexed { index, navigator ->
-                            NavigationRailItem(
-                                selected = currentNavigation.contains(settingRoute[index]),
-                                label = { Text(navigator) },
-                                onClick = { onNavigate(navigator) },
-                                alwaysShowLabel = false,
-                                icon = { Icon(settingIcons[index], navigator) },
-                            )
-                        }
-                }
-
-                HorizontalDivider()
-
-               // ProfileCard()
-
-
+                Text(stringResource(Res.string.main))
+                stringArrayResource(Res.array.main_navigator)
+                    .forEachIndexed { index, navigator ->
+                        NavigationRailItem(
+                            selected = currentNavigation.contains(mainRoute[index]),
+                            label = { Text(navigator) },
+                            onClick = { onNavigate(navigator) },
+                            alwaysShowLabel = false,
+                            icon = { Icon(mainIcons[index], navigator) },
+                        )
+                    }
             }
 
-    }
+            Spacer(Modifier.height(64.dp))
 
+            Column(
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                stringArrayResource(Res.array.setting_navigator)
+                    .forEachIndexed { index, navigator ->
+                        NavigationRailItem(
+                            selected = currentNavigation.contains(settingRoute[index]),
+                            label = { Text(navigator) },
+                            onClick = { onNavigate(navigator) },
+                            alwaysShowLabel = false,
+                            icon = { Icon(settingIcons[index], navigator) },
+                        )
+                    }
+            }
+
+            HorizontalDivider()
+
+            // ProfileCard()
+        }
+    }
 }
 
 @Composable
@@ -222,8 +194,7 @@ fun CommonBar(
     onCreate: () -> Unit = {},
     onNavigate: (String) -> Unit = {},
 ) {
-
-    NavigationBar (modifier){
+    NavigationBar(modifier) {
         stringArrayResource(Res.array.main_navigator)
             .forEachIndexed { index, navigator ->
                 NavigationBarItem(
@@ -235,7 +206,6 @@ fun CommonBar(
                 )
             }
     }
-
 }
 
 @Composable

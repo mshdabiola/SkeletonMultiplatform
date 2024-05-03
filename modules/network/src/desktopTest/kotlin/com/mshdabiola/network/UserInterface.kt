@@ -1,13 +1,13 @@
 package com.mshdabiola.network
 //
-//import fr.free.nrw.commons.wikidata.WikidataConstants
-//import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
-//import io.reactivex.Observable
-//import retrofit2.http.GET
-//import retrofit2.http.Query
-//import retrofit2.http.QueryMap
+// import fr.free.nrw.commons.wikidata.WikidataConstants
+// import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
+// import io.reactivex.Observable
+// import retrofit2.http.GET
+// import retrofit2.http.Query
+// import retrofit2.http.QueryMap
 //
-//interface UserInterface {
+// interface UserInterface {
 //    /**
 //     * Gets the log events of user
 //     * @param user name of user without prefix
@@ -25,4 +25,4 @@ package com.mshdabiola.network
 //     */
 //    @GET(WikidataConstants.MW_API_PREFIX + "action=query&meta=userinfo&uiprop=blockinfo")
 //    fun getUserBlockInfo(): Observable<MwQueryResponse>
-//}
+// }

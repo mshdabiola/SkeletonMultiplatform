@@ -1,5 +1,3 @@
-
-
 plugins {
     `kotlin-dsl`
 }
@@ -21,7 +19,6 @@ dependencies {
     implementation(libs.truth)
     compileOnly(libs.ksp.gradlePlugin)
     compileOnly(libs.room.gradlePlugin)
-
 
 
 }

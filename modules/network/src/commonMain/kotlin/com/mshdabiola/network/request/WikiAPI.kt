@@ -3,7 +3,7 @@ package com.mshdabiola.network.request
 import io.ktor.resources.Resource
 
 @Resource("w/api.php?action=query&format=json&formatversion=2")
- class WikiAPI {
+class WikiAPI {
 
     @Resource("/w/api.php?action=query&format=json&formatversion=2&generator=search&prop=description|pageimages&piprop=thumbnail&pithumbsize=70&gsrnamespace=14")
     data class SearchCategory(
@@ -14,7 +14,7 @@ import io.ktor.resources.Resource
 }
 
 //
-//interface CategoryInterface {
+// interface CategoryInterface {
 //    /**
 //     * Searches for categories with the specified name.
 //     *
@@ -77,4 +77,4 @@ import io.ktor.resources.Resource
 //        @Query("titles") categoryName: String?,
 //    ): Single<MwQueryResponse>
 //
-//}
+// }

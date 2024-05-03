@@ -45,7 +45,7 @@ internal fun SettingRoute(
     onBack: () -> Unit,
     screenSize: ScreenSize,
     onShowSnack: suspend (String, String?) -> Boolean,
-    viewModel: SettingViewModel
+    viewModel: SettingViewModel,
 ) {
     val settingState = viewModel.uiState.collectAsStateWithLifecycleCommon()
 
@@ -69,14 +69,17 @@ internal fun SettingScreen(
     setDarkThemeConfig: (DarkThemeConfig) -> Unit = {},
     setContrast: (Contrast) -> Unit = {},
 
-    ) {
+) {
     Scaffold(
         modifier = Modifier, // .semantics { this.testTagsAsResourceId = true },
         topBar = {
             TopAppBar(
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "back")
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "back",
+                        )
                     }
                 },
                 title = {
@@ -85,7 +88,10 @@ internal fun SettingScreen(
             )
         },
     ) { paddingValues ->
-        Column(Modifier.padding(paddingValues).padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Column(
+            Modifier.padding(paddingValues).padding(horizontal = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
             Row(
                 modifier = Modifier.fillMaxWidth(0.8f),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -210,4 +216,3 @@ fun DropdownMenu(
         }
     }
 }
-

@@ -64,9 +64,7 @@ import com.mshdabiola.ui.CommonRail
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Composable
-fun SkeletonApp(
-
-    ) {
+fun SkeletonApp() {
     val windowSizeClass = calculateWindowSizeClass()
     val appState = rememberSkAppState(
         windowSizeClass = windowSizeClass,
@@ -105,7 +103,6 @@ fun SkeletonApp(
                                 )
                             },
                         ) {
-
                             Scaffold(
                                 modifier = Modifier.semanticsCommon {},
                                 containerColor = Color.Transparent,
@@ -130,7 +127,7 @@ fun SkeletonApp(
                                     }
                                 },
 
-                                ) { padding ->
+                            ) { padding ->
 
                                 Column(
                                     Modifier
@@ -174,7 +171,7 @@ fun SkeletonApp(
                                     modifier = Modifier.width(100.dp),
                                     currentNavigation = appState.currentDestination?.route ?: "",
 
-                                    ) { }
+                                ) { }
                             }
                             Scaffold(
                                 modifier = Modifier.semanticsCommon {},
@@ -204,12 +201,11 @@ fun SkeletonApp(
                                         CommonBar(
                                             currentNavigation = appState.currentDestination?.route
                                                 ?: "",
-                                        )
-                                        { }
+                                        ) { }
                                     }
                                 },
 
-                                ) { padding ->
+                            ) { padding ->
 
                                 Column(
                                     Modifier
@@ -220,7 +216,6 @@ fun SkeletonApp(
                                             WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal),
                                         ),
                                 ) {
-
                                     SkNavHost(
 //                                                    modifier = Modifier.weight(0.7f),
                                         appState = appState,
@@ -233,13 +228,10 @@ fun SkeletonApp(
                                         },
                                     )
 //                                            }
-
                                 }
                             }
                         }
                     }
-
-
                 }
             }
         }

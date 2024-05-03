@@ -23,7 +23,7 @@ fun rememberSkAppState(
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
     navController: NavHostController = rememberNavController(),
 ): SkAppState {
-   // NavigationTrackingSideEffect(navController)
+    // NavigationTrackingSideEffect(navController)
     return remember(
         navController,
         coroutineScope,
@@ -47,9 +47,9 @@ class SkAppState(
         @Composable get() = navController
             .currentBackStackEntryAsState().value?.destination
     val screenSize
-        get() = when(windowSizeClass.widthSizeClass){
-            WindowWidthSizeClass.Compact->ScreenSize.COMPACT
-            WindowWidthSizeClass.Medium->ScreenSize.MEDIUM
+        get() = when (windowSizeClass.widthSizeClass) {
+            WindowWidthSizeClass.Compact -> ScreenSize.COMPACT
+            WindowWidthSizeClass.Medium -> ScreenSize.MEDIUM
             else -> ScreenSize.EXPANDED
         }
 
@@ -60,7 +60,7 @@ class SkAppState(
         get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Medium
 
     val shouldShowDrawer: Boolean
-        get() =  windowSizeClass.widthSizeClass == WindowWidthSizeClass.Expanded
+        get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Expanded
 
 //    val isOffline = networkMonitor.isOnline
 //        .map(Boolean::not)
@@ -71,8 +71,8 @@ class SkAppState(
 //        )
 }
 //
-//@Composable
-//private fun NavigationTrackingSideEffect(navController: NavHostController) {
+// @Composable
+// private fun NavigationTrackingSideEffect(navController: NavHostController) {
 //    TrackDisposableJank(navController) { metricsHolder ->
 //        val listener = NavController.OnDestinationChangedListener { _, destination, _ ->
 //            metricsHolder.state?.putState("Navigation", destination.route.toString())
@@ -84,4 +84,4 @@ class SkAppState(
 //            navController.removeOnDestinationChangedListener(listener)
 //        }
 //    }
-//}
+// }

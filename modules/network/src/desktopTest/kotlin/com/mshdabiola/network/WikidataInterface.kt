@@ -1,15 +1,15 @@
 package com.mshdabiola.network
 //
-//import fr.free.nrw.commons.wikidata.model.WbCreateClaimResponse
-//import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
-//import io.reactivex.Observable
-//import retrofit2.http.Field
-//import retrofit2.http.FormUrlEncoded
-//import retrofit2.http.GET
-//import retrofit2.http.Headers
-//import retrofit2.http.POST
+// import fr.free.nrw.commons.wikidata.model.WbCreateClaimResponse
+// import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
+// import io.reactivex.Observable
+// import retrofit2.http.Field
+// import retrofit2.http.FormUrlEncoded
+// import retrofit2.http.GET
+// import retrofit2.http.Headers
+// import retrofit2.http.POST
 //
-//interface WikidataInterface {
+// interface WikidataInterface {
 //    /**
 //     * Get edit token for wikidata wiki site
 //     */
@@ -28,4 +28,4 @@ package com.mshdabiola.network
 //        @Field("tags") tags: String,
 //        @Field("token") token: String
 //    ): Observable<WbCreateClaimResponse>
-//}
+// }

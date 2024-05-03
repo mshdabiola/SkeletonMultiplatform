@@ -12,8 +12,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Reviews
 import androidx.compose.material.icons.filled.Settings
 
-
-val mainIcons=
+val mainIcons =
     arrayOf(
         Icons.Default.Person,
         Icons.Default.Map,
@@ -24,9 +23,9 @@ val mainIcons=
         Icons.Default.Info,
         Icons.Default.Feedback,
         Icons.Default.Insights,
-        Icons.AutoMirrored.Filled.Logout
+        Icons.AutoMirrored.Filled.Logout,
     )
- val mainRoute=
+val mainRoute =
     arrayOf(
         "contribute_route",
         "nearby_route",
@@ -35,18 +34,17 @@ val mainIcons=
         "reviews_route",
     )
 
-
-val settingIcons=
+val settingIcons =
     arrayOf(
 
         Icons.Default.Settings,
         Icons.Default.Info,
         Icons.Default.Feedback,
         Icons.Default.Insights,
-        Icons.AutoMirrored.Filled.Logout
+        Icons.AutoMirrored.Filled.Logout,
     )
 
-val settingRoute=
+val settingRoute =
     arrayOf(
         "settings_route",
         "info_route",

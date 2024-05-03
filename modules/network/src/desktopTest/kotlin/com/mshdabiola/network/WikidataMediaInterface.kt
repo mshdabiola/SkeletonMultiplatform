@@ -1,15 +1,15 @@
 package com.mshdabiola.network
 //
-//import fr.free.nrw.commons.media.MediaInterface.Companion.MEDIA_PARAMS
-//import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
-//import io.reactivex.Single
-//import retrofit2.http.GET
-//import retrofit2.http.Query
+// import fr.free.nrw.commons.media.MediaInterface.Companion.MEDIA_PARAMS
+// import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
+// import io.reactivex.Single
+// import retrofit2.http.GET
+// import retrofit2.http.Query
 //
-///**
+// /**
 // * Interface for getting Wikidata images from production server
 // */
-//interface WikidataMediaInterface {
+// interface WikidataMediaInterface {
 //    /**
 //     * Fetches list of images from a depiction entity
 //     * @param query depictionEntityId ex. "haswbstatement:P180=Q9394"
@@ -26,4 +26,4 @@ package com.mshdabiola.network
 //        @Query("gsrsearch") query: String?,
 //        @Query("gsrlimit") srlimit: String?, @Query("gsroffset") sroffset: String?
 //    ): Single<MwQueryResponse>
-//}
+// }

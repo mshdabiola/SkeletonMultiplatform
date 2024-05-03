@@ -1,14 +1,14 @@
 package com.mshdabiola.network
 //
-//import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
-//import io.reactivex.Observable
-//import retrofit2.http.GET
-//import retrofit2.http.Query
+// import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
+// import io.reactivex.Observable
+// import retrofit2.http.GET
+// import retrofit2.http.Query
 //
-///**
+// /**
 // * Interface class for peer review calls
 // */
-//interface ReviewInterface {
+// interface ReviewInterface {
 //    /**
 //     * Fetch recent changes from MediaWiki API
 //     * Calls the API for the latest 50 changes (the default limit is 10)
@@ -26,4 +26,4 @@ package com.mshdabiola.network
 //
 //    @GET("w/api.php?action=query&format=json&formatversion=2&prop=fileusage|globalusage")
 //    fun getGlobalUsageInfo(@Query("titles") title: String?): Observable<MwQueryResponse>
-//}
+// }

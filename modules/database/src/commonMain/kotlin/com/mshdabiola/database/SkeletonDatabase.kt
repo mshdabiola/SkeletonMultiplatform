@@ -13,7 +13,7 @@ import com.mshdabiola.database.model.ImageEntity
 import com.mshdabiola.database.model.NoteEntity
 
 @Database(
-    entities = [NoteEntity::class,ImageEntity::class],
+    entities = [NoteEntity::class, ImageEntity::class],
     version = 1,
 //    autoMigrations = [
 //        //AutoMigration(from = 2, to = 3, spec = DatabaseMigrations.Schema2to3::class),
@@ -27,7 +27,7 @@ abstract class SkeletonDatabase : RoomDatabase() {
 
     abstract fun getNoteDao(): NoteDao
 
-    abstract fun getImageDao():ImageDao
+    abstract fun getImageDao(): ImageDao
 //
 //    abstract fun getPlayerDao(): PlayerDao
 //

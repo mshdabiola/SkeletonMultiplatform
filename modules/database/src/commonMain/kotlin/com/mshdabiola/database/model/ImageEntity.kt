@@ -14,5 +14,5 @@ data class ImageEntity(
     val user: String,
     val userid: Int,
     @PrimaryKey
-    val id :String
+    val id: String,
 )

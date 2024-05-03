@@ -7,8 +7,11 @@ import org.junit.Test
 
 class WIkiApiTest {
     @Test
-    fun searchCategoryTest(){
-        val text= href(ResourcesFormat(),WikiAPI.SearchCategory(gsrlimit = 4, gsroffset = 4, gsrsearch = "abiola"))
+    fun searchCategoryTest() {
+        val text = href(
+            ResourcesFormat(),
+            WikiAPI.SearchCategory(gsrlimit = 4, gsroffset = 4, gsrsearch = "abiola"),
+        )
         println(text)
     }
 }

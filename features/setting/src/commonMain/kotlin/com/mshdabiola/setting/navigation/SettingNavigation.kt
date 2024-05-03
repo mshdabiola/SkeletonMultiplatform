@@ -6,13 +6,11 @@ package com.mshdabiola.setting.navigation
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
-import com.mshdabiola.designsystem.icon.mainRoute
 import com.mshdabiola.designsystem.icon.settingRoute
+import com.mshdabiola.mvvn.KoinCommonViewModel
 import com.mshdabiola.setting.SettingRoute
 import com.mshdabiola.setting.SettingViewModel
-import com.mshdabiola.mvvn.KoinCommonViewModel
 import com.mshdabiola.ui.ScreenSize
 
 val SETTING_ROUTE = settingRoute[0]
@@ -24,7 +22,6 @@ fun NavGraphBuilder.settingScreen(
     onShowSnack: suspend (String, String?) -> Boolean,
     onBack: () -> Unit,
 ) {
-
     composable(route = SETTING_ROUTE) {
         val viewModel: SettingViewModel = KoinCommonViewModel()
 

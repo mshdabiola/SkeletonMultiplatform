@@ -1,15 +1,15 @@
 package com.mshdabiola.network
 //
-//import fr.free.nrw.commons.wikidata.model.DepictSearchResponse
-//import fr.free.nrw.commons.wikidata.model.Entities
-//import io.reactivex.Single
-//import retrofit2.http.GET
-//import retrofit2.http.Query
+// import fr.free.nrw.commons.wikidata.model.DepictSearchResponse
+// import fr.free.nrw.commons.wikidata.model.Entities
+// import io.reactivex.Single
+// import retrofit2.http.GET
+// import retrofit2.http.Query
 //
-///**
+// /**
 // * Manges retrofit calls for Searching of depicts from DepictsFragment
 // */
-//interface DepictsInterface {
+// interface DepictsInterface {
 //    /**
 //     * Search for depictions using the wbsearchentities API
 //     * @param query search for depictions based on user query
@@ -29,4 +29,4 @@ package com.mshdabiola.network
 //
 //    @GET("/w/api.php?format=json&action=wbgetentities")
 //    fun getEntities(@Query("ids") ids: String?): Single<Entities>
-//}
+// }

@@ -14,4 +14,4 @@ data class MainState(
 //    val messages: ImmutableList<Notify> = emptyList<Notify>().toImmutableList()
 )
 
-fun Note.asNoteUiState() = NoteUiState(id, title,content)
+fun Note.asNoteUiState() = NoteUiState(id, title, content)

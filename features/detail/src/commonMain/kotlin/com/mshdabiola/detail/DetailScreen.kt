@@ -21,7 +21,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 internal fun DetailRoute(
-    screenSize: ScreenSize ,
+    screenSize: ScreenSize,
 
     onShowSnackbar: suspend (String, String?) -> Boolean,
     onBack: () -> Unit,
@@ -51,7 +51,7 @@ internal fun DetailScreen(
     modifier: Modifier = Modifier,
     title: String = "",
     content: String = "",
-    screenSize: ScreenSize=ScreenSize.COMPACT,
+    screenSize: ScreenSize = ScreenSize.COMPACT,
 
     onTitleChange: (String) -> Unit = {},
     onContentChange: (String) -> Unit = {},

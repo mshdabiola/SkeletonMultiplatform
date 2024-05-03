@@ -18,8 +18,6 @@ plugins {
     alias(libs.plugins.compose.compiler) apply false
 
 
-
-
 }
 //./gradlew assembleDebug -PenableComposeCompilerReports=true
 // ./gradlew assembleDebug -PenableComposeCompilerMetrics=true

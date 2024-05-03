@@ -15,11 +15,11 @@ actual val databaseModule: Module
         includes(daoModules)
     }
 
- fun getDatabaseBuilder(context: Context): RoomDatabase.Builder<SkeletonDatabase> {
-     val appContext = context.applicationContext
-     val dbFile = appContext.getDatabasePath("skeleton.db")
-     return Room.databaseBuilder<SkeletonDatabase>(
-         context = appContext,
-         name = dbFile.absolutePath
-     )
+fun getDatabaseBuilder(context: Context): RoomDatabase.Builder<SkeletonDatabase> {
+    val appContext = context.applicationContext
+    val dbFile = appContext.getDatabasePath("skeleton.db")
+    return Room.databaseBuilder<SkeletonDatabase>(
+        context = appContext,
+        name = dbFile.absolutePath,
+    )
 }

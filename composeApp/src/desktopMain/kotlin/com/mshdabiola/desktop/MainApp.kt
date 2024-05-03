@@ -58,8 +58,7 @@ fun mainApp(appArgs: AppArgs) {
 //                }
 //            }
 
-            SkeletonApp(
-            )
+            SkeletonApp()
         }
     }
 }

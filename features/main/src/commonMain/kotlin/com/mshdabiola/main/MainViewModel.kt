@@ -6,9 +6,9 @@ package com.mshdabiola.main
 
 import androidx.lifecycle.viewModelScope
 import com.mshdabiola.data.repository.IModelRepository
-import com.mshdabiola.mvvn.ViewModeli
 import com.mshdabiola.data.repository.UserDataRepository
 import com.mshdabiola.model.Note
+import com.mshdabiola.mvvn.ViewModeli
 import com.mshdabiola.ui.MainState
 import com.mshdabiola.ui.asNoteUiState
 import kotlinx.collections.immutable.toImmutableList
@@ -24,15 +24,14 @@ class MainViewModel constructor(
     private val userDataRepository: UserDataRepository,
     private val modelRepository: IModelRepository,
 
-    ) : ViewModeli() {
+) : ViewModeli() {
 
 //    val timeLine = modelRepository
 //        .imagePagingData()
 
-    val notes =modelRepository
+    val notes = modelRepository
         .getAll()
         .map { it.map { it.asNoteUiState() }.toImmutableList() }
-
 
 //    val pager = modelRepository
 //        .notePagingData()

@@ -1,6 +1,5 @@
 package com.mshdabiola.network.model
 
-
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -11,5 +10,5 @@ data class Thumbnail(
     @SerialName("source")
     val source: String? = null,
     @SerialName("width")
-    val width: Int? = null
+    val width: Int? = null,
 )

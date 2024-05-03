@@ -18,7 +18,7 @@ import com.mshdabiola.skeletonapp.ui.SkAppState
 @Composable
 fun SkNavHost(
     appState: SkAppState,
-    onShowSnackbar: suspend (String, String?) -> Boolean={_,_->false},
+    onShowSnackbar: suspend (String, String?) -> Boolean = { _, _ -> false },
     modifier: Modifier = Modifier,
     startDestination: String = MAIN_ROUTE,
 ) {
@@ -29,22 +29,21 @@ fun SkNavHost(
         modifier = modifier,
     ) {
         mainScreen(
-        screenSize = appState.screenSize,
-        onShowSnack = onShowSnackbar,
+            screenSize = appState.screenSize,
+            onShowSnack = onShowSnackbar,
             onClicked = navController::navigateToDetail,
             navigateToSetting = navController::navigateToSetting,
-            navigateToDetail = navController::navigateToDetail
+            navigateToDetail = navController::navigateToDetail,
         )
         detailScreen(
             screenSize = appState.screenSize,
             onShowSnack = onShowSnackbar,
-            onBack = navController::popBackStack
+            onBack = navController::popBackStack,
         )
         settingScreen(
             screenSize = appState.screenSize,
             onShowSnack = onShowSnackbar,
-            onBack = navController::popBackStack
+            onBack = navController::popBackStack,
         )
-
     }
 }

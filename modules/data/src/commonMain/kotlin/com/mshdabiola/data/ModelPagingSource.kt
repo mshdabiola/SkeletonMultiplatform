@@ -8,8 +8,8 @@ import kotlin.random.Random
 import kotlin.random.nextInt
 
 class ModelPagingSource(
-    private val iNetworkDataSource: INetworkDataSource
-) : PagingSource<String,Image>() {
+    private val iNetworkDataSource: INetworkDataSource,
+) : PagingSource<String, Image>() {
     override fun getRefreshKey(state: PagingState<String, Image>): String? {
         return getKey()
 //        return state.anchorPosition?.let { anchorPosition ->
@@ -19,18 +19,17 @@ class ModelPagingSource(
     }
 
     override suspend fun load(params: LoadParams<String>): LoadResult<String, Image> {
-
-     return try {
+        return try {
             // Start refresh at page 1 if undefined.
-            val next=params.key ?: getKey()
+            val next = params.key ?: getKey()
             val response = iNetworkDataSource.getTimeline(4, next)
-            val maps=response.query?.pages?.mapNotNull { page ->
+            val maps = response.query?.pages?.mapNotNull { page ->
                 page?.imageinfo?.mapNotNull { it?.toModel() }
             }
-             LoadResult.Page(
+            LoadResult.Page(
                 data = maps?.flatten() ?: emptyList(),
                 prevKey = null, // Only paging forward.
-                nextKey = getKey()//response.continueX?.grncontinue ?: getKey()
+                nextKey = getKey(), // response.continueX?.grncontinue ?: getKey()
             )
         } catch (e: Exception) {
             LoadResult.Error(e)
@@ -39,13 +38,10 @@ class ModelPagingSource(
         }
     }
 
-    val random= Random(4)
-    fun getKey():String{
-
-        val num=random.nextInt(10,99)
-        val number=random.nextInt(10..99)
-      return  "0.5739937985$num|0.57399474331|620566$number|0"
-
+    val random = Random(4)
+    fun getKey(): String {
+        val num = random.nextInt(10, 99)
+        val number = random.nextInt(10..99)
+        return "0.5739937985$num|0.57399474331|620566$number|0"
     }
-
 }

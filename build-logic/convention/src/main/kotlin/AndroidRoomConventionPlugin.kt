@@ -18,16 +18,11 @@ import com.google.devtools.ksp.gradle.KspExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
-import org.gradle.api.tasks.InputDirectory
-import org.gradle.api.tasks.PathSensitive
-import org.gradle.api.tasks.PathSensitivity
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
-import org.gradle.process.CommandLineArgumentProvider
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import java.io.File
-import androidx.room.gradle.RoomExtension
+
 class AndroidRoomConventionPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
@@ -44,7 +39,7 @@ class AndroidRoomConventionPlugin : Plugin<Project> {
                 // The schemas directory contains a schema file for each version of the Room database.
                 // This is required to enable Room auto migrations.
                 // See https://developer.android.com/reference/kotlin/androidx/room/AutoMigration.
-               // arg(RoomSchemaArgProvider(File(projectDir, "schemas")))
+                // arg(RoomSchemaArgProvider(File(projectDir, "schemas")))
             }
 
 
@@ -53,7 +48,7 @@ class AndroidRoomConventionPlugin : Plugin<Project> {
                 //add("implementation", libs.findLibrary("room.ktx").get())
                 //add("implementation", libs.findLibrary("room.paging").get())
                 //add("ksp", libs.findLibrary("room.compiler").get())
-               // add("kspAndroid", libs.findLibrary("room.compiler").get())
+                // add("kspAndroid", libs.findLibrary("room.compiler").get())
                 add("ksp", libs.findLibrary("room.compiler").get())
 
 

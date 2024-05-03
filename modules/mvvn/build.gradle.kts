@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
-
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("mshdabiola.android.library")
@@ -22,7 +20,7 @@ kotlin {
                 implementation(libs.kotlinx.coroutines.core)
                 implementation(compose.runtime)
                 implementation(compose.ui)
-              api(libs.lifecycle.viewmodel.compose)
+                api(libs.lifecycle.viewmodel.compose)
 
 
             }
@@ -36,7 +34,6 @@ kotlin {
 
         val androidMain by getting {
             dependencies {
-
 
 
                 api(libs.androidx.core.ktx)

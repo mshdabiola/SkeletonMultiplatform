@@ -10,8 +10,6 @@ import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.mshdabiola.designsystem.icon.mainRoute
 import com.mshdabiola.main.MainRoute
-import com.mshdabiola.main.MainViewModel
-import com.mshdabiola.mvvn.KoinCommonViewModel
 import com.mshdabiola.ui.ScreenSize
 
 val MAIN_ROUTE = mainRoute[0]
@@ -24,12 +22,10 @@ fun NavGraphBuilder.mainScreen(
     navigateToSetting: () -> Unit,
     navigateToDetail: (Long) -> Unit,
     screenSize: ScreenSize,
-    ) {
-
+) {
     composable(route = MAIN_ROUTE) {
-
         MainRoute(
-            screenSize= screenSize,
+            screenSize = screenSize,
             onClicked = onClicked,
             onShowSnackbar = onShowSnack,
             navigateToSetting = navigateToSetting,

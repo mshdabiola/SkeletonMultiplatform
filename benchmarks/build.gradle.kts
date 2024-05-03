@@ -1,9 +1,8 @@
 /*
  *abiola 2022
  */
-import com.android.build.api.dsl.ManagedVirtualDevice
 import com.mshdabiola.app.BuildType
-import com.mshdabiola.app.configureFlavors
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("mshdabiola.android.test")
@@ -36,7 +35,7 @@ android {
             buildConfigField(
                 "String",
                 "APP_BUILD_TYPE_SUFFIX",
-                "\"${BuildType.BENCHMARK.applicationIdSuffix ?: ""}\""
+                "\"${BuildType.BENCHMARK.applicationIdSuffix ?: ""}\"",
             )
         }
     }

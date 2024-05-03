@@ -1,21 +1,21 @@
 package com.mshdabiola.network
 //
-//import fr.free.nrw.commons.wikidata.WikidataConstants.MW_API_PREFIX
-//import fr.free.nrw.commons.wikidata.model.Entities
-//import fr.free.nrw.commons.wikidata.model.edit.Edit
-//import io.reactivex.Observable
-//import io.reactivex.Single
-//import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
-//import retrofit2.http.*
+// import fr.free.nrw.commons.wikidata.WikidataConstants.MW_API_PREFIX
+// import fr.free.nrw.commons.wikidata.model.Entities
+// import fr.free.nrw.commons.wikidata.model.edit.Edit
+// import io.reactivex.Observable
+// import io.reactivex.Single
+// import fr.free.nrw.commons.wikidata.mwapi.MwQueryResponse
+// import retrofit2.http.*
 //
-///**
+// /**
 // * This interface facilitates wiki commons page editing services to the Networking module
 // * which provides all network related services used by the app.
 // *
 // * This interface posts a form encoded request to the wikimedia API
 // * with editing action as argument to edit a particular page
 // */
-//interface PageEditInterface {
+// interface PageEditInterface {
 //    /**
 //     * This method posts such that the Content which the page
 //     * has will be completely replaced by the value being passed to the
@@ -95,4 +95,4 @@ package com.mshdabiola.network
 //    fun getWikiText(
 //        @Query("titles") title: String
 //    ): Single<MwQueryResponse?>
-//}
+// }

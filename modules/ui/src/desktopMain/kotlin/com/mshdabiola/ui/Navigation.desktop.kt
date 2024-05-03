@@ -2,22 +2,24 @@ package com.mshdabiola.ui
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.runtime.Composable
+
 @Preview
 @Composable
- fun NavigationRailPreview() {
-   // CommonNavigation()
-    CommonRail {  }
+fun NavigationRailPreview() {
+    // CommonNavigation()
+    CommonRail { }
 }
 
 @Preview
 @Composable
- fun NavigationBarPreview() {
+fun NavigationBarPreview() {
     // CommonNavigation()
-    CommonBar {  }
+    CommonBar { }
 }
+
 @Preview
 @Composable
 actual fun NavigationPreview() {
     // CommonNavigation()
-    CommonNavigation {  }
+    CommonNavigation { }
 }
