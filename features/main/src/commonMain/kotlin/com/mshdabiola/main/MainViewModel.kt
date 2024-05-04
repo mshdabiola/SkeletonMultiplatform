@@ -4,11 +4,10 @@
 
 package com.mshdabiola.main
 
-import androidx.lifecycle.viewModelScope
 import com.mshdabiola.data.repository.IModelRepository
 import com.mshdabiola.data.repository.UserDataRepository
 import com.mshdabiola.model.Note
-import com.mshdabiola.mvvn.ViewModeli
+import com.mshdabiola.mvvn.ViewModel
 import com.mshdabiola.ui.MainState
 import com.mshdabiola.ui.asNoteUiState
 import kotlinx.collections.immutable.toImmutableList
@@ -24,7 +23,7 @@ class MainViewModel constructor(
     private val userDataRepository: UserDataRepository,
     private val modelRepository: IModelRepository,
 
-) : ViewModeli() {
+) : ViewModel() {
 
 //    val timeLine = modelRepository
 //        .imagePagingData()

@@ -12,7 +12,7 @@ androidxSavedState = "1.2.1"
 androidxLifecycle = "2.7.0"
 
 
-lifecycleViewmodelCompose = "2.8.0-beta02"
+lifecycleViewmodelCompose = "2.8.0-rc01"
 monitor = "1.6.1"
 navigationCompose = "2.8.0-alpha02"
 pagingComposeCommon = "3.3.0-alpha02-0.5.1"
@@ -23,7 +23,7 @@ androidxComposeCompiler = "1.5.8"
 activityCompose = "1.9.0"
 androidxComposeBom = "2024.05.00"
 androidxComposeRuntimeTracing = "1.0.0-beta01"
-compose-plugin = "1.6.10-beta03"
+compose-plugin = "1.6.10-rc01"
 
 
 androidxConstraintLayout = "1.1.0-alpha13"
@@ -59,7 +59,7 @@ androidxWork = "2.9.0"
 coil = "3.0.0-alpha06"
 
 kotlinxCollectionImmutable = "0.3.7"
-kotlinxCoroutines = "1.8.0"
+kotlinxCoroutines = "1.8.1-Beta"
 kotlinxDatetime = "0.5.0"
 kotlinxSerializationJson = "1.6.3"
 
@@ -67,7 +67,7 @@ playGame = "20.0.0"
 playReview = "2.0.1"
 playUpdate = "2.1.0"
 playCoroutine = "1.8.0"
-firebaseBom = "32.8.1"
+firebaseBom = "33.0.0"
 firebaseAnalytics = "21.2.2"
 firebaseCrashlyticsKts = "18.3.6"
 

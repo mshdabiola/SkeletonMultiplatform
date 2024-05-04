@@ -23,7 +23,7 @@ import org.koin.core.scope.Scope
  */
 @OptIn(KoinInternalApi::class)
 @Composable
-inline fun <reified T : ViewModeli> getCommonViewModel(
+inline fun <reified T : ViewModel> getCommonViewModel(
     qualifier: Qualifier? = null,
     viewModelStoreOwner: ViewModelStoreOwner = checkNotNull(LocalViewModelStoreOwner.current) {
         "No ViewModelStoreOwner was provided via LocalViewModelStoreOwner"

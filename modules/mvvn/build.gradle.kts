@@ -41,7 +41,7 @@ kotlin {
 
 
 
-                api(libs.androidx.lifecycle.runtimeCompose)
+                implementation(libs.androidx.lifecycle.runtimeCompose)
 //                api(libs.androidx.lifecycle.viewModelCompose)
             }
         }
@@ -50,6 +50,7 @@ kotlin {
         val desktopMain by getting {
             dependencies {
 
+                implementation(libs.kotlinx.coroutines.swing)
             }
         }
 

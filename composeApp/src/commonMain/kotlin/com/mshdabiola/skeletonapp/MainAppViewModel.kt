@@ -4,10 +4,9 @@
 
 package com.mshdabiola.skeletonapp
 
-import androidx.lifecycle.viewModelScope
 import com.mshdabiola.data.repository.UserDataRepository
 import com.mshdabiola.model.UserData
-import com.mshdabiola.mvvn.ViewModeli
+import com.mshdabiola.mvvn.ViewModel
 import com.mshdabiola.skeletonapp.MainActivityUiState.Loading
 import com.mshdabiola.skeletonapp.MainActivityUiState.Success
 import kotlinx.coroutines.flow.SharingStarted
@@ -17,7 +16,7 @@ import kotlinx.coroutines.flow.stateIn
 
 class MainAppViewModel(
     userDataRepository: UserDataRepository,
-) : ViewModeli() {
+) : ViewModel() {
     val uiState: StateFlow<MainActivityUiState> = userDataRepository.userData.map {
         Success(it)
     }.stateIn(
