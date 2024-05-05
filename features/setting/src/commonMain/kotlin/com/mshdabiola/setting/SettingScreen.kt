@@ -29,6 +29,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.mshdabiola.model.Contrast
 import com.mshdabiola.model.DarkThemeConfig
@@ -87,6 +88,7 @@ internal fun SettingScreen(
                 },
             )
         },
+        containerColor = Color.Transparent
     ) { paddingValues ->
         Column(
             Modifier.padding(paddingValues).padding(horizontal = 16.dp),

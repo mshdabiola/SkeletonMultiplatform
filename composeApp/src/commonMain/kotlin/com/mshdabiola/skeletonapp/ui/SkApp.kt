@@ -106,7 +106,6 @@ fun SkeletonApp() {
                             Scaffold(
                                 modifier = Modifier.semanticsCommon {},
                                 containerColor = Color.Transparent,
-                                contentColor = MaterialTheme.colorScheme.onBackground,
                                 contentWindowInsets = WindowInsets(0, 0, 0, 0),
                                 snackbarHost = { SnackbarHost(snackbarHostState) },
                                 floatingActionButton = {
