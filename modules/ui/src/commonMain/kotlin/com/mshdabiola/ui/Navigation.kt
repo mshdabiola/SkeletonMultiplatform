@@ -101,7 +101,7 @@ fun CommonNavigation(
                             NavigationDrawerItem(
                                 selected = currentNavigation.contains(mainRoute[index]),
                                 label = { Text(navigator) },
-                                onClick = { onNavigate(navigator) },
+                                onClick = { onNavigate(mainRoute[index]) },
                                 colors = color,
                                 icon = { Icon(mainIcons[index], navigator) },
                             )
@@ -119,7 +119,7 @@ fun CommonNavigation(
                         NavigationDrawerItem(
                             selected = currentNavigation.contains(settingRoute[index]),
                             label = { Text(navigator) },
-                            onClick = { onNavigate(navigator) },
+                            onClick = { onNavigate(settingRoute[index]) },
                             colors = color,
                             icon = { Icon(settingIcons[index], navigator) },
                         )
@@ -165,7 +165,7 @@ fun CommonRail(
                         NavigationRailItem(
                             selected = currentNavigation.contains(mainRoute[index]),
 //                            label = { Text(navigator) },
-                            onClick = { onNavigate(navigator) },
+                            onClick = { onNavigate(mainRoute[index]) },
                             alwaysShowLabel = false,
                             icon = { Icon(mainIcons[index], navigator) },
                         )
@@ -182,7 +182,7 @@ fun CommonRail(
                         NavigationRailItem(
                             selected = currentNavigation.contains(settingRoute[index]),
                            // label = { Text(navigator) },
-                            onClick = { onNavigate(navigator) },
+                            onClick = { onNavigate(settingRoute[index]) },
                             alwaysShowLabel = false,
                             icon = { Icon(settingIcons[index], navigator) },
                         )
@@ -209,7 +209,7 @@ fun CommonBar(
                 NavigationBarItem(
                     selected = currentNavigation.contains(mainRoute[index]),
                    // label = { Text(navigator) },
-                    onClick = { onNavigate(navigator) },
+                    onClick = { onNavigate(mainRoute[index]) },
                     alwaysShowLabel = false,
                     icon = { Icon(mainIcons[index], navigator) },
                 )

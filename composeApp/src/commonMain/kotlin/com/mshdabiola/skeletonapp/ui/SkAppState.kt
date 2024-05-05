@@ -14,6 +14,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.mshdabiola.designsystem.icon.mainRoute
 import com.mshdabiola.ui.ScreenSize
 import kotlinx.coroutines.CoroutineScope
 
@@ -54,13 +55,15 @@ class SkAppState(
         }
 
     val shouldShowBottomBar: Boolean
-        get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact
-
+      @Composable  get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact
+                && mainRoute.contains( currentDestination?.route)
     val shouldShowNavRail: Boolean
-        get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Medium
+       @Composable get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Medium
+                && mainRoute.contains( currentDestination?.route)
 
     val shouldShowDrawer: Boolean
-        get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Expanded
+      @Composable  get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Expanded
+              && mainRoute.contains( currentDestination?.route)
 
 //    val isOffline = networkMonitor.isOnline
 //        .map(Boolean::not)

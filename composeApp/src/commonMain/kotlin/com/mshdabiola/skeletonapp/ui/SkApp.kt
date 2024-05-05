@@ -39,6 +39,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
+import androidx.navigation.navOptions
 import com.mshdabiola.analytics.AnalyticsHelper
 import com.mshdabiola.analytics.LocalAnalyticsHelper
 import com.mshdabiola.designsystem.component.SkBackground
@@ -48,6 +49,7 @@ import com.mshdabiola.designsystem.theme.LocalGradientColors
 import com.mshdabiola.designsystem.theme.SkTheme
 import com.mshdabiola.detail.navigation.navigateToDetail
 import com.mshdabiola.main.navigation.MAIN_ROUTE
+import com.mshdabiola.main.navigation.navigateToMain
 import com.mshdabiola.model.Contrast
 import com.mshdabiola.model.DarkThemeConfig
 import com.mshdabiola.model.ThemeBrand
@@ -55,6 +57,8 @@ import com.mshdabiola.mvvn.KoinCommonViewModel
 import com.mshdabiola.mvvn.collectAsStateWithLifecycleCommon
 import com.mshdabiola.mvvn.get
 import com.mshdabiola.mvvn.semanticsCommon
+import com.mshdabiola.setting.navigation.SETTING_ROUTE
+import com.mshdabiola.setting.navigation.navigateToSetting
 import com.mshdabiola.skeletonapp.MainActivityUiState
 import com.mshdabiola.skeletonapp.MainAppViewModel
 import com.mshdabiola.skeletonapp.navigation.SkNavHost
@@ -70,6 +74,18 @@ fun SkeletonApp() {
         windowSizeClass = windowSizeClass,
     )
     val shouldShowGradientBackground = false
+    val navigator :(String)->Unit={
+        println("navigation $it seting is $SETTING_ROUTE" )
+
+        when(it){
+            MAIN_ROUTE->{
+                appState.navController.navigateToMain(navOptions = navOptions {  })
+            }
+            SETTING_ROUTE->{
+                appState.navController.navigateToSetting()
+            }
+        }
+    }
 
     val viewModel: MainAppViewModel = KoinCommonViewModel()
     val analyticsHelper = get<AnalyticsHelper>()
@@ -100,6 +116,7 @@ fun SkeletonApp() {
                                 CommonNavigation(
                                     modifier = Modifier.width(300.dp),
                                     currentNavigation = appState.currentDestination?.route ?: "",
+                                    onNavigate = navigator
                                 )
                             },
                         ) {
@@ -169,8 +186,9 @@ fun SkeletonApp() {
                                 CommonRail(
                                     modifier = Modifier.width(100.dp),
                                     currentNavigation = appState.currentDestination?.route ?: "",
+                                    onNavigate = navigator
 
-                                ) { }
+                                )
                             }
                             Scaffold(
                                 modifier = Modifier.semanticsCommon {},
@@ -200,7 +218,7 @@ fun SkeletonApp() {
                                         CommonBar(
                                             currentNavigation = appState.currentDestination?.route
                                                 ?: "",
-                                        ) { }
+                                        ) { navigator(it)}
                                     }
                                 },
 
