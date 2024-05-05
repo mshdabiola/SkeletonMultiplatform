@@ -142,6 +142,7 @@ decompose-core = { module = "com.arkivanov.decompose:decompose", version.ref = "
 decompose-android = { module = "com.arkivanov.decompose:extensions-android", version.ref = "decomposeVersion" }
 decompose-compose-jetbrains = { module = "com.arkivanov.decompose:extensions-compose", version.ref = "decomposeVersion" }
 
+androidx-datastore-core-okio = { group = "androidx.datastore", name = "datastore-core-okio", version.ref = "androidxDataStore" }
 androidx-dataStore-core = { module = "androidx.datastore:datastore-preferences-core", version.ref = "androidxDataStore" }
 
 

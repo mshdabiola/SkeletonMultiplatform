@@ -18,7 +18,6 @@ val daoModules = module {
     single {
         get<SkeletonDatabase>().getImageDao()
     }
-    single { Dispatchers.IO } bind CoroutineDispatcher::class
 }
 
 fun getRoomDatabase(

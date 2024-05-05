@@ -8,7 +8,7 @@ import org.koin.dsl.bind
 import org.koin.dsl.module
 
 internal val commonModule = module {
-    single { Dispatchers.IO }
+   // single { Dispatchers.IO }
 
     singleOf(::MultiplatformSettingsImpl) bind MultiplatformSettings::class
 }
