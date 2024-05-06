@@ -215,7 +215,7 @@ compose.desktop {
         buildTypes.release.proguard {
             configurationFiles.from(project.file("compose-desktop.pro"))
             obfuscate.set(true)
-            version.set("7.3.0")
+            version.set("7.4.2")
         }
 
         val iconsRoot = project.file("src/desktopMain/resources/launcher")
