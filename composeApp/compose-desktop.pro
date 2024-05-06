@@ -1,3 +1,8 @@
+-printmapping build/release-mapping.txt
+
+-dontoptimize
+
+
 -keepclasseswithmembers public class com.mshdabiola.desktop.MainAppKt {
     public static void main(java.lang.String[]);
 }
@@ -151,3 +156,9 @@
 -ignorewarnings
 
 -optimizations !class/unboxing/enum
+
+-keep class * extends androidx.room.RoomDatabase
+-keep @androidx.room.Entity class *
+-dontwarn androidx.room.paging.**
+-keep class androidx.sqlite.** { *; }
+-keep class androidx.sqlite.database.** { *; }
