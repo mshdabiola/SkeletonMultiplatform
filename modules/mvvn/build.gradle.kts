@@ -20,7 +20,7 @@ kotlin {
                 implementation(libs.kotlinx.coroutines.core)
                 implementation(compose.runtime)
                 implementation(compose.ui)
-                api(libs.lifecycle.viewmodel.compose)
+               // api(libs.lifecycle.viewmodel.compose)
 
 
             }
@@ -42,7 +42,7 @@ kotlin {
 
 
                 implementation(libs.androidx.lifecycle.runtimeCompose)
-//                api(libs.androidx.lifecycle.viewModelCompose)
+                api(libs.androidx.lifecycle.viewModelCompose)
             }
         }
 
