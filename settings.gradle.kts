@@ -1,7 +1,7 @@
 pluginManagement {
     repositories {
         includeBuild("build-logic")
-        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+        // maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
         google()
         mavenCentral()
         gradlePluginPortal()
@@ -19,7 +19,7 @@ dependencyResolutionManagement {
         maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-js-wrappers")
         maven(url = "https://maven.pkg.jetbrains.space/public/p/kotlinx-coroutines/maven")
         maven(url = "https://androidx.dev/storage/compose-compiler/repository/")
-         maven(url="https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental")
+        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental")
     }
 }
 rootProject.name = "SkeletonMultiplatform"
@@ -32,11 +32,10 @@ include(":modules:network")
 include(":modules:data")
 include(":modules:domain")
 include(":modules:testing")
-include(":modules:app")
+//include(":modules:app")
 //include(":desktop")
 //include(":modules:setting")
 include(":modules:datastore")
-include(":modules:navigation")
 
 include(":benchmarks")
 include(":modules:mvvn")
@@ -44,7 +43,12 @@ include(":modules:analytics")
 
 
 include(":composeApp")
-include(":shared")
+//include(":shared")
 
 include(":modules:ui")
+
+include(":features:main")
+include(":features:detail")
+include(":features:setting")
+
 

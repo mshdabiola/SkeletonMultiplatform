@@ -1,5 +1,5 @@
 
 ALTER TABLE modelEntity
-ADD COLUMN id2 INTEGER ;
+ADD COLUMN content TEXT ;
 
 

@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
-
 /*
  *abiola 2024
  */
@@ -26,26 +24,30 @@ dependencies {
     androidTestImplementation(project(":modules:testing"))
 }
 
-kotlin{
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
-        browser()
-    }
-    sourceSets{
-        val desktopMain by getting{
-            dependencies{
+kotlin {
+//    @OptIn(ExperimentalWasmDsl::class)
+//    wasmJs {
+//        browser()
+//    }
+    sourceSets {
+        val desktopMain by getting {
+            dependencies {
 
             }
         }
 
-        val commonMain by getting{
-            dependencies{
+        val commonMain by getting {
+            dependencies {
                 api(project(":modules:analytics"))
                 api(project(":modules:designsystem"))
                 api(project(":modules:model"))
-                implementation(libs.coil.kt)
-                implementation(libs.coil.kt.compose)
-                implementation(libs.coil.kt.svg)
+                api(libs.coil.kt)
+                api(libs.coil.kt.compose)
+                api(libs.coil.kt.svg)
+                api(libs.coil.kt.network)
+
+                api(compose.components.resources)
+
 
             }
         }

@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
-
 /*
  *abiola 2024
  */
@@ -23,7 +21,6 @@ dependencies {
     // lintPublish(projects.lint)
 
 
-
     debugApi(libs.androidx.compose.ui.tooling)
 
     implementation(libs.coil.kt.compose)
@@ -34,16 +31,16 @@ dependencies {
     testImplementation(libs.roborazzi)
     testImplementation(project(":modules:testing"))
 
-      androidTestImplementation(libs.androidx.compose.ui.test)
+    androidTestImplementation(libs.androidx.compose.ui.test)
     androidTestImplementation(project(":modules:testing"))
-    implementation ("com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava")
+    implementation("com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava")
 
 }
 kotlin {
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
-        browser()
-    }
+//    @OptIn(ExperimentalWasmDsl::class)
+//    wasmJs {
+//        browser()
+//    }
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -55,6 +52,8 @@ kotlin {
                 api(libs.kotlinx.collection.immutable)
                 api(project(":modules:model"))
                 api(libs.androidx.compose.material3.windowSizeClass)
+                api(libs.navigation.compose)
+                api(libs.paging.compose.common)
 
 
             }

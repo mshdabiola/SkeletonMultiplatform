@@ -1,7 +1,7 @@
 package com.mshdabiola.setting.di
 
 import android.content.Context
-import com.mshdabiola.setting.createDataStore
+import com.mshdabiola.setting.createDataStoreUserData
 import com.mshdabiola.setting.dataStoreFileName
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -12,6 +12,6 @@ actual val settingModule: Module
         single {
             val context: Context = get()
 
-            createDataStore { context.filesDir.resolve(dataStoreFileName).absolutePath }
+            createDataStoreUserData { context.filesDir.resolve("userdata").absolutePath }
         }
     }

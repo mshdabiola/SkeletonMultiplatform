@@ -20,6 +20,8 @@ kotlin {
                 implementation(libs.kotlinx.serialization.json)
                 implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.androidx.dataStore.core)
+                implementation(libs.androidx.datastore.core.okio)
+
             }
         }
 //

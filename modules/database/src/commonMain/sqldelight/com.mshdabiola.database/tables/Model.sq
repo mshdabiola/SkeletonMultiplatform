@@ -2,9 +2,10 @@
 
 CREATE TABLE IF NOT EXISTS modelEntity (
   id INTEGER PRIMARY KEY AUTOINCREMENT  ,
-  name TEXT NOT NULL,
-  id2 INTEGER
+  title TEXT NOT NULL,
+  content TEXT
 );
+
 
 -- CREATE INDEX IF NOT EXISTS hockeyPlayer_full_name ON hockeyPlayer(full_name);
 
@@ -19,11 +20,11 @@ FROM  modelEntity
 WHERE id = ?;
 
 insert:
-INSERT INTO modelEntity(id, name)
-VALUES (id, ?);
+INSERT INTO modelEntity(id, title,content)
+VALUES (id, ?,?);
 
-insertFullModelObject:
-INSERT INTO modelEntity(name)
+insertNew:
+INSERT INTO modelEntity(title,content)
 VALUES ?;
 
 deleteById:
@@ -31,5 +32,15 @@ DELETE FROM modelEntity
 WHERE id = ?;
 
 updateByName:
-UPDATE modelEntity SET name = ? WHERE id = ?;
+UPDATE modelEntity SET title = ?,content = ? WHERE id = ?;
+
+
+all:
+SELECT *
+FROM modelEntity
+LIMIT :limit OFFSET :offset;
+
+
+countModel:
+SELECT count(*) FROM modelEntity;
 

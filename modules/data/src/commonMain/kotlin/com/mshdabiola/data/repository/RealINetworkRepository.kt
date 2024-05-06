@@ -10,6 +10,6 @@ internal class RealINetworkRepository constructor(
     }
 
     override suspend fun gotoGoogle(): String {
-        return INetworkDataSource.goToGoogle()
+        return ""
     }
 }

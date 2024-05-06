@@ -16,6 +16,7 @@ import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
 import androidx.compose.ui.test.onRoot
 import androidx.test.ext.junit.rules.ActivityScenarioRule
+import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RoborazziOptions
 import com.github.takahirom.roborazzi.RoborazziOptions.CompareOptions
 import com.github.takahirom.roborazzi.RoborazziOptions.RecordOptions
@@ -25,6 +26,7 @@ import com.mshdabiola.designsystem.theme.SkTheme
 import com.mshdabiola.model.ThemeBrand
 import org.robolectric.RuntimeEnvironment
 
+@OptIn(ExperimentalRoborazziApi::class)
 val DefaultRoborazziOptions =
     RoborazziOptions(
         // Pixel-perfect matching

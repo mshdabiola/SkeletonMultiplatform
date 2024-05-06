@@ -159,11 +159,14 @@ class ThemeColorTest {
                 disableDynamicTheming = true,
                 useAndroidTheme = true,
             ) {
-                val colorScheme = ThemeColor.DefaultThemeColor(true, Contrast.Normal).getColorScheme()
+                val colorScheme =
+                    ThemeColor.DefaultThemeColor(true, Contrast.Normal).getColorScheme()
                 assertColorSchemesEqual(colorScheme, MaterialTheme.colorScheme)
-                val gradientColors = ThemeColor.DefaultThemeColor(true, Contrast.Normal).getGradientColors()
+                val gradientColors =
+                    ThemeColor.DefaultThemeColor(true, Contrast.Normal).getGradientColors()
                 assertEquals(gradientColors, LocalGradientColors.current)
-                val backgroundTheme = ThemeColor.DefaultThemeColor(true, Contrast.Normal).getBackgroundTheme()
+                val backgroundTheme =
+                    ThemeColor.DefaultThemeColor(true, Contrast.Normal).getBackgroundTheme()
                 assertEquals(backgroundTheme, LocalBackgroundTheme.current)
                 val tintTheme = defaultTintTheme()
                 assertEquals(tintTheme, LocalTintTheme.current)
@@ -179,11 +182,14 @@ class ThemeColorTest {
                 disableDynamicTheming = false,
                 useAndroidTheme = true,
             ) {
-                val colorScheme = ThemeColor.DefaultThemeColor(false, Contrast.Normal).getColorScheme()
+                val colorScheme =
+                    ThemeColor.DefaultThemeColor(false, Contrast.Normal).getColorScheme()
                 assertColorSchemesEqual(colorScheme, MaterialTheme.colorScheme)
-                val gradientColors = ThemeColor.DefaultThemeColor(false, Contrast.Normal).getGradientColors()
+                val gradientColors =
+                    ThemeColor.DefaultThemeColor(false, Contrast.Normal).getGradientColors()
                 assertEquals(gradientColors, LocalGradientColors.current)
-                val backgroundTheme = ThemeColor.DefaultThemeColor(false, Contrast.Normal).getBackgroundTheme()
+                val backgroundTheme =
+                    ThemeColor.DefaultThemeColor(false, Contrast.Normal).getBackgroundTheme()
                 assertEquals(backgroundTheme, LocalBackgroundTheme.current)
                 val tintTheme = defaultTintTheme()
                 assertEquals(tintTheme, LocalTintTheme.current)
@@ -199,11 +205,14 @@ class ThemeColorTest {
                 disableDynamicTheming = false,
                 useAndroidTheme = true,
             ) {
-                val colorScheme = ThemeColor.DefaultThemeColor(true, Contrast.Normal).getColorScheme()
+                val colorScheme =
+                    ThemeColor.DefaultThemeColor(true, Contrast.Normal).getColorScheme()
                 assertColorSchemesEqual(colorScheme, MaterialTheme.colorScheme)
-                val gradientColors = ThemeColor.DefaultThemeColor(true, Contrast.Normal).getGradientColors()
+                val gradientColors =
+                    ThemeColor.DefaultThemeColor(true, Contrast.Normal).getGradientColors()
                 assertEquals(gradientColors, LocalGradientColors.current)
-                val backgroundTheme = ThemeColor.DefaultThemeColor(true, Contrast.Normal).getBackgroundTheme()
+                val backgroundTheme =
+                    ThemeColor.DefaultThemeColor(true, Contrast.Normal).getBackgroundTheme()
                 assertEquals(backgroundTheme, LocalBackgroundTheme.current)
                 val tintTheme = defaultTintTheme()
                 assertEquals(tintTheme, LocalTintTheme.current)
