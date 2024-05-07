@@ -88,7 +88,7 @@ internal fun SettingScreen(
                 },
             )
         },
-        containerColor = Color.Transparent
+        containerColor = Color.Transparent,
     ) { paddingValues ->
         Column(
             Modifier.padding(paddingValues).padding(horizontal = 16.dp),

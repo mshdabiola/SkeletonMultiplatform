@@ -74,14 +74,15 @@ fun SkeletonApp() {
         windowSizeClass = windowSizeClass,
     )
     val shouldShowGradientBackground = false
-    val navigator :(String)->Unit={
-        println("navigation $it seting is $SETTING_ROUTE" )
+    val navigator: (String) -> Unit = {
+        println("navigation $it seting is $SETTING_ROUTE")
 
-        when(it){
-            MAIN_ROUTE->{
-                appState.navController.navigateToMain(navOptions = navOptions {  })
+        when (it) {
+            MAIN_ROUTE -> {
+                appState.navController.navigateToMain(navOptions = navOptions { })
             }
-            SETTING_ROUTE->{
+
+            SETTING_ROUTE -> {
                 appState.navController.navigateToSetting()
             }
         }
@@ -116,7 +117,7 @@ fun SkeletonApp() {
                                 CommonNavigation(
                                     modifier = Modifier.width(300.dp),
                                     currentNavigation = appState.currentDestination?.route ?: "",
-                                    onNavigate = navigator
+                                    onNavigate = navigator,
                                 )
                             },
                         ) {
@@ -186,7 +187,7 @@ fun SkeletonApp() {
                                 CommonRail(
                                     modifier = Modifier.width(100.dp),
                                     currentNavigation = appState.currentDestination?.route ?: "",
-                                    onNavigate = navigator
+                                    onNavigate = navigator,
 
                                 )
                             }
@@ -218,7 +219,7 @@ fun SkeletonApp() {
                                         CommonBar(
                                             currentNavigation = appState.currentDestination?.route
                                                 ?: "",
-                                        ) { navigator(it)}
+                                        ) { navigator(it) }
                                     }
                                 },
 

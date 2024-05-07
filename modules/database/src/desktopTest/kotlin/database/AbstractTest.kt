@@ -1,8 +1,9 @@
 package database
 
-import app.cash.sqldelight.driver.jdbc.sqlite.JdbcSqliteDriver
-import com.mshdabiola.database.TempDatabase
+import androidx.room.Room
+import com.mshdabiola.database.SkeletonDatabase
 import com.mshdabiola.database.di.daoModules
+import com.mshdabiola.database.di.getRoomDatabase
 import org.junit.Rule
 import org.junit.Test
 import org.koin.dsl.module
@@ -15,10 +16,8 @@ abstract class AbstractTest : KoinTest {
     val koinTestRule = KoinTestRule.create {
         val module = module {
             single {
-                val driver = JdbcSqliteDriver(JdbcSqliteDriver.IN_MEMORY)
-                    .also { TempDatabase.Schema.create(it) }
-
-                TempDatabase(driver)
+                val db = Room.inMemoryDatabaseBuilder<SkeletonDatabase>()
+                getRoomDatabase(db)
             }
         }
         // Your KoinApplication instance here
