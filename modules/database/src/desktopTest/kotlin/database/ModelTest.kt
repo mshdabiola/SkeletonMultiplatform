@@ -1,8 +1,8 @@
 package database
 
 import app.cash.turbine.test
-import com.mshabiola.database.dao.modeldao.ModelDao
-import com.mshdabiola.model.Note
+import com.mshdabiola.database.dao.NoteDao
+import com.mshdabiola.database.model.NoteEntity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.koin.core.component.inject
@@ -12,10 +12,16 @@ import kotlin.test.assertEquals
 class ModelTest : AbstractTest() {
 
     override fun insert() = runTest {
-        val modelDao by inject<ModelDao>()
+        val modelDao by inject<NoteDao>()
 
-        modelDao.insert(Note(2, "ai"))
-        modelDao.getAllModel()
+        modelDao.upsert(
+            NoteEntity(
+                id = null,
+                title = "abiola",
+                content = "Adisl",
+            ),
+        )
+        modelDao.getAll()
             .test {
                 val list = awaitItem()
                 print(list)

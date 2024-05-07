@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.Flow
  * This allows us to run the app with fake data, without needing an internet connection or working
  * backend.
  */
-class FakeUserDataRepository  constructor(
+class FakeUserDataRepository constructor(
     private val skPreferencesDataSource: UserDataRepository,
 ) : UserDataRepository {
 

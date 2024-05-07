@@ -1,5 +1,0 @@
-
-ALTER TABLE modelEntity
-ADD COLUMN content TEXT ;
-
-
