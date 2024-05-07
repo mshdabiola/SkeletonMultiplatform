@@ -32,11 +32,12 @@ fun UserData.toSer() =
 fun UserDataSer.toData() =
     UserData(themeBrand, darkThemeConfig, useDynamicColor, shouldHideOnboarding, contrast)
 
-val json=Json
+val json = Json
+
 internal object UserDataJsonSerializer : OkioSerializer<UserDataSer> {
 
     override val defaultValue: UserDataSer
-        get() =  UserDataSer(
+        get() = UserDataSer(
             themeBrand = ThemeBrand.DEFAULT,
             darkThemeConfig = DarkThemeConfig.LIGHT,
             useDynamicColor = false,

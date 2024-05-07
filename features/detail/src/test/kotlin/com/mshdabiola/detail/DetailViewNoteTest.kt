@@ -5,7 +5,7 @@
 package com.mshdabiola.detail
 
 import androidx.lifecycle.SavedStateHandle
-import com.mshdabiola.data.repository.fake.FakeNoteRepository
+import com.mshdabiola.data.fake.FakeNoteRepository
 import com.mshdabiola.detail.navigation.DETAIL_ID_ARG
 import com.mshdabiola.testing.repository.TestUserDataRepository
 import com.mshdabiola.testing.util.MainDispatcherRule
@@ -23,7 +23,8 @@ class DetailViewNoteTest {
     @Before
     fun setup() {
         viewModel = DetailViewModel(
-            savedStateHandle = SavedStateHandle(mapOf(DETAIL_ID_ARG to 4)),
+            id = 4,
+          //  savedStateHandle = SavedStateHandle(mapOf(DETAIL_ID_ARG to 4)),
             noteRepository = FakeNoteRepository(),
         )
     }

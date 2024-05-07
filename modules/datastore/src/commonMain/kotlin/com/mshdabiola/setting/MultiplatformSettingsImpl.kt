@@ -18,7 +18,6 @@ internal class MultiplatformSettingsImpl(
     private val coroutineDispatcher: CoroutineDispatcher,
 ) : MultiplatformSettings {
 
-
     override val userData: Flow<UserData>
         get() = settings
             .data
@@ -27,40 +26,33 @@ internal class MultiplatformSettingsImpl(
 
     // MutableStateFlow(Keys.Defaults.defaultDummy.toDummySetting())
 
-
-
     override suspend fun setThemeBrand(themeBrand: ThemeBrand) {
-        withContext(coroutineDispatcher){
+        withContext(coroutineDispatcher) {
             settings.updateData { it.copy(themeBrand = themeBrand) }
-
         }
     }
 
     override suspend fun setThemeContrast(contrast: Contrast) {
-        withContext(coroutineDispatcher){
+        withContext(coroutineDispatcher) {
             settings.updateData { it.copy(contrast = contrast) }
-
         }
     }
 
     override suspend fun setDynamicColorPreference(useDynamicColor: Boolean) {
-        withContext(coroutineDispatcher){
+        withContext(coroutineDispatcher) {
             settings.updateData { it.copy(useDynamicColor = useDynamicColor) }
-
         }
     }
 
     override suspend fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig) {
-        withContext(coroutineDispatcher){
+        withContext(coroutineDispatcher) {
             settings.updateData { it.copy(darkThemeConfig = darkThemeConfig) }
-
         }
     }
 
     override suspend fun setShouldHideOnboarding(shouldHideOnboarding: Boolean) {
-        withContext(coroutineDispatcher){
+        withContext(coroutineDispatcher) {
             settings.updateData { it.copy(shouldHideOnboarding = shouldHideOnboarding) }
-
         }
     }
 }

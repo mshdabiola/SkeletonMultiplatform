@@ -4,7 +4,7 @@
 
 package com.mshdabiola.detail
 
-import com.mshdabiola.data.repository.fake.FakeNoteRepository
+import com.mshdabiola.data.fake.FakeNoteRepository
 import com.mshdabiola.setting.SettingViewModel
 import com.mshdabiola.testing.repository.TestUserDataRepository
 import com.mshdabiola.testing.util.MainDispatcherRule
@@ -25,7 +25,6 @@ class MainViewNoteTest {
     fun setup() {
         viewModel = SettingViewModel(
             userDataRepository = userDataRepository,
-            noteRepository = FakeNoteRepository(),
 
         )
     }

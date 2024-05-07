@@ -55,15 +55,15 @@ class SkAppState(
         }
 
     val shouldShowBottomBar: Boolean
-      @Composable  get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact
-                && mainRoute.contains( currentDestination?.route)
+        @Composable get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact &&
+            mainRoute.contains(currentDestination?.route)
     val shouldShowNavRail: Boolean
-       @Composable get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Medium
-                && mainRoute.contains( currentDestination?.route)
+        @Composable get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Medium &&
+            mainRoute.contains(currentDestination?.route)
 
     val shouldShowDrawer: Boolean
-      @Composable  get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Expanded
-              && mainRoute.contains( currentDestination?.route)
+        @Composable get() = windowSizeClass.widthSizeClass == WindowWidthSizeClass.Expanded &&
+            mainRoute.contains(currentDestination?.route)
 
 //    val isOffline = networkMonitor.isOnline
 //        .map(Boolean::not)

@@ -10,7 +10,6 @@ import okio.Path.Companion.toPath
 
 internal const val dataStoreFileName = "meetings.preferences_pb"
 
-
 fun createDataStoreUserData(
     producePath: () -> String,
 ): DataStore<UserDataSer> = DataStoreFactory.create(

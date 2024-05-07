@@ -11,8 +11,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.LocalLibrary
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -25,19 +23,15 @@ import androidx.compose.material3.NavigationRail
 import androidx.compose.material3.NavigationRailItem
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.mshdabiola.designsystem.icon.mainIcons
 import com.mshdabiola.designsystem.icon.mainRoute
 import com.mshdabiola.designsystem.icon.settingIcons
 import com.mshdabiola.designsystem.icon.settingRoute
-import com.mshdabiola.designsystem.theme.LocalBackgroundTheme
 import org.jetbrains.compose.resources.stringArrayResource
 import org.jetbrains.compose.resources.stringResource
 import skeletonmultiplatform.modules.ui.generated.resources.Res
@@ -58,9 +52,9 @@ fun CommonNavigation(
 ) {
     val color = NavigationDrawerItemDefaults.colors(unselectedContainerColor = Color.Transparent)
 
-    Surface (
+    Surface(
         modifier = modifier,
-        color = MaterialTheme.colorScheme.surface,//LocalBackgroundTheme.current.color,
+        color = MaterialTheme.colorScheme.surface, // LocalBackgroundTheme.current.color,
         shape = RoundedCornerShape(0.dp),
 
     ) {
@@ -158,7 +152,7 @@ fun CommonRail(
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
 
-                ) {
+            ) {
                 Text(stringResource(Res.string.main))
                 stringArrayResource(Res.array.main_navigator)
                     .forEachIndexed { index, navigator ->
@@ -181,7 +175,7 @@ fun CommonRail(
                     .forEachIndexed { index, navigator ->
                         NavigationRailItem(
                             selected = currentNavigation.contains(settingRoute[index]),
-                           // label = { Text(navigator) },
+                            // label = { Text(navigator) },
                             onClick = { onNavigate(settingRoute[index]) },
                             alwaysShowLabel = false,
                             icon = { Icon(settingIcons[index], navigator) },
@@ -208,7 +202,7 @@ fun CommonBar(
             .forEachIndexed { index, navigator ->
                 NavigationBarItem(
                     selected = currentNavigation.contains(mainRoute[index]),
-                   // label = { Text(navigator) },
+                    // label = { Text(navigator) },
                     onClick = { onNavigate(mainRoute[index]) },
                     alwaysShowLabel = false,
                     icon = { Icon(mainIcons[index], navigator) },
